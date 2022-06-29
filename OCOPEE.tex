@@ -1,158 +1,197 @@
-\documentclass{article}
-\usepackage{blindtext}
+\documentclass{report}
+\usepackage[utf8]{vietnam}
+\usepackage[vietnamese]{babel}
+
+
+% ===== Căn chỉnh lề, font chữ
 \usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+
+% ===== Khai báo hình ảnh
 \usepackage{graphicx}
-\usepackage[colorlinks=true, allcolors=blue]{hyperref}
-\usepackage{mathptmx}
-\usepackage{tikz}
-\usetikzlibrary{calc}
-
-
 \graphicspath{ {./images/} }
+\renewcommand{\listfigurename}{Danh sách hình ảnh}
+\renewcommand{\listtablename}{Danh sách bảng}
 
-\title{OCOPEE - Online Expo Center}
-\author{Tran Ngoc Huy\\[1cm]{\small Advisor: PhD. Le Thi My Hanh}}
- 
+
+% ===== Danh mục từ viết tắt
+\usepackage[toc]{glossaries}
+\makeglossaries
+\newacronym{mvc}{MVC}{Model View Controller}
+\newglossaryentry{ocopee}
+{
+	name=OCOPEE,
+	description={Hệ thống tạo sàn thương mại điện tử cho cửa hàng}
+}
+
+
+% ===== Thông tin
+\title{Hệ thống tạo sàn thương mại điện tử cho cửa hàng nông sản}
+\author{Trần Ngọc Huy\\[1cm]{\small Giáo viên hướng dẫn: TS. Lê Thị Mỹ Hạnh}}
+
 \date{\today}
 
+
 \begin{document}
-%========================================================= %
-%================begin of title page====================== %
-% The frontmatter environment for everything that comes with roman numbering\
-%============================================= %
-
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\begin{titlepage}
-		%\AddToShipoutPictureBG{%
-		\begin{tikzpicture}[overlay,remember picture]
-		\draw[line width=4pt]
-		($ (current page.north west) + (1cm,-1cm) $)
-		rectangle
-		($ (current page.south east) + (-1cm,1cm) $);
-		\draw[line width=1.5pt]
-		($ (current page.north west) + (1.2cm,-1.2cm) $)
-		rectangle
-		($ (current page.south east) + (-1.2cm,1.2cm) $);
-		\end{tikzpicture}
-		%}
-		\begin{center}
-		{\large 	THE UNIVERSITY OF DANANG
-			
-			DANANG UNIVERSITY OF SCIENCE AND TECHNOLOGY
-			
-			FACULTY OF INFORMATION TECHNOLOGY}
-\\[1.3cm]
-\begin{figure}[h]  %h means here other options t , b, p, etc.
-
-					\centering
-					\includegraphics[width=0.3\linewidth]{./logo}
-					\\[0.8cm]
-\end{figure}
-
-
-{\Huge GRADUATION PROJECT THESIS}
-\\[0.8cm]
-{\large MAJOR: .................................................}
-
-{\large SPECIALTY: .......................................}
-\\[1.5cm]
-PROJECT TITLE:
-\\[0.5cm]
-
-{\huge OCOPEE - ONLINE EXPO CENTER}
-\\[1.5cm]
-{\large 
-	Instructor: PhD. Le Thi My Hanh
-
-	Student: Tran Ngoc Huy
-
-	Student ID: 102180208
-
-	Class: 18TCLC\_DT3
-}
-\\[5.5cm]
-Da Nang, ...../201...
-		
-		\end{center}
-	\end{titlepage}
 	
-	%----------------------ACKNOWLEDGEMENT---------------------------
-	\pagenumbering{gobble}
-	\pagebreak
-	\newpage
-	\pagenumbering{roman}
-	\setcounter{page}{1}
-	\newpage
-	\tableofcontents
-	\listoffigures
-	%\newpage
 	
-	%================================================ %
-	% The frontmatter environment for everything that comes with roman numbering %
+% Đánh số trang la mã
+\pagenumbering{roman}
+\setcounter{page}{1}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newpage
+% Lời nói đầu
+\chapter*{Lời nói đầu}
+\addcontentsline{toc}{chapter}{Lời nói đầu}
+
+
+% Cam đoan
+\chapter*{Cam đoan}
+\addcontentsline{toc}{chapter}{Cam đoan}
+
+
+% Mục lục
+\tableofcontents
+\addcontentsline{toc}{chapter}{Mục lục}
+
+
+% Hình ảnh
+\listoffigures
+\addcontentsline{toc}{chapter}{Danh sách hình ảnh}
+
+% Bảng
+\listoftables
+\addcontentsline{toc}{chapter}{Danh sách bảng}
+
+
+% Viết tắt 
+\printglossary[title=Danh sách từ viết tắt, toctitle=Danh sách viết tắt]
+
+
+\pagebreak
+
+
+% ===== Nội dung đồ án =====
+
+
+% Bắt đầu đánh số thứ tự arabic
 \pagenumbering{arabic}
+\setcounter{page}{1}
+
+\chapter*{Mở đầu}
+\addcontentsline{toc}{part}{Mở đầu}
+
+\section*{Sứ mệnh}
+\addcontentsline{toc}{section}{Sứ mệnh}
+Việt Nam là một nước có truyền thống nông nghiệp. Với điều kiện tài nguyên thiên nhiên thuận lợi, nguồn nhân lực dồi
+dào. Nông nghiệp đóng vai trò quan trọng trong sự phát triển kinh tế nước nhà.
+
+Từ kỷ Hồng Bàng, trăm tộc Việt đã hợp sức tương trợ nhau. Nay, thời kì trăm hoa đua nở của nông nghiệp \& công nghệ. OCOPEE muốn tham gia vào xây dựng nền nông nghiệp Việt Nam. Với vai trò như một bộ phận thúc đẩy giao thương mua bán.
+\pagebreak
+
+\section*{Vấn đề}
+\addcontentsline{toc}{section}{Vấn đề}
+Tìm kiếm đầu ra cho sản phẩm là vấn đề hết sức quan trọng đối với đơn vị sản xuất. Một trong những kênh bán hàng hiệu
+quả có thể kể đến đó là chương trình hội chợ, phân phối tại các cửa hàng.
+
+Tuy nhiên, đối với các doanh nghiệp khởi nghiệp. Sản phẩm được cải tiến cập nhật thông tin liên tục. Sản lượng không đủ lớn để phân phối rộng.
+\pagebreak
+
+\section*{Giải pháp}
+\addcontentsline{toc}{section}{Giải pháp}	
+\gls{ocopee} cung cấp công cụ tạo trang thông tin sản phẩm riêng cho từng nhà sản xuất. Và cũng có thể chia sẽ dữ liệu sản phẩm cho các chương trình hội chợ, các cửa hàng. Các đơn vị phân phối và triễn lãm có thể tích hợp trực tiếp vào hệ thống của họ.
+Ngoài ra, các sàn thương mại điện tử do OCOPEE tạo ra có khả năng tích hợp một số tính năng để tổ chức hội chợ trực tuyến.
+\gls{ocopee} xác định đối tượng trực tiếp phục vụ là khách mua hàng nông sản.
+- Khách hàng là người ủng hộ sử dụng nông sản chất lượng.
+- Khách mua hàng tin tưởng chất lượng sản phẩm đăng tải trên hội chợ trực tuyến.
+- Khách hàng dành thời gian cho các sự kiện hội chợ.
+- Khách hàng cảm thấy tiện lợi trong quy trình mua hàng.
+- Khách hàng được tư vấn thông tin đầy đủ về giá trị sử dụng của sản phẩm.
+- Khách hàng dễ dàng tìm kiếm sản phẩm phù hợp với nhu cầu.
+Nhà bán hàng là người trả tiền cho hệ thống. Thông qua việc phục vụ người mua nông sản. Hệ thống gián tiếp đem lại giá
+trị cho nhà bán hàng.
+- Không gian mở rộng.
+- Thời gian linh hoạt.
+- Khách hàng tiềm năng.
+- Phù hợp với quy mô.
 
 
-%%%%%%%%% MAIN TEXT STARTS HERE %%%%%%%%%%
-	\section{Introduction}
-	"Now there are many directions of development. Most are plans, strategies or are in the process of being tested. But there is one thing I have said over and over again: There are only two sectors that are the future of the Vietnamese economy: the Information Technology sector and the Agriculture sector." - PhD. Alan Phan
-	\subsection{Problem}
-	Start-up innovation in agriculture and handicrafts approach a new customer hardly. 
-	One of the most highly effective channels is Expo Center.
-	However, if some environmental reasons prevent an expo from being held, maybe there is no alternative.
-	\subsection{Orientation}
-	OCOPEE was extended from a classic e-commerce platform to bring a user experience from a usual expo to an online expo. Although it is difficult, it is also an opportunity to help the traditional form of fairs no longer be limited geographically.
-	\section{Analysic}
-	\subsection{Resources of the system}
-	There are some resources that are necessary to create value for the customer.
-	\begin{itemize}
-		\item Real-time, live-stream system.
-		\item Interaction as a social network.
-		\item Customer data.
-	\end{itemize}
-	\subsection{Goals}
-	 The most important activities in executing a system's value proposition.
-		\begin{itemize}
-		\item Community standards, agency policy.
-		\item User behavior tracking.
-		\item Customer care.
-		\item Display shop, product,...
-		\item Events, viewer behavior, comments, reactions,...
-	\end{itemize}
-	\subsection{Features}
-	The featues, screens, functions need implement.
-	\begin{itemize}
-		\item Affiliate marketing for this system can generate a link. The help system can keep track of which customers are invited by the agent.
-		\item Register to participate in expo. 
-		\item E-commerce function.
-		\item Live-stream for business.
-		\item Current views counting for shop, product.
-		\item Reactions, Comments.
-		\item Send quick question in current expo.
-	\end{itemize}
-	\section{Technology}
-	\subsection{Server Architecture}
-	Stateful Authentication, Miro-service, Gateway, GraphQL API.
-	\subsection{Client Architecture}
-	Micro-frontend, one single page, server side render.
-	\subsection{DevOps}
-	Reverse Proxy, Load balance, Cache, Process Manager, CI/CD.
-	
-	\begin{figure}[h]
-		\caption{State diagram}
-		\centering
-		\includegraphics[width=\textwidth]{state.png}
-		\label{fig:state}
-	\end{figure}
-	As you can see in the figure \ref{fig:state}, the function grows near 0. Also, in the page \pageref{fig:state} is the same example.\pageref{fig:state}
-	
+\part{Cơ sở lý thuyết}
+\section{Node.js}
+\section{PM2.js}
+\section{React.js} 
+\subsection{Declarative}
+\subsection{Component-Based}
+\paragraph{A Simple Component}
+\paragraph{A Stateful Component}
+\paragraph{An Application}
+\subsection{Learn Once, Write Anywhere}
+\section{Next.js}
+\section{GraphQL}
+\section{Apollo Server}
+\section{MongoDB}
+\subsection{What is MongoDB?}
+\subsection{Summary}
+\part{Phân tích thiết kế}
+\chapter{Đặc tả}
+\section{Giới thiệu}
+\section{Mô tả chung}
+\section{Yêu cầu tính năng}
+\section{Yêu cầu giao diện}
+\section{Yêu cầu hiêu suất}
+\section{Yêu cầu thiết kế}
+\section{Tiến độ và ngân sách dự tính}
+\section{Phụ lục}
+\chapter{Phân tích}
+\section{Vai trò}
+\section{Hoạt động}
+\section{Phân quyền}
+\section{Resources of the system}
+\section{Goals}
+\section{Features}
+\section{Phân quyền}
+\subsection{Owner}
+\subsection{Seller}
+\chapter{Thiết kế}
+\section{Usecase Diagram}
+\section{Class Diagram}
+\section{Activity Diagram}
+\section{Kiến trúc máy chủ}
+\section{Kiến trúc ứng dụng}
+\section{DevOps}
+\subsection{Environments definition}
+\subsubsection{Development}
+\subsubsection{Staging}
+\subsubsection{Production}
+\part{Triển khai và đánh giá}
+\chapter{Triển khai}
+\section{Requirement}
+\subsection{Fundamental}
+\subsection{High Level Framework}
+\section{Guide}
+\section{Sources}
+\subsection{Github ocopee respository}
+\subsection{Github gateway respository}
+\subsection{Github accounts respository}
+\subsection{Github docs respository}
+\subsection{Github sellers respository}
+\subsection{Installing and setting}
+\subsection{Run server locally}
+\subsubsection{Backend}
 
+%\begin{figure}[h]
+%	\caption{State diagram}
+%	\centering
+%	\includegraphics[width=\textwidth]{./images/state.png}
+%	\label{fig:state}
+%\end{figure}
 
-	
+\part*{Kết luận và hướng phát triển}
+\chapter{Kết quả đạt được}
+\chapter{Những vấn đề hạn chế}
+\chapter{Hướng phát triển}
+
+% Tham khảo
 \bibliographystyle{alpha}
-\bibliography{sample}
-
+\bibliography{website}
 \end{document}
