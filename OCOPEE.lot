@@ -1,8 +1,43 @@
 \babel@toc {vietnamese}{}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\addvspace {10\p@ }
+\contentsline {table}{\numberline {2.1}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng ContractConsignment.}}{32}
+\contentsline {table}{\numberline {2.2}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng ContractLabor.}}{32}
+\contentsline {table}{\numberline {2.3}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng InteractionComment.}}{32}
+\contentsline {table}{\numberline {2.4}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng InteractionReaction.}}{32}
+\contentsline {table}{\numberline {2.5}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng Interaction.}}{32}
+\contentsline {table}{\numberline {2.6}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng NotificationMailer.}}{32}
+\contentsline {table}{\numberline {2.7}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng Notification.}}{32}
+\contentsline {table}{\numberline {2.8}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng Relationship.}}{33}
+\contentsline {table}{\numberline {2.9}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng TeamInvitation.}}{33}
+\contentsline {table}{\numberline {2.10}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng Team.}}{33}
+\contentsline {table}{\numberline {2.11}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng User.}}{33}
+\contentsline {table}{\numberline {2.12}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng View.}}{33}
+\contentsline {table}{\numberline {2.13}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng WorkPaid.}}{33}
+\contentsline {table}{\numberline {2.14}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng WorkType.}}{34}
+\contentsline {table}{\numberline {2.15}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng Work.}}{34}
+\contentsline {table}{\numberline {2.16}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng Banner.}}{34}
+\contentsline {table}{\numberline {2.17}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng Contact.}}{34}
+\contentsline {table}{\numberline {2.18}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng Page.}}{35}
+\contentsline {table}{\numberline {2.19}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng ProductAttributeValue.}}{35}
+\contentsline {table}{\numberline {2.20}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng ProductAttribute.}}{35}
+\contentsline {table}{\numberline {2.21}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng ProductBrand.}}{36}
+\contentsline {table}{\numberline {2.22}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng ProductCartItem.}}{36}
+\contentsline {table}{\numberline {2.23}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng ProductCart.}}{36}
+\contentsline {table}{\numberline {2.24}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng ProductCategory.}}{36}
+\contentsline {table}{\numberline {2.25}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng ProductDiscount.}}{36}
+\contentsline {table}{\numberline {2.26}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng ProductHashtag.}}{37}
+\contentsline {table}{\numberline {2.27}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng ProductOrderStatus.}}{37}
+\contentsline {table}{\numberline {2.28}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng ProductOrder.}}{37}
+\contentsline {table}{\numberline {2.29}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng ProductStock.}}{37}
+\contentsline {table}{\numberline {2.30}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng Product.}}{38}
+\contentsline {table}{\numberline {2.31}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng Translate.}}{38}
+\contentsline {table}{\numberline {2.32}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng UploadFile.}}{38}
+\contentsline {table}{\numberline {2.33}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng UploadImage.}}{38}
+\contentsline {table}{\numberline {2.34}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng FAQ.}}{38}
+\contentsline {table}{\numberline {2.35}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng Feature.}}{39}
+\contentsline {table}{\numberline {2.36}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng PostHashtag.}}{39}
+\contentsline {table}{\numberline {2.37}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng Post.}}{39}
+\contentsline {table}{\numberline {2.38}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng Service.}}{39}
+\contentsline {table}{\numberline {2.39}{\ignorespaces M\IeC {\^o} t\IeC {\h a} b\IeC {\h a}ng Testimonial.}}{39}
 \addvspace {10\p@ }

@@ -1,197 +1,330 @@
-\documentclass{report}
+\documentclass[11pt]{report}
+
+% === Tiếng Việt
 \usepackage[utf8]{vietnam}
 \usepackage[vietnamese]{babel}
+\usepackage{blindtext}
+
+% ===== Thông tin
+\title{HỆ THỐNG LIÊN KẾT SÀN THƯƠNG MẠI ĐIỆN TỬ CHO NHÀ SẢN XUẤT VÀ CỬA HÀNG}
+\author{Trần Ngọc Huy}
+\date{Đà Nẵng, Ngày 1 tháng 7 năm 2022}
+
+\newcommand{\advisor}{TS. Lê Thị Mỹ Hạnh}
+\newcommand{\msv}{102180208}
+\newcommand{\myclass}{18TCLC\_DT3}
+
+% ===== Căn chỉnh lề
+\usepackage[
+	% >>> Page layout: cỡ giấy A4; lề trái: 3cm, lề phải: 2cm, lề trên: 2,5cm, lề dưới: 2,5cm;
+	a4paper,
+	left=3cm,
+	right=2cm,
+	top=2.5cm,
+	bottom=2.5cm,
+	% >>> header và footer: from edge: 1,6cm;
+	headheight=1.6cm
+]{geometry}
+
+% ==== Tiêu đề, chân trang
+\usepackage{fancyhdr}
 
 
-% ===== Căn chỉnh lề, font chữ
-\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+
+%	Chú dẫn bảng: nằm trên bảng, đánh số theo chương và số lũy tiến theo số thứ tự của
+%	bảng trong chương;
+%	Chú dẫn hình: nằm dưới hình, đánh số theo chương và số lũy tiến theo số thứ tự của
+%	hình trong chương;
+%	Đánh số công thức: bên phải công thức, đánh số theo chương và số lũy tiến theo số
+%	thứ tự của công thức trong chương;
+%	Nên sử dụng các chức năng về Bookmark, Caption, Cross-Reference, Format
+%	Heading,... của Microsoft Word hoặc các phần mềm soạn thảo tương tự; cần tổ chức
+%	theo dạng “Long Document”.
+
+
+
+% ===== font Times
+\usepackage{mathptmx}
+
+
+
+% ==== Căn trái phải chữ
+\usepackage[document]{ragged2e}
 
 
 % ===== Khai báo hình ảnh
 \usepackage{graphicx}
-\graphicspath{ {./images/} }
-\renewcommand{\listfigurename}{Danh sách hình ảnh}
-\renewcommand{\listtablename}{Danh sách bảng}
+\graphicspath{ {images/} }
+\renewcommand{\listtablename}{Danh sách các bảng, hình vẽ}
+
+% ===== Bảng
+\usepackage{multirow}
 
 
 % ===== Danh mục từ viết tắt
 \usepackage[toc]{glossaries}
+
 \makeglossaries
 \newacronym{mvc}{MVC}{Model View Controller}
+\newacronym{sql}{SQL}{Structured Query Language}
+\newacronym{http}{HTTP}{Hypertext Transfer Protocol}
+\newacronym{css}{CSS}{Cascading Style Sheets}
+\newacronym{vps}{VPS}{Virtual Private Server}
+\newacronym{uml}{UML}{Unified Modeling Language}
+\newacronym{html}{HTML}{HyperText Markup Language}
+\newacronym{c}{C}{C programming language}
+\newacronym{dbms}{DBMS}{Database management system}
 \newglossaryentry{ocopee}
 {
 	name=OCOPEE,
-	description={Hệ thống tạo sàn thương mại điện tử cho cửa hàng}
+	description={\@title}
 }
 
+% ==== Chia cột
+\usepackage{multicol}
 
-% ===== Thông tin
-\title{Hệ thống tạo sàn thương mại điện tử cho cửa hàng nông sản}
-\author{Trần Ngọc Huy\\[1cm]{\small Giáo viên hướng dẫn: TS. Lê Thị Mỹ Hạnh}}
-
-\date{\today}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-	
-	
+\pagenumbering{gobble}
+% Trang trắng này dùng để dán bản Nhận xét của người hướng dẫn, hoặc thay trang này bằng Nhận xét của người hướng dẫn
+\chapter*{Nhận xét của người hướng dẫn}
+\pagebreak
+
+%  Trang trắng này dùng để dán bản Nhận xét của người phản biện, hoặc thay trang này bằng Nhận xét của người phản biện
+\chapter*{Nhận xét của người phản biện}
+\pagebreak
+
+
+
+\chapter*{Tóm tắt}
+\addcontentsline{toc}{chapter}{Tóm tắt}
+\raggedright
+\makeatletter
+% >>> {font: TimeNew Roman, bolt, size: 14, căn lề: center}
+% >>> {Để 01 dòng trống}
+
+
+% >>> {Nội dung tóm tắt trình bày tối đa trong 1 trang} {Font: Time New Roman; thường; cỡ chữ: 13; dãn dòng: 1,3; căn lề: justified}
+
+
+Tên đề tài: \@title
+
+Sinh viên thực hiện: ...\@author \dotfill
+
+Số thẻ sinh viên: ........ \msv \dotfill
+
+Lớp sinh hoạt: ............ \myclass \dotfill
+
+
+\vspace{0.5cm}
+\justifying
+
+Trong thời kì cả nước thúc đẩy khởi nghiệp. Các mô hình, sản phẩm nông nghiệp, thủ công, truyền thống liên tục ra đời và cải tiến nâng cao chất lượng và quy mô sản xuất.
+
+Quá trình trên giúp cho sản phẩm ngày một đa dạng. Tính truyền thống, đặc trưng vùng miền có cơ hội phát triển.
+
+Đề tài nghiên cứu này phát triển giải pháp giúp cho những đơn vị chủ thể tạo kênh thông tin với chi phí thấp. Các cửa hàng phân phối những sản phẩm trên có sàn thương mại riêng để chủ động truyền thông theo cách riêng của họ. Việc xây dựng hệ thống trên, đồng thời cũng phát triển được sự liên kết thông tin giữa các đơn vị với nhau. Tránh sự lãng phí về nhân lực trong quá trình đồng bộ dữ liệu.
+
+Đề tài định hướng phát triển các tính tối thiểu để một sàn thương mại điện tử có thể hoạt động. Bởi vì khối lượng công việc và nghiệp vụ khá nhiều. Nên mỗi tính năng thêm vào cần được suy xét thêm các yếu tố mang tính doanh nghiệp như tiến độ và ngân sách.
+
+Định hướng tạo nên đột phá cho dự án sẽ được phát triển khi dữ liệu khách hàng và số lượng các nhà sản xuất đủ lớn. Khi đó vấn đề gần nhất cần giải quyết là hệ thống gợi ý giá bán và thu thập thông tin phản hồi từ khách hàng để cải thiện quá trình sản xuất.
+
+\pagebreak
+
+
+\addcontentsline{toc}{chapter}{Nhiệm vụ đồ án}
+\include{mission}
+
 % Đánh số trang la mã
 \pagenumbering{roman}
 \setcounter{page}{1}
 
-
 % Lời nói đầu
 \chapter*{Lời nói đầu}
 \addcontentsline{toc}{chapter}{Lời nói đầu}
+% >>> {Font: Time New Roman; thường; cỡ chữ: 13; dãn dòng: 1,3; căn lề: justified}
+\justifying
+Ngành công nghệ phần mềm nghiên cứu về các kỹ thuật, phương pháp, hạ tầng của phần mềm máy tính. Người phát triển phần mềm không đơn giản là chỉ cần biết đến ngôn ngữ lập trình là có thể phát triển được hết. Sau thời gian học tập và nghiên cứu tại trường Đại Học Bách Khoa Đà Nẵng. Cùng với sự thực hành miệt mài và những kinh nghiệm, tư duy, định hướng ngoài giờ lên lớp từ các thầy cô. Em nhận thấy mình tiến bộ toàn diện, không chỉ các kiến thức chuyên ngành. Các phương pháp nghiên cứu, tinh thần học tập, tư duy giải quyết vấn đề,... cũng ngày một hoàn thiện.
 
+Các bạn tân sinh viên có thể thắc mắc rằng vai trò của trường Đại học là gì trong thời kì kiến thức mở. Nếu các bạn thấy được mục tiêu và định hướng của mỗi người là khác nhau khi họ tiếp xúc với những cộng đồng khác nhau. Thì các bạn sẽ nhận ra rằng: bạn bè, thầy cô, giáo trình, cơ sở vật chất tốt không cải thiện năng lực của bạn. Đó là môi trường phát triển. Đơn giản nếu xem năng lực của cá nhân là sản phẩm của tư duy, thì môi trường là \emph{"nguyên liệu"} của sản phẩm đó. Nó cần quá trình chế tác bởi chính năng lực tư duy của bạn. Hiểu được như vậy sẽ không còn nhập nhằng giữa các quan điểm \emph{"Giỏi thì ở đâu cũng giỏi"} hay \emph{"Không thầy đố mày làm nên"}.
+
+Đề tài này là kết quả của quá trình học tập tại trường Đại Học Bách Khoa Đà Nẵng. Không chỉ dừng lại ở mức độ là một luận án tốt nghiệp. Những hạn chế tồn đọng sẽ được tiếp tục hoàn thiện khi năng lực và điều kiện phát triển. Đồ án sẽ tiếp tục triển khai và hướng đến công năng thực tế cho các chủ thể doanh nghiệp. Hộ kinh doanh.
+
+Cuối cùng em xin cảm ơn thầy cô và bạn bè đã đồng hành cùng em trong suốt năm tháng vừa qua. Cảm ơn cô Lê Thị Mỹ Hạnh đã hướng dẫn em hoàn thành dự án, luận văn tốt nghiệp.
+
+Em xin chân hành cảm ơn!
+
+\pagebreak
 
 % Cam đoan
-\chapter*{Cam đoan}
 \addcontentsline{toc}{chapter}{Cam đoan}
+\include{commit}
+
+
 
 
 % Mục lục
-\tableofcontents
+%{Để 2 dòng trống tại đây} {Font: Time New Roman; thường; cỡ chữ: 13; dãn dòng: 1,3; căn lề: justified} {In trên 2 mặt giấy từ trang này đến hết phần “PHỤ LỤC”}
+\tableofcontents	
 \addcontentsline{toc}{chapter}{Mục lục}
 
-
-% Hình ảnh
-\listoffigures
-\addcontentsline{toc}{chapter}{Danh sách hình ảnh}
-
-% Bảng
+% Danh sách bảng & hình ảnh
+%	Ghi chú:
+%	- Mỗi bảng, hình vẽ/ sơ đồ phải được đánh số và có tên;
+%	- Đánh số bảng và đánh số hình vẽ/ sơ đồ riêng. Quy luật đánh số như sau: Chữ số thứ nhất chỉ tên chương; Chữ số thứ hai chỉ thứ tự bảng biểu, sơ đồ, hình,...trong mỗi chương.
 \listoftables
-\addcontentsline{toc}{chapter}{Danh sách bảng}
+\addcontentsline{toc}{chapter}{Danh sách các bảng, hình vẽ}
+%\listoffigures
 
 
 % Viết tắt 
+%	Ghi chú:
+%	- Ký hiệu: mỗi mục ký hiệu gồm ký hiệu và phần tên gọi, diễn giải ký hiệu.
+%	- Cụm từ viết viết tắt là các chữ cái và các ký hiệu thay chữ được viết liền nhau,
+%	để thay cho một cụm từ có nghĩa, thường được lặp nhiều lần trong đồ án.
 \printglossary[title=Danh sách từ viết tắt, toctitle=Danh sách viết tắt]
+\addcontentsline{toc}{chapter}{Danh sách các cụm từ viết tắt}
 
-
-\pagebreak
+\section*{Từ khóa tìm kiếm}
+\paragraph{latex} official letterhead, table, list, font, cover letter
+\paragraph{server} database, dbms, microservice, monolithic, simple store, vps provider, domain provider, dns, ip, ci/cd, stateless, stateful, token, SHA, RSA, SSL, reverse proxy, load balance, design pattern, auto scale, network applications, thread, asynchronous, api, http
+\paragraph{client} client side, ssr, csr, html, dom, stype sheet, react ui framework, react api state, react api client
 
 
 % ===== Nội dung đồ án =====
+\clearpage
+\justifying
+
+\pagestyle{fancy}
+\fancyhf{}
+% >>> Mục Header: Tên đề tài (định dạng: font Time New Roman, Italic, size 10, căn lề: giữa);
+\fancyhead[CE,CO]{\emph{{\normalsize {\@title}}}}
+
+
+% >>> Mục Footer: Sinh viên thực hiện, giảng viên hướng dẫn, đánh số trang (định dạng: font Time New Roman, size 10);
+\fancyfoot[LE,LO]{{\normalsize {Thực hiện: \@author}}
+}
+\fancyfoot[CE,CO]{{\normalsize {Hướng dẫn: \advisor}}	
+}
+\fancyfoot[LE,RO]{\thepage}
+
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0.3pt}
+
+
 
 
 % Bắt đầu đánh số thứ tự arabic
+% Đánh số trang: bắt đầu đánh số trang từ phần “MỞ ĐẦU”;
 \pagenumbering{arabic}
 \setcounter{page}{1}
+%
+\section*{Mở đầu}
 
-\chapter*{Mở đầu}
 \addcontentsline{toc}{part}{Mở đầu}
-
-\section*{Sứ mệnh}
+%
+\subsection*{Sứ mệnh}
 \addcontentsline{toc}{section}{Sứ mệnh}
-Việt Nam là một nước có truyền thống nông nghiệp. Với điều kiện tài nguyên thiên nhiên thuận lợi, nguồn nhân lực dồi
-dào. Nông nghiệp đóng vai trò quan trọng trong sự phát triển kinh tế nước nhà.
+Việt Nam là một nước có truyền thống nông nghiệp. Với điều kiện tài nguyên thiên nhiên thuận lợi, nguồn nhân lực dồi dào. Nông nghiệp đóng vai trò quan trọng trong sự phát triển kinh tế nước nhà.
 
 Từ kỷ Hồng Bàng, trăm tộc Việt đã hợp sức tương trợ nhau. Nay, thời kì trăm hoa đua nở của nông nghiệp \& công nghệ. OCOPEE muốn tham gia vào xây dựng nền nông nghiệp Việt Nam. Với vai trò như một bộ phận thúc đẩy giao thương mua bán.
-\pagebreak
 
-\section*{Vấn đề}
+%\pagebreak
+%
+\subsection*{Vấn đề}
 \addcontentsline{toc}{section}{Vấn đề}
-Tìm kiếm đầu ra cho sản phẩm là vấn đề hết sức quan trọng đối với đơn vị sản xuất. Một trong những kênh bán hàng hiệu
-quả có thể kể đến đó là chương trình hội chợ, phân phối tại các cửa hàng.
+Tìm kiếm đầu ra cho sản phẩm là vấn đề hết sức quan trọng đối với đơn vị sản xuất. Một trong những kênh bán hàng hiệu quả có thể kể đến đó là chương trình triển lãm hội chợ, phân phối tại các cửa hàng.
 
-Tuy nhiên, đối với các doanh nghiệp khởi nghiệp. Sản phẩm được cải tiến cập nhật thông tin liên tục. Sản lượng không đủ lớn để phân phối rộng.
-\pagebreak
+Tuy nhiên, đối với các doanh nghiệp khởi nghiệp. Sản phẩm được cải tiến cập nhật thông tin liên tục. Sản lượng không đủ lớn để phân phối rộng. Website là một công cụ tuyệt vời để đăng tải các thông tin cần thiết thay vì in trực tiếp lên bao bì của sản phẩm. Nó cũng giúp doanh nghiệp quảng bá sản phẩm. Giúp khách hàng tìm kiếm tra cứu thông tin hữu ích.
 
-\section*{Giải pháp}
-\addcontentsline{toc}{section}{Giải pháp}	
-\gls{ocopee} cung cấp công cụ tạo trang thông tin sản phẩm riêng cho từng nhà sản xuất. Và cũng có thể chia sẽ dữ liệu sản phẩm cho các chương trình hội chợ, các cửa hàng. Các đơn vị phân phối và triễn lãm có thể tích hợp trực tiếp vào hệ thống của họ.
-Ngoài ra, các sàn thương mại điện tử do OCOPEE tạo ra có khả năng tích hợp một số tính năng để tổ chức hội chợ trực tuyến.
-\gls{ocopee} xác định đối tượng trực tiếp phục vụ là khách mua hàng nông sản.
-- Khách hàng là người ủng hộ sử dụng nông sản chất lượng.
-- Khách mua hàng tin tưởng chất lượng sản phẩm đăng tải trên hội chợ trực tuyến.
-- Khách hàng dành thời gian cho các sự kiện hội chợ.
-- Khách hàng cảm thấy tiện lợi trong quy trình mua hàng.
-- Khách hàng được tư vấn thông tin đầy đủ về giá trị sử dụng của sản phẩm.
-- Khách hàng dễ dàng tìm kiếm sản phẩm phù hợp với nhu cầu.
-Nhà bán hàng là người trả tiền cho hệ thống. Thông qua việc phục vụ người mua nông sản. Hệ thống gián tiếp đem lại giá
-trị cho nhà bán hàng.
-- Không gian mở rộng.
-- Thời gian linh hoạt.
-- Khách hàng tiềm năng.
-- Phù hợp với quy mô.
+\paragraph{Về việc phát triển website.}\label{pro:1} Do nguồn lực không đủ, rất nhiều hộ kinh doanh, doanh nghiệp khởi nghiệp không thể xây dựng một Website với các thông tin cơ bản. Việc cập nhập thường xuyên thông tin sản phẩm cũng mất rất nhiều thời gian công sức của chủ thể.
+
+\paragraph{Về việc phân phối thông tin.}\label{pro:2} Khi thông tin sản phẩm được đăng tải  lên các trang thương mại điện tử khác hoặc trang web của các cửa hàng địa phương. Việc cập nhật và điều chỉnh giá là hết sức tốn thời gian.
+
+\paragraph{Dropshipping} là phương pháp thực hiện bán lẻ mà một cửa hàng không lưu giữ sản phẩm được bán trong kho của mình. Thay vào đó, khi một cửa hàng bán một sản phẩm cụ thể, không có sản phẩm lưu kho mà họ mua sản phẩm từ một bên thứ 3 và vận chuyển trực tiếp cho khách hàng. Kết quả là, những người bán hàng đó không bao giờ nhìn thấy sản phẩm hoặc xử lý sản phẩm.
+
+Sự khác biệt lớn nhất giữa Dropshipping và các mô hình bán lẻ khác là các thương nhân bán hàng không cần kho hàng hoặc không có hàng lưu kho. Thay vào đó, các thương nhân này mua hàng tồn kho khi cần thiết của một bên thứ 3 – thường là những người bán buôn hoặc nhà sản xuất – để hoàn thành đơn hàng của họ.
+
+Giải quyết các vấn đề nêu trên có thể xem như việc tạo tự động các sàn thương mại điện tử với hình thức dropshipping cho nhà sản xuất hoặc xử lí đơn có lưu kho cho cửa hàng.
+
+%\pagebreak
+%
+%\subsection*{Giải pháp}
+%\addcontentsline{toc}{section}{Giải pháp}	
+%\gls{ocopee} cung cấp công cụ tạo trang thông tin sản phẩm riêng cho từng nhà sản xuất. Và cũng có thể chia sẽ dữ liệu sản phẩm cho các chương trình hội chợ, các cửa hàng. Các đơn vị phân phối và triễn lãm có thể tích hợp trực tiếp vào hệ thống của họ.
+%Ngoài ra, các sàn thương mại điện tử do OCOPEE tạo ra có khả năng tích hợp một số tính năng để tổ chức hội chợ trực tuyến.
+\subsection*{Giải pháp}
+%\gls{ocopee} xác định đối tượng trực tiếp phục vụ là khách mua hàng nông sản.
+%- Khách hàng là người ủng hộ sử dụng nông sản chất lượng.
+%- Khách mua hàng tin tưởng chất lượng sản phẩm đăng tải trên hội chợ trực tuyến.
+%- Khách hàng dành thời gian cho các sự kiện hội chợ.
+%- Khách hàng cảm thấy tiện lợi trong quy trình mua hàng.
+%- Khách hàng được tư vấn thông tin đầy đủ về giá trị sử dụng của sản phẩm.
+%- Khách hàng dễ dàng tìm kiếm sản phẩm phù hợp với nhu cầu.
+%Nhà bán hàng là người trả tiền cho hệ thống. Thông qua việc phục vụ người mua nông sản. Hệ thống gián tiếp đem lại giá
+%trị cho nhà bán hàng.
+%- Không gian mở rộng.
+%- Thời gian linh hoạt.
+%- Khách hàng tiềm năng.
+%- Phù hợp với quy mô.
+%bảng \ref{table:1},hình \ref{fig:state}\acrlong{mvc}
 
 
-\part{Cơ sở lý thuyết}
-\section{Node.js}
-\section{PM2.js}
-\section{React.js} 
-\subsection{Declarative}
-\subsection{Component-Based}
-\paragraph{A Simple Component}
-\paragraph{A Stateful Component}
-\paragraph{An Application}
-\subsection{Learn Once, Write Anywhere}
-\section{Next.js}
-\section{GraphQL}
-\section{Apollo Server}
-\section{MongoDB}
-\subsection{What is MongoDB?}
-\subsection{Summary}
-\part{Phân tích thiết kế}
-\chapter{Đặc tả}
-\section{Giới thiệu}
-\section{Mô tả chung}
-\section{Yêu cầu tính năng}
-\section{Yêu cầu giao diện}
-\section{Yêu cầu hiêu suất}
-\section{Yêu cầu thiết kế}
-\section{Tiến độ và ngân sách dự tính}
-\section{Phụ lục}
-\chapter{Phân tích}
-\section{Vai trò}
-\section{Hoạt động}
-\section{Phân quyền}
-\section{Resources of the system}
-\section{Goals}
-\section{Features}
-\section{Phân quyền}
-\subsection{Owner}
-\subsection{Seller}
-\chapter{Thiết kế}
-\section{Usecase Diagram}
-\section{Class Diagram}
-\section{Activity Diagram}
-\section{Kiến trúc máy chủ}
-\section{Kiến trúc ứng dụng}
-\section{DevOps}
-\subsection{Environments definition}
-\subsubsection{Development}
-\subsubsection{Staging}
-\subsubsection{Production}
-\part{Triển khai và đánh giá}
-\chapter{Triển khai}
-\section{Requirement}
-\subsection{Fundamental}
-\subsection{High Level Framework}
-\section{Guide}
-\section{Sources}
-\subsection{Github ocopee respository}
-\subsection{Github gateway respository}
-\subsection{Github accounts respository}
-\subsection{Github docs respository}
-\subsection{Github sellers respository}
-\subsection{Installing and setting}
-\subsection{Run server locally}
-\subsubsection{Backend}
+\include{theoretical}
+\chapter{Đặc tả, phân tích và thiết kế}
 
-%\begin{figure}[h]
-%	\caption{State diagram}
-%	\centering
-%	\includegraphics[width=\textwidth]{./images/state.png}
-%	\label{fig:state}
-%\end{figure}
+\section*{Mục đích}
 
-\part*{Kết luận và hướng phát triển}
-\chapter{Kết quả đạt được}
-\chapter{Những vấn đề hạn chế}
-\chapter{Hướng phát triển}
+\section*{Tài nguyên của hệ thống}
+\blindtext
+
+\section{Đặc tả}
+\include{analysic/srs}
+
+\section{Phân tích}
+\include{analysic/readme}
+
+\section{Thiết kế}
+
+\subsection{Biểu đồ ca sử dụng}
+\include{analysic/usecase}
+
+\subsection{Sơ đồ lớp}
+\include{analysic/class}
+
+\subsection{Mô tả dữ liệu}
+\include{analysic/schemas}
+
+
+\subsection{Sơ đồ hoạt động}
+\include{analysic/activity}
+
+\subsection{Sơ đồ trang}
+\include{analysic/sitemap}
+
+\subsection{Kiến trúc máy chủ}
+\include{analysic/be-architecture}
+
+\subsection{DevOps}
+\include{analysic/devops}
+
+\include{development}
+
+\chapter*{Kết luận	}
+% size 14
+\addcontentsline{toc}{chapter}{Kết luận}
+%	Nội dung kết luận {Font: Time New Roman; thường; cỡ chữ: 13; dãn dòng: 1,3;căn lề: justified}
+\blindtext
 
 % Tham khảo
 \bibliographystyle{alpha}
 \bibliography{website}
+\addcontentsline{toc}{chapter}{Tài liệu tham khảo}
+
+\chapter*{Phụ lục}
+\addcontentsline{toc}{chapter}{Phụ lục}
+\pagenumbering{gobble}
+\blindtext
 \end{document}
