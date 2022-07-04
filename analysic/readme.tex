@@ -1,238 +1,83 @@
 \subsection{Vai trò}
 \subsubsection{Người bán hàng}
+Người bán hàng là người có quyền công bố dữ liệu của họ cho mọi người truy cập thông qua một tên miền cụ thể.
 
-\# Seller là ai?
-
-Seller là người có quyền công bố dữ liệu của họ cho mọi người truy cập thông qua một domain cụ thể.
-
-Người đăng nhập "không phải là seller" hoặc không đăng nhập. Khi gọi API lấy tất cả sản phẩm, hệ thống sẽ căn cứ vào
-domain trong request để trả về dữ liệu của Seller tương ứng.
-
-> Trường hợp seller xem, chỉnh sửa dữ liệu thông qua một domain khác, hoặc không có domain khi sử dụng mobile app. Với
-> trường hợp người dùng bất kì có thể xem dữ liệu của seller thông qua domain. Có thể kết luận bằng khi tương tác với
-> vai trò là seller. Họ chỉ thấy và tương tác với dữ liệu được tạo ra bởi chính họ hoặc chia sẽ với họ thông qua tổ
-> chức. Khác với user khác ở chỗ, user thông thường có thể truy cập dữ liệu của seller thông qua domain.
-
-> Tóm tắt là, nếu phát hiện truy cập đến từ một seller, thì phân quyền dựa trên domain là vô giá trị.
-
-\#\# Hướng dẫn phân quyền truy vấn đọc dữ liệu
-
-> Nếu người truy cập là quản trị viên thì luôn được phép.
-
-1. Xác định người người đại điện cho truy vấn.
-
--   Nếu người truy cập là seller thì chính họ là người đại diện.
--   Nếu người truy cập không phải là seller. Hoặc không xác định được do họ chưa đăng nhập. Thì lấy domain trong truy
-vấn. Sau đó tìm seller sở hữu domain đó làm người đại diện.
-
-2. Xác định những người đóng góp cho người đại diện.
-
-Người đóng góp dữ liệu cho người đại diện bao gồm:
-
--   Được người đại diện mời vào nhóm.
--   Mời người đại diện tham gia nhóm của họ. Và nhóm đó cấp quyền cho người đại diện lấy dữ liệu.
-
-> LƯU Ý QUAN TRỌNG: Người dùng là seller nhìn thấy sản phẩm nào. Thì khách hàng của họ thông qua domain thấy được sản
-> phẩm đó.
-
-> Ví dụ seller tham gia một nhóm nào đó. Và có quyền xem sản phẩm của nhóm đó. Thì đồng thời. Những sản phẩm đó cũng
-> hiển thị trên trang web của seller. Nên hết sức để ý đến các nhóm mình đang tham gia.
-
-3. Trả về các kết quả tạo ra bởi người đại diện và người đóng góp của họ.
-
-\#\# Hướng dẫn phân quyền truy vấn ghi dữ liệu
-
-> Nếu người truy cập là quản trị viên thì luôn được phép.
-
-1. Xác định người người đại điện cho truy vấn.
-
--   Cần đăng nhập để thực hiện loại truy vấn này.
-
-2. Xác định những người đóng góp cho người đại diện.
-3. Nếu người truy vấn hiện tại là người sở hữu dữ liệu. Hoặc nằm trong danh sách có quyền ghi thì cho phép.
+Người bán hàng có thể mời người bán hàng khác, gộp dữ liệu sản phẩm của họ vào bày bán ở trang của mình. Hoặc cũng có thể tham giam đóng góp sản phẩm của mình vào các sàn bán hàng của những người bán hàng khác.
 
 \subsubsection{Người mua hàng}
+Người mua hàng là người thực hiện các hoạt động xem thông tin, tạo giỏ hàng, thêm sản phẩm vào giỏ hàng và đặt mua. Người mua hàng không cần thiết phải đăng nhập vào hệ thống. Chỉ cần để lại thông tin địa chỉ để giao hàng là được. Vì hiện tại, hai hình thức thanh toán chuyển khoản và thanh toán COD rất an toàn cho người bán. Nếu có rủi ro thì chi phí vận chuyển là không quá lớn.
+
+Người mua hàng nếu chủ động lưu trữ thông tin đơn hàng hoặc các hoạt động để cá nhân hóa dữ liệu thì có thể đăng nhập trước khi thực hiện các thành động liên quan.
+
 \subsection{Hoạt động}
+Giống như các hệ thống khác, hoạt động được chia ra thành tạo, xem, sửa, xóa. Các hoạt động này được xác định là xảy ra ở tên miền nào, dữ liệu đối tượng gì, do ai có vai trò gì thực hiện.
+
+Với cách xác định hoạt động như trên, có gần với khái niệm \emph{phương thức} của đối tượng trong quan niệm thiết kế hướng đối tượng.
+
 \subsection{Phân quyền}
 
-\# Phân quyền
+Phân quyền không chỉ giúp cho hệ thống trở nên bảo mật hơn. Mà còn giúp cho đội ngũ phát triển làm việc chặt chẽ hơn với dữ liệu. Một dạng dữ liệu được phân quyền với yêu cầu đặc tả của khách hàng không thể truyền đạt hết cho tất cả những thành viên trong nhóm được. Điều đó gây ra các lỗ hổng đằng sau \emph{Controller} trong mô hình \acrshort{mvc}. Hệ thống xử dụng các nút xử lí mang theo thông tin chung đại diện cho người truy cập. Trong đó có thể phân tách định nghĩa được hoạt động và phân quyên được chặt chẽ hơn. Dưới đây là một số định nghĩa về phân quyền cần lưu ý:
 
-\#\# Quyền sở hữu (owner)
+\subsubsection{Quyền đại diện}\label{what-is-owner}
+Khi thực hiện truy vấn dữ liệu, cần xác định nguồn gốc của truy vấn đến từ \acrshort{http} request nào. Quyền đại diện cho truy vấn được cấp cho tài khoản nhà bán hàng có tên miền khớp với tên miền chứa trong \acrshort{http} request đó. Tức là có thể lấy được ID của tài khoản đại diện cho \acrshort{http} request hiện tại. 
 
-Ai tạo thì người đó mới có quyền xóa.
+Chỉ có tài khoản người bán hàng mới có thể đại diện cho một truy vấn. Khi người bán hàng truy vấn từ một trang không phải thuộc sở hữu của họ. Thì hệ thống thay vì căn cứ vào tên miền ở trong request hiện tại như cách cũ, nó sẽ trả về luôn ID của người bán hàng hiện tại. Tức là ghi đè quyền đại diện nếu người thực hiện truy vấn là một nhà bán hàng.
 
-> THAY ĐỔI QUAN TRỌNG: Tất cả các bảng đều phải có byTracking. Bởi vì, mối liên hệ giữa các bảng có thể thay đổi nhưng quyền sở hữu giữa dữ liệu đó và người sở hữu không thay đổi.
+Quyền đại diện thường được sử dụng để xem dữ liệu như một nhà bán hàng tại một tên miền cụ thể. Nghĩa là khi người dùng truy vấn dữ liệu sản phẩm tại một domain nào đó. Thì hệ thống sẽ hỏi cơ sở hữu liệu ai đại diện cho truy vấn này để trả về dữ liệu tương ứng cho truy vấn đó.
 
-> Nếu tạo ra dữ liệu mà không đăng nhập, thì dữ liệu sẽ thuộc về người sở hữu domain trong headers của request hiện tại. [chi tiết](\#quyền-tạo) xem bên dưới.
+Điều này cho phép cùng một hệ thống máy chủ giao diện khi cài đặt với các tên miền khác nhau sẽ trả về các kết quả khác nhau.
 
-> Khi tạo đơn đặt hàng, tạo nội dung, dữ liệu sản phẩm cho người khác. Phải quyển quyền sở hữu sau đó. Và ghi thông tin người tạo vào dữ liệu nếu cần. Nhưng bản chất dữ liệu đó đã chuyển quyền sở hữu rồi.
+Phân quyền này dựa trên chứng thực headers của \acrshort{http} request. Tức là nếu ở ứng dụng mobile hoặc một nền tảng khác không chứng thực được headers. Người dùng không thể giả mạo headers để truy vấn thông tin của nhà bán hàng.
 
-\#\#\# Chuyển quyền sở hữu:
+Nội dung và phương pháp chứng thực headers \acrshort{http} request nằm ngoài phạm vi đề cập của dự án.
 
-Coi như người được chuyển tạo ra dữ liệu đó.
-nghĩa là, sau khi chuyển người sở hữu cũ không có quyền xóa nữa.
+\subsubsection{Quyền hành động}
 
-> Tóm lại, A sở hữu thì createdBy: { id: A.id }
+\paragraph{Quyền sở hữu.} Đối với quyền sở hữu. Ai tạo ra dữ liệu thì người đó mới có quyền xóa dữ liệu đó. Cho nên tất cả các bảng đều phải có ghi thông tin người tạo. Bởi vì trong quá trình phát triển dự án theo yêu cầu thực tế, mối liên hệ giữa các bảng có thể thay đổi nhưng quyền sở hữu giữa dữ liệu đó và người sở hữu không thay đổi. Nếu tạo ra dữ liệu mà không đăng nhập, không xác định được người sở hữu, thì dữ liệu sẽ thuộc về người đại diện cho truy cập (Xem chi tiết người đại diện của truy cập mục \ref{what-is-owner}).
 
-\#\# Quyền xem (read)
+\paragraph{Chuyển quyền sở hữu.} Khi tạo đơn đặt hàng, tạo nội dung, dữ liệu sản phẩm cho người khác. Phải quyển quyền sở hữu sau đó. Sẽ có nghiệp vụ chạy ngầm để xét duyệt và ghi đè quyền sở hữu cho người thừa kế.Ghi thông tin người tạo vào dữ liệu vào một trường khác nếu cần. Nhưng bản chất dữ liệu đó đã chuyển quyền sở hữu rồi.
 
-Quyền xem đa dạng hơn tùy trường hợp sử dụng.
+Nghĩa là, coi như người thừa kế  (\emph{người được chuyển}) tạo ra dữ liệu đó. sau khi chuyển người sở hữu cũ không có quyền xóa nữa.
 
-- Quyền xem mặc định, quyền xem cụ thể cho bảng dữ liệu, trường dữ liệu. Quyền xem cụ thể sẽ ghi đè quyền xem tổng hơn hơn nó chứ không kế thừa.
+\paragraph{Quyền xem.}\label{read:permission} đa dạng hơn tùy trường hợp sử dụng.
 
-- Chia ra làm hai loại là phân quyền trực tiếp và phân quyền gián tiếp.
+Quyền xem được thiết đặt theo thứ tự: mặc định, bảng dữ liệu, trường dữ liệu. Nếu định nghĩa quyền xem cho một bảng dữ liệu cụ thể, thì hệ thống sẽ thực hiện định nghĩa đó thay cho quyền mặc định. Tương tự, nếu một trường có định nghĩa quyền xem cho riêng nó, thì khi truy vấn bảng dữ liệu, định nghĩa quyền chỉ áp dụng cho của bảng. Sau đó nếu truy cập hợp lệ vào trường đó thì mới trả về được dữ liệu của trường.
 
-- Phân quyền cho loại dữ liệu và phân quyền cho dữ liệu (bản ghi) cụ thể.
+Ví dụ cho trường hợp phân quyền cho trường dữ liệu là khi truy vấn đến bảng người dùng, người xem có thể xem tên, hình ảnh đại diện nhưng không thể xem số điện thoại và mật khẩu đã mã hóa.
 
-Chi tiết:
+Quyền xem chia ra làm hai loại là phân quyền trực tiếp và phân quyền gián tiếp.
 
-- Đối với phân quyền trực tiếp thì người tạo ra, người sở hữu dữ liệu toàn quyền xem với dữ liệu đó.
-- Phân quyền gián tiếp cho "loại dữ liệu" phải thông qua bảng phân quyền. Bản phân quyền này tạo bởi người sở hữu dữ liệu. Nghĩa là tôi cấp quyền cho một người cụ thể xem toàn bộ dữ liệu thuộc bảng A.
-- Phân quyền gián tiếp cho "dữ liệu" (bản ghi) cụ thể cần ghi cụ thể id người được phân quyền trong tập dữ liệu. Tên của trường đó đặt tùy trường hợp sử dụng.
-- Phân quyền gián tiếp cho "dữ liệu" (bản ghi) cụ thể cho nhiều người xem chưa được xem xét phát triển. Nhưng có thể tạo bảng phần quyền cụ thể riêng. Bảng này người sở hữu chỉ định bản ghi cụ thể này được chia sẽ cho ai.
+\begin{itemize}
+	\item Đối với phân quyền trực tiếp thì người tạo ra, người sở hữu dữ liệu toàn quyền xem với dữ liệu đó.
+	\item Quyền xem gián tiếp là quyền cấp cho người xem dữ liệu mà không cần đăng nhập, hoặc đăng nhập nhưng không phải là nhà bán hàng.
+	
+	Người xem gián tiếp được định nghĩa là khi truy cập dữ liệu dưới một tên miền, thì thông qua tên miền để lấy được quyền truy cập đến các dữ liệu được chia sẽ của: người sở hữu tên miền và người chia sẽ dữ liệu cho tên miền. Hoặc có thể hiểu là người mua hàng đã thông qua tên miền để truy cập đến dữ liệu của nhà bán hàng. Hoặc ngược lại căn cứ theo tên miền tìm nhà bán hàng đại diện để phục vụ dữ liệu cho người dùng.
+	
+\end{itemize}
 
-> Xem sản phẩm được tạo ra bởi tôi (read) A là người sở hữu dữ liệu thì createdBy: { id: A.id }
+\paragraph{Quyền tạo} Khi tạo dữ liệu, đối với một số bảng dữ liêu bắt buộc đăng nhập thì người dùng phải đăng nhập, hoặc là nhà bán hàng thì mới có thể tạo.
 
+Cũng có trường hợp các loại dữ liệu không cần đăng nhập vẫn tạo được để tạo ra sự thuận tiện cho người mua hàng. Ví dụ thêm một sản phẩm vào giỏ hàng. Thực tế khi mua hàng tại các siêu thị, người mua hàng có thể yêu cầu mở thẻ thành viên hoặc là không.
 
+Những dữ liệu không đăng nhập có thể xem bởi tất cả mọi người, nhưng những sản phẩm có thông tin người tạo cần được xem xét cho phép truy cập bởi một số người liên quan chẳng hạn như đơn hàng được tạo trên cửa hàng. Người chủ cửa hàng cần quyền xem đơn hàng đó.
 
-\#\#\#\# Xem sản phẩm được tạo ra cho tôi bởi người không xác định, hoặc thành viên của tổ chức (read-of)
 
+\subsubsection{Dưới đây là các mô tả cụ thể hơn về phân quyền:}
 
+\paragraph{Người dùng} Người dùng có thể nhìn thấy thông tin cá nhân cơ bản của chính họ và của những người đã chấp nhận bạn bè.
 
-> Với thay đổi gần nhất, thì id của of này cần ghi đề vào createdBy bằng cách bấm chấp nhận sở hữu, hoặc cài tự động chấm nhận.
+\paragraph{Lời mời kết bạn} Người tạo ra lời mời và người được mời có thể nhìn thấy lời mời đó.
 
-\#\#\#\# Xem sản phẩm được chia sẽ với tôi (read-by)
+\paragraph{Hợp đồng} Hợp đồng tương tự như lời mời kết bạn chỉ người tạo ra và đối tác của người đó được xem dữ liệu.
 
-Như đã đề cập ở phân quyền gián tiếp. Ta định hướng chia sẻ toàn bộ dữ liệu thuộc bảng A và chia sẻ bản ghi cụ thể:
+\paragraph{Các tương tác} Các tương tác được xem công khai cho tất cả mọi người nhưng chỉ người tạo ra mới được chỉnh sửa.
 
-Đối với chia sẽ toàn bộ bảng A:
+\paragraph{Thông báo} Thông báo từ hệ thống đến người dùng chỉ được xem bởi chính người đó. Trong trường hợp gửi thông báo cho nhau thì người gửi và người nhận được xem thông báo đó.
 
-- Dữ liệu được chia sẽ thông qua nhóm thuộc tổ chức.
-Một người sở hữu một tổ chức. Tổ chức sở hữu nhiều nhóm.
-Các nhóm sẽ được phân quyền đọc hoặc chỉnh sửa các bảng cụ thể.
+\paragraph{Nhóm} Nhóm được xem bởi người tham gia nhóm và người đã chấp nhận lời mời tham gia nhóm. Lời mời tham gia nhóm tương tự với lời mời kết bạn.
 
-Đối với chia sẽ bản ghi cụ thể:
+\paragraph{Thống kê truy cập} Thống kê theo dõi truy cập của một cá nhân chỉ được truy cập quản lí bởi chính cá nhân đó.
 
-- Chưa phát triển.
+\paragraph{Các bảng công việc} Khi giữa các tài khoản người dùng và tài khoản nhà bán hàng có kí hợp đồng lao động, người dùng có thể tạo bảng để chấm công khi làm việc cho một nhà bán hàng nào đó. Nên nhà bán hàng và người chấm công có thể xem. Yêu cầu chốt công tạo ra bởi người chấm công nhưng không ai có thể xóa. Nhà bán hàng có thể cập nhật hoặc ghi chú vào bảng chốt công.
 
-\#\# Quyền tạo
-
-\#\#\#\# Yều cầu đăng nhập
-
-1. Tạo cho chính họ:
-byTracking sẽ điền thông tin là người đăng nhập hiện tại.
-2. Tạo cho người khác:
-Cũng là tạo cho chính họ, nhưng of đặt id người cần chuyển quyền sở hữu. Khi người được chuyển bấm xác nhận, hoặc tự động xác nhận thì ghi đè quyền sở hữu và xóa trường of đi.
-
-\#\#\#\# Không yêu cầu đăng nhập
-
-1. Tạo cho người khác
-> Lập trình viên cần lưu ý chỗ tạo và liên kết các dữ liệu. Khi người tạo liên kết dữ liệu họ không sở hữu.
-
-\#\#\# Quyền chỉnh sửa
-
-Ai tạo thì người đó có quyền sửa và có thể sửa hộ.
-
-- byTracking lúc này là `createdBy: null` nên vẫn đặt of là id người được chuyển như bình thường. Người nhận dữ liệu bấm xác nhận hoặc tự động xác nhận ghi thông tin id từ of vào createdBy.
-
-\#\#\#\# Chỉnh sửa sản phẩm của tôi (update)
-
-\#\#\#\# Chỉnh sửa sản phẩm tạo ra cho tôi bởi người không xác định
-
-
-
-Addmission
-Yêu cầu tham gia nhóm từ tổ chức gửi cho một cá nhân cụ thể. Chỉ người sở hữu tổ chức (chứa nhóm này) và người được gửi
-lời mời được quyền xem.
-
-Sau khi chấp nhận lời mời, người sở hữu tổ chức có thể xem và sử dụng dữ liệu của thành viên cho mục đích phân phối,
-trình bày, quảng cáo.
-
-Nếu người được mời hủy chấp nhận thì các quyền nêu trên mất hiệu lực.
-
-Issue
-Vấn đề, công việc của nhóm.
-
-Người sở hữu tổ chức. Người tham gia nhóm có quyền xem thông tin này.
-
-Mailer
-Các đầu email dùng trong các chức năng của hệ thống được khai báo cố định trong biến môi trường, hoặc tìm trong mailer.
-Mỗi hoạt động cần thông báo sẽ có mỗi đầu email tương ứng.
-
-Mailer là đầu email của tổ chức, được tạo ra bởi người sở hữu tổ chức. Các thông báo từ 'đầu email hệ thống' đến người
-sở hữu tổ chức sẽ được mailer này chuyển cho một số thành viên trong tổ chức.
-
-Notification
-
-\#\# Các trường hợp thông báo:
-
--   Thông báo sự kiện liên quan đến dữ liệu của người dùng đó. Thông báo này được gửi từ email hệ thống. Chỉ người sở
-hữu dữ liệu đó được quyền xem.
--   Thông báo sự kiện liên quan đến dữ liệu của nhóm đang tham gia. Thông báo này được gửi từ email của tổ chức sở hữu
-nhóm. Người tham gia nhóm đó được quyền xem.
-
-\#\# Các sự kiện:
-
-Các sự kiện liên quan đến dữ liệu được gửi từ email hệ thống phải được liệt kê và đặt tên cụ thể. Người sở hữu tổ chức
-tạo ra nhóm và cấp quyền nhận thông báo sự kiện cho nhóm. Danh sách các sự kiện bao gồm:
-
--   Đơn hàng: Gửi ngay sau khi tạo.
--   Thống kê truy cập: Đặt luồng chạy tự động vào thời điểm nhất định để thống kê và gửi.
-
-Danh sách sự kiện:
-
--   create.product.order
-
-OrganizationTeam
-
-Quy mô của nhóm tương đương với một lớp học, nhóm markting,...
-Chủ yếu được phần theo quyền hạn đối với dữ liệu của tổ chức.
-Và quyền nhận các thông tin thông báo từ tổ chức.
-
-Oranization
-
-\#\# Mô tả
-
-Tương đương với công ty, hộ kinh doanh, tổ chức xã hội, trường học, câu lạc bộ,...
-Một tổ chức cần có một người đại diện.
-Những người sau đây có thể nhìn thấy tổ chức:
-
-- Được mời tham gia nhóm thuộc tổ chức.
-- Sở hữu tổ chức.
-
-\#\#\# Hướng dẫn tạo lập một tổ chức
-
-1. Người sở hữu tổ chức thành lập tổ chức. Tổ chức sở hữu các nhóm.
-2. Tổ chức tìm kiếm lấy thông tin thành viên và tạo lời mời vào nhóm (không phải tổ chức).
-3. Thành viên đồng ý tham gia nhóm.
-4. Thành viên được phân quyền dựa trên nhóm.
-
-\#\# Ví dụ
-
-1. Người dùng thành lập tổ chức để bán hàng.
-2. Người dùng lập trang bán hàng từ dữ liệu của họ.
-3. Người dùng mời thành viên vào nhóm thuộc tổ chức với quyền xem và chỉnh sửa sản phẩm.
-
-> Phát triển tính năng thành viên tạo sản phẩm cho tổ chức bằng cách tạo yêu cầu đổi id người sở hữu đối với sản phẩm đó.
-
-
-Work
-Đây là bản quan trọng để theo dõi công việc của người dùng.
-
-Người dùng có thể được chia sẽ công việc và danh sách công việc.
-
-Người dùng cũng có thể tự tạo công việc nhưng không thể liên kết với loại công việc không phải mình sở hữu.
-
-Thành phần hệ thống
-
-
-Gateway 
-Với mục đích làm cửa ngõ cho client projects như: next.js server, mobile app.
-
-Gateway server không thực hiện chức năng mà gom các chức năng lại tại một end-point duy nhất.
-
-Gateway đồng thời cũng phát triển một admin ui chung cho tất cả các services.
-
-> Điều quan trọng cần nhớ là hạn chế càng nhiều vai trò của gateway trong hệ thống càng tốt.
-
-\blindtext
+\paragraph{Thông tin công khai} Các thông tin công khai là những thông tin được tạo ra bởi nhà bán hàng và công khai truy cập thông qua một tên miền cụ thể. Đối với các truy cập không có thông tin tên miền. Người dùng đó không có quyền truy cập vào dữ liệu công khai. Ngoại trừ trường hợp người dùng đó đăng nhập với tài khoản nhà bán hàng (xem thêm \textbf{quyền xem} tại mục \ref{read:permission}).

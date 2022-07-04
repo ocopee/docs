@@ -47,7 +47,7 @@ Trong loại mạng máy tính này, các nút có thể là máy chủ hoặc m
 \paragraph*{2. Kiến trúc ngang hàng}
 Trong kiến trúc Ngang hàng (P2P), các máy tính được kết nối có công suất và đặc quyền ngang nhau. Không có máy chủ tập trung để điều phối hoạt động. Mỗi thiết bị trong mạng máy tính có thể đóng vai trò là máy khách hoặc máy chủ. Mỗi thiết bị ngang hàng có thể chia sẻ một số tài nguyên của mình như bộ nhớ và công suất xử lý với toàn bộ mạng máy tính. Ví dụ: một số công ty sử dụng kiến trúc P2P để lưu trữ các ứng dụng tiêu tốn nhiều bộ nhớ, chẳng hạn như kết xuất đồ họa 3D, trên nhiều thiết bị kỹ thuật số.
 
-\begin{figure}[h]
+\begin{figure}[h!]
 	\caption{Bản đồ một phần của Internet dựa trên dữ liệu ngày 15 tháng 1 năm 2005 được tìm thấy trên opte.org}
 	\centering
 	\includegraphics[width=\textwidth]{Internet_map}
@@ -94,6 +94,12 @@ Mặc dù máy chủ web thường lưu trữ các trang web có thể truy cậ
 \end{itemize}
 \acrshort{uml} chủ động độc lập với quy trình và có thể được áp dụng trong mọi bối cảnh của các quy trình khác nhau. Tuy nhiên, nó vẫn phù hợp nhất cho các quy trình phát triển theo hướng nhanh chóng đưa dự án vào sử dụng, lặp đi lặp lại và tăng dần.
 
+\begin{figure}[h!]
+	\caption{Tổng quan về sơ đồ UML 2.5. Lưu ý, các mục có màu xanh lam không thuộc phân loại chính thức của sơ đồ UML 2.5. \cite{web:uml}}
+	\centering
+	\includegraphics[width=\textwidth]{uml}
+\end{figure}
+
 \paragraph{Khái niệm hướng đối tượng \cite{book:oop} } được xây dựng trên nền tảng của khái niệm lập trình có cấu trúc và sự trừu tượng hóa dữ liệu. Sự thay đổi căn bản ở chỗ, một chương trình hướng đối tượng được thiết kế xoay quanh dữ liệu mà chúng ta có thể làm việc trên đó, hơn là theo bản thân chức năng của chương trình. Điều này hoàn toàn tự nhiên một khi chúng ta hiểu rằng mục tiêu của chương trình là xử lý dữ liệu. Suy cho cùng, công việc mà máy tính thực hiện vẫn thường được gọi là xử lý dữ liệu. Dữ liệu và thao tác liên kết với nhau ở một mức cơ bản (còn có thể gọi là mức thấp), mỗi thứ đều đòi hỏi ở thứ kia có mục tiêu cụ thể, các chương trình hướng đối tượng làm tường minh mối quan hệ này. Lập trình hướng đối tượng (Object Oriented Programming - gọi tắt là OOP) hay chi tiết hơn là Lập trình định hướng đối tượng, chính là phương pháp lập trình lấy đối tượng làm nền tảng để xây dựng thuật giải, xây dựng chương trình. Thực chất đây không phải là một phương pháp mới mà là một cách nhìn mới trong việc lập trình. Để phân biệt, với phương pháp lập trình theo kiểu cấu trúc mà chúng ta quen thuộc trước đây, hay còn gọi là phương pháp lập trình hướng thủ tục (Procedure-Oriented Programming), người lập trình phân tích một nhiệm vụ lớn thành nhiều công việc nhỏ hơn, sau đó dần dần chi tiết, cụ thể hoá để được các vấn đề đơn giản, để tìm ra cách giải quyết vấn đề dưới dạng những thuật giải cụ thể rõ ràng qua đó dễ dàng minh hoạ bằng ngôn ngữ giải thuật (hay còn gọi các thuật giải này là các chương trình con). Cách thức phân tích và thiết kế như vậy chúng ta gọi là nguyên lý lập trình từ trên xuống (top-down), để thể hiện quá trình suy diễn từ cái chung cho đến cái cụ thể. Các chương trình con là những chức năng độc lập, sự ghép nối chúng lại với nhau cho chúng ta một hệ thống chương trình để giải quyết vấn đề đặt ra. Chính vì vậy, cách thức phân tích một hệ thống lấy chương trình con làm nền tảng, chương trình con đóng vai trò trung tâm của việc lập trình, được hiểu như phương pháp lập trình hướg về thủ tục. Tuy nhiên, khi phân tích để thiết kế một hệ thống không nhất thiết phải luôn luôn suy nghĩ theo hướng “làm thế nào để giải quyết công việc”, chúng ta có thể định hướng tư duy theo phong cách “với một số đối tượng đã có, phải làm gì để giải quyết được công việc đặt ra” hoặc phong phú hơn, “làm cái gì với một số đối tượng đã có đó”, từ đó cũng có thể giải quyết được những công việc cụ thể. Với phương pháp phân tích trong đó đối tượng đóng vai trò trung tâm của việc lập trình như vậy, người ta gọi là nguyên lý lập trình từ dưới lên (Bottom-up). Lập trình hướng đối tượng liên kết cấu trúc dữ liệu với các thao tác, theo cách mà tất cả thường nghĩ về thế giới quanh mình. Chúng ta thường gắn một số các hoạt động cụ thể với một loại hoạt động nào đó và đặt các giả thiết của mình trên các quan hệ đó. 
 
 \subsection{Kiến trúc hướng dịch vụ}
@@ -134,7 +140,7 @@ Git là một hệ thống kiểm soát phiên bản phân tán. Một mã ngu�
 
 Git rất dễ học và đặc biệt hiệu suất. Nó vượt trội hơn các công cụ SCM như Subversion, CVS, Perforce và ClearCase với các tính năng như tối ưu phân nhánh cục bộ, thực hiện đóng gói và nhiều quy trình làm việc.
 
-\begin{figure}[h]
+\begin{figure}[h!]
 	\caption{Hệ thống kiểm soát phiên bản, nguồn: git-scm.com}
 	\centering
 	\includegraphics[width=\textwidth]{git}
@@ -204,7 +210,7 @@ Bởi khả năng kết xuất, điều hướng và truyền tải dữ liệu 
 
 \subsubsection{REST API \cite{web:rest}}
 
-\begin{figure}[h]
+\begin{figure}[h!]
 	\caption{REST API}
 	\centering
 	\includegraphics[width=\textwidth]{rest}
@@ -218,7 +224,7 @@ Chuyển trạng thái đại diện (REST) là một kiến trúc phần mềm 
 
 GraphQL là ngôn ngữ truy vấn cho các API và thời gian thực để thực hiện các truy vấn đó với dữ liệu hiện có của bạn. GraphQL cung cấp mô tả đầy đủ và dễ hiểu về dữ liệu trong API, cung cấp cho khách hàng sức mạnh để yêu cầu chính xác những gì họ cần và không cần gì hơn, giúp việc phát triển API dễ dàng hơn theo thời gian và cho phép các công cụ mạnh mẽ dành cho nhà phát triển.
 
-\begin{figure}[h]
+\begin{figure}[h!]
 	\caption{GraphQL API}
 	\centering
 	\includegraphics[width=\textwidth]{graph}

@@ -1,0 +1,316 @@
+
+\subsection{API.}
+
+\subsubsection{Lấy dữ liệu}
+
+\paragraph{\emph{allUsers}}
+
+Lấy tất cả bản ghi trong danh sách \emph{User}. Truy vấn \emph{allUsers} cho phép tìm kiếm, giới hạn và lọc các kết quả. Chi tiết xem bên dưới:
+
+\begin{lstlisting}
+	query {
+	  allUsers {
+	    id
+	    # ...
+	    # orthers field
+	  }
+	}
+\end{lstlisting}
+
+\paragraph{\_allUsersMeta}
+
+Tương tự như \emph{allUsers}. \emph{\_allUsersMeta} trả về chỉ tổng số bản ghi hợp lệ vào \emph{count} mà không phải là các dữ liêu của từng bảng ghi cụ thể.
+
+\begin{lstlisting}
+	query {
+	  _allUsersMeta {
+	    count
+	  }
+	}
+\end{lstlisting}
+
+\paragraph{\emph{User}}
+
+Truy cập chính xác đến bản ghi trong danh sách \emph{User}. Truy vấn này bắt buộc có \emph{\$id}
+\begin{lstlisting}
+	query {
+	  User(where: { id: $id }) {
+	    name
+	    # ...
+	    # orthers field
+	  }
+	}
+\end{lstlisting}
+
+\paragraph{\emph{\_UsersMeta}}
+
+Trả về thông tin của chính danh sách \emph{User}, chẳng hạn như trạng thái phân quyền.
+
+\subsubsection {Thêm, sửa, xóa}
+
+Có 6 phương thức
+\begin{itemize}
+	\item \emph{createUser}
+	\item \emph{createUsers}
+	\item \emph{updateUser}
+	\item \emph{updateUsers}
+	\item \emph{deleteUser}
+	\item \emph{deleteUsers}
+\end{itemize}
+\paragraph{createUser}
+
+Thêm một \emph{User} vào danh sách. Yêu cầu có tham số \emph{data}
+
+\begin{lstlisting}
+	mutation {
+	  createUser(data: { name: "Huy" }) {
+	    id
+	    # ...
+	    # orthers field
+	  }
+	}
+\end{lstlisting}
+
+\paragraph{\emph{createUsers}}
+
+Tạo nhiều \emph{Users}. Đầu vào tương tự như \emph{createUser} nhưng ở đây có dạng là \emph{[data, data,...]}
+
+\begin{lstlisting}
+	mutation {
+	  createUsers(data: [{ data: { name: "Huy" } }, { data: { name: "Ngoc" } }]) {
+	    id
+	    name
+	    # ...
+	    # orthers field
+	  }
+	}
+\end{lstlisting}
+
+\paragraph{\emph{updateUser}}
+
+Cập nhật \emph{User} thông qua ID.
+
+\begin{lstlisting}
+mutation {
+  updateUser(id: ID, data: { name: "Tran" }) {
+    id
+    # ...
+    # orthers field
+  }
+}
+\end{lstlisting}
+
+\paragraph{\emph{updateUsers}}
+
+Cập nhật nhiều \emph{Users} thông qua ID. Tham số truyền vào tương tự như \emph{createUser}. Cần được bao trong bảng và truyền vào biến \emph{data} như ví dụ
+
+\begin{lstlisting}
+mutation {
+  updateUsers(data: [{ id: ID, data: { name: "Tran" } }]) {
+    id
+    # ...
+    # orthers field
+  }
+}
+\end{lstlisting}
+
+\paragraph{\emph{deleteUser}}
+
+Xóa một \emph{User} thông qua ID
+
+\begin{lstlisting}
+	mutation {
+	  deleteUser(id: ID) {
+	    id
+	    # ...
+	    # orthers field
+	  }
+	}
+\end{lstlisting}
+
+\paragraph{deleteUsers}
+
+Xóa nhiều \emph{User} thông qua danh sách ID
+
+\begin{lstlisting}
+	mutation {
+	  deleteUsers(ids: [ID]) {
+	    id
+	    # ...
+	    # orthers field
+	  }
+	}
+\end{lstlisting}
+
+\subsubsection {Lọc, giới hạn, sắp xếp}
+
+Bên trong tham số của truy vấn chúng ta có thể thêm:
+\begin{itemize}
+	\item {where}
+	\item {search}
+	\item {skip}
+	\item {first}
+	\item {sortBy}
+\end{itemize}
+\paragraph{where}
+
+Giới hạn số kết quả trả về đúng với điều kiện truyền vào.
+
+\begin{lstlisting}
+query {
+  allUsers(where: { name_starts_with_i: "A" }) {
+    id
+    # ...
+    # orthers field
+  }
+}
+\end{lstlisting}
+
+\subparagraph{Lọc trường là một Relationship {where}}
+\begin{itemize}
+	\item {relatedList\_every}: whereInput
+	\item {relatedList\_some}: whereInput
+	\item {relatedList\_none}: whereInput
+	\item {relatedList\_is\_null}: Boolean
+\end{itemize}
+\subparagraph{Lọc trường là một String \emph{where}}
+\begin{itemize}
+	\item {Field:} String
+	\item {Field\_not}: String
+	\item {Field\_contains}: String
+	\item {Field\_not\_contains}: String
+	\item {Field\_starts\_with}: String
+	\item {Field\_not\_starts\_with}: String
+	\item {Field\_ends\_with}: String
+	\item {Field\_not\_ends\_with}: String
+	\item {Field\_i}: String
+	\item {Field\_not\_i}: String
+	\item {Field\_contains\_i}: String
+	\item {Field\_not\_contains\_i}: String
+	\item {Field\_starts\_with\_i}: String
+	\item {Field\_not\_starts\_with\_i}: String
+	\item {Field\_ends\_with\_i}: String
+	\item {Field\_not\_ends\_with\_i}: String
+	\item {Field\_in}: [String]
+	\item {Field\_not\_in}: [String]
+\end{itemize}
+
+\subparagraph{Lọc trường là một ID \emph{where}}
+\begin{itemize}
+	\item {Field}: ID
+	\item {Field\_not}: ID
+	\item {Field\_in}: [ID!]
+	\item {Field\_not\_in}: [ID!]
+\end{itemize}
+
+\subparagraph{Lọc trường là một Integer \emph{where}}
+\begin{itemize}
+	\item {Field}: Int
+	\item {Field\_not}: Int
+	\item {Field\_lt}: Int
+	\item {Field\_lte}: Int
+	\item {Field\_gt}: Int
+	\item {Field\_gte}: Int
+	\item {Field\_in}: [Int]
+	\item {Field\_not\_in}: [Int]
+\end{itemize}
+\subparagraph{Toán tử}
+Có hai toán tử
+\begin{itemize}
+	\item {AND}: [whereInput]
+	\item {OR}: [whereInput]
+\end{itemize}
+\begin{lstlisting}
+	query {
+	  allUsers(
+	    where: { OR: [{ name_starts\_with\_i: "A" }, { email_starts\_with\_i: "A" }] }
+	  ) {
+	    id
+	    # ...
+	    # orthers field
+	  }
+	}
+\end{lstlisting}
+
+\paragraph{search}
+
+Sẽ tìm kiếm danh sách theo trường {name}
+
+\begin{lstlisting}
+	query {
+	  allUsers(search: "Huy") {
+	    id
+	    # ...
+	    # orthers field
+	  }
+	}
+\end{lstlisting}
+
+\paragraph{sortBy}
+
+Sắp xếp kết quả
+
+Kiểu được cung cấp (lấy ví dụ cho bảng \emph{User})
+
+\begin{lstlisting}
+	enum SortUsersBy {
+	  id_ASC
+	  id_DESC
+	  name_ASC
+	  name_DESC
+	  email_ASC
+	  email_DESC
+	}
+\end{lstlisting}
+
+\emph{sortBy} cho phép một hoặc nhiều giá trị tham gia vào điều kiện sắp xếp.
+
+\begin{lstlisting}
+	query {
+	  allUsers(sortBy: name_DESC) {
+	    id
+	    # ...
+	    # orthers field
+	  }
+	}
+\end{lstlisting}
+
+\begin{lstlisting} title=
+	query {
+	  allUsers(sortBy: [name_DESC, email_ASC]) {
+	    id
+	    # ...
+	    # orthers field
+	  }
+	}
+\end{lstlisting}
+
+\paragraph{first}
+
+Giới hạn số kết quả trả về trong truy vấn. Sau khi áp dụng các tham số sau: {skip}, {sortBy}, {where} and {search}.
+
+\begin{lstlisting}
+	query {
+	  allUsers(first: 10) {
+	    id
+	    # ...
+	    # orthers field
+	  }
+	}
+\end{lstlisting}
+
+\paragraph{skip}
+
+Bỏ qua các số bản ghi đầu tìm thấy theo chỉ định. Nó được áp dụng trước khi {first}, nhưng sau {sortBy}, {where} and {search}.
+
+Nếu số lượng \emph{skip} lớn hơn số lượng kết quả hợp lệ, một mảng rỗng sẽ được trả về.
+
+\begin{lstlisting}
+	query {
+	  allUsers(skip: 10) {
+	    id
+	    # ...
+	    # orthers field
+	  }
+	}
+\end{lstlisting}

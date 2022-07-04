@@ -6,7 +6,7 @@
 \usepackage{blindtext}
 
 % ===== Thông tin
-\title{HỆ THỐNG LIÊN KẾT SÀN THƯƠNG MẠI ĐIỆN TỬ CHO NHÀ SẢN XUẤT VÀ CỬA HÀNG}
+\title{HỆ THỐNG TẠO VÀ LIÊN KẾT SÀN THƯƠNG MẠI ĐIỆN TỬ CHO NHÀ SẢN XUẤT VÀ CỬA HÀNG}
 \author{Trần Ngọc Huy}
 \date{Đà Nẵng, Ngày 1 tháng 7 năm 2022}
 
@@ -75,14 +75,53 @@
 \newacronym{html}{HTML}{HyperText Markup Language}
 \newacronym{c}{C}{C programming language}
 \newacronym{dbms}{DBMS}{Database management system}
+\newacronym{api}{API}{Application Programming Interface}
 \newglossaryentry{ocopee}
 {
 	name=OCOPEE,
-	description={\@title}
+	description={
+		Hệ thống tạo và liên kết sàn thương mại điện tử cho nhà sản xuất và cửa hàng}
 }
 
 % ==== Chia cột
 \usepackage{multicol}
+
+% ==== Liên kết chỉ mục đến phần nội dung  của nó.
+\usepackage{hyperref}
+
+% ==== Chèn code
+\usepackage{listings}
+\usepackage{xcolor}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+ 	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2,
+	xleftmargin=10pt,
+	xrightmargin=10pt,
+}
+
+\lstset{
+	style=mystyle,
+}
+
+% ===== Gỡ bỏ nhảy trang sau mỗi section
+
+\newcommand{\sectionbreak}{\clearpage}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -125,9 +164,9 @@ Trong thời kì cả nước thúc đẩy khởi nghiệp. Các mô hình, sả
 
 Quá trình trên giúp cho sản phẩm ngày một đa dạng. Tính truyền thống, đặc trưng vùng miền có cơ hội phát triển.
 
-Đề tài nghiên cứu này phát triển giải pháp giúp cho những đơn vị chủ thể tạo kênh thông tin với chi phí thấp. Các cửa hàng phân phối những sản phẩm trên có sàn thương mại riêng để chủ động truyền thông theo cách riêng của họ. Việc xây dựng hệ thống trên, đồng thời cũng phát triển được sự liên kết thông tin giữa các đơn vị với nhau. Tránh sự lãng phí về nhân lực trong quá trình đồng bộ dữ liệu.
+\gls{ocopee}\footnote{Viết tắt của tên đề tài} phát triển giải pháp giúp cho những đơn vị chủ thể tạo kênh thông tin với chi phí thấp. Các cửa hàng phân phối những sản phẩm trên có sàn thương mại riêng để chủ động truyền thông theo cách riêng của họ. Việc xây dựng hệ thống trên, đồng thời cũng phát triển được sự liên kết thông tin giữa các đơn vị với nhau. Tránh sự lãng phí về nhân lực trong quá trình đồng bộ dữ liệu.
 
-Đề tài định hướng phát triển các tính tối thiểu để một sàn thương mại điện tử có thể hoạt động. Bởi vì khối lượng công việc và nghiệp vụ khá nhiều. Nên mỗi tính năng thêm vào cần được suy xét thêm các yếu tố mang tính doanh nghiệp như tiến độ và ngân sách.
+\gls{ocopee} định hướng phát triển các tính tối thiểu để một sàn thương mại điện tử có thể hoạt động. Bởi vì khối lượng công việc và nghiệp vụ khá nhiều. Nên mỗi tính năng thêm vào cần được suy xét thêm các yếu tố mang tính doanh nghiệp như tiến độ và ngân sách.
 
 Định hướng tạo nên đột phá cho dự án sẽ được phát triển khi dữ liệu khách hàng và số lượng các nhà sản xuất đủ lớn. Khi đó vấn đề gần nhất cần giải quyết là hệ thống gợi ý giá bán và thu thập thông tin phản hồi từ khách hàng để cải thiện quá trình sản xuất.
 
@@ -185,6 +224,7 @@ Em xin chân hành cảm ơn!
 %	- Cụm từ viết viết tắt là các chữ cái và các ký hiệu thay chữ được viết liền nhau,
 %	để thay cho một cụm từ có nghĩa, thường được lặp nhiều lần trong đồ án.
 \printglossary[title=Danh sách từ viết tắt, toctitle=Danh sách viết tắt]
+
 \addcontentsline{toc}{chapter}{Danh sách các cụm từ viết tắt}
 
 \section*{Từ khóa tìm kiếm}
@@ -222,14 +262,14 @@ Em xin chân hành cảm ơn!
 \setcounter{page}{1}
 %
 \section*{Mở đầu}
-
 \addcontentsline{toc}{part}{Mở đầu}
+
 %
 \subsection*{Sứ mệnh}
 \addcontentsline{toc}{section}{Sứ mệnh}
 Việt Nam là một nước có truyền thống nông nghiệp. Với điều kiện tài nguyên thiên nhiên thuận lợi, nguồn nhân lực dồi dào. Nông nghiệp đóng vai trò quan trọng trong sự phát triển kinh tế nước nhà.
 
-Từ kỷ Hồng Bàng, trăm tộc Việt đã hợp sức tương trợ nhau. Nay, thời kì trăm hoa đua nở của nông nghiệp \& công nghệ. OCOPEE muốn tham gia vào xây dựng nền nông nghiệp Việt Nam. Với vai trò như một bộ phận thúc đẩy giao thương mua bán.
+Từ kỷ Hồng Bàng, trăm tộc Việt đã hợp sức tương trợ nhau. Nay, thời kì trăm hoa đua nở của nông nghiệp \& công nghệ. \gls{ocopee}\footnote{viết tắt của tên đề tài}  muốn tham gia vào xây dựng nền nông nghiệp Việt Nam. Với vai trò như một bộ phận thúc đẩy giao thương mua bán.
 
 %\pagebreak
 %
@@ -253,64 +293,131 @@ Giải quyết các vấn đề nêu trên có thể xem như việc tạo tự 
 %
 %\subsection*{Giải pháp}
 %\addcontentsline{toc}{section}{Giải pháp}	
-%\gls{ocopee} cung cấp công cụ tạo trang thông tin sản phẩm riêng cho từng nhà sản xuất. Và cũng có thể chia sẽ dữ liệu sản phẩm cho các chương trình hội chợ, các cửa hàng. Các đơn vị phân phối và triễn lãm có thể tích hợp trực tiếp vào hệ thống của họ.
-%Ngoài ra, các sàn thương mại điện tử do OCOPEE tạo ra có khả năng tích hợp một số tính năng để tổ chức hội chợ trực tuyến.
-\subsection*{Giải pháp}
-%\gls{ocopee} xác định đối tượng trực tiếp phục vụ là khách mua hàng nông sản.
-%- Khách hàng là người ủng hộ sử dụng nông sản chất lượng.
-%- Khách mua hàng tin tưởng chất lượng sản phẩm đăng tải trên hội chợ trực tuyến.
-%- Khách hàng dành thời gian cho các sự kiện hội chợ.
-%- Khách hàng cảm thấy tiện lợi trong quy trình mua hàng.
-%- Khách hàng được tư vấn thông tin đầy đủ về giá trị sử dụng của sản phẩm.
-%- Khách hàng dễ dàng tìm kiếm sản phẩm phù hợp với nhu cầu.
-%Nhà bán hàng là người trả tiền cho hệ thống. Thông qua việc phục vụ người mua nông sản. Hệ thống gián tiếp đem lại giá
-%trị cho nhà bán hàng.
-%- Không gian mở rộng.
-%- Thời gian linh hoạt.
-%- Khách hàng tiềm năng.
-%- Phù hợp với quy mô.
-%bảng \ref{table:1},hình \ref{fig:state}\acrlong{mvc}
 
+\subsection*{Giải pháp}
+
+\gls{ocopee} cung cấp công cụ tạo trang thông tin sản phẩm riêng cho từng nhà sản xuất. Và cũng có thể chia sẽ dữ liệu sản phẩm cho các các cửa hàng. Các đơn vị phân phối và triễn lãm có thể tích hợp trực tiếp dữ liệu gốc vào hệ thống của họ. Chủ động được phương pháp truyền thông mà không phụ thuộc vào sàn thương mại điện tử bên khác.
+
+\gls{ocopee} xác định đối tượng trực tiếp phục vụ là khách mua hàng. Các tính năng nhắm đến hoặc ưu tiên phát triển đều lấy người dùng làm gốc.
+
+\begin{itemize}
+\item Khách hàng là người ủng hộ sử dụng nông sản chất lượng.
+\item Khách mua hàng tin tưởng chất lượng sản phẩm đăng tải trên hội chợ trực tuyến.
+\item Khách hàng cảm thấy tiện lợi trong quy trình mua hàng.
+\item Khách hàng được tư vấn thông tin đầy đủ về giá trị sử dụng của sản phẩm.
+\item Khách hàng dễ dàng tìm kiếm sản phẩm phù hợp với nhu cầu.
+\end{itemize}
+Nhà bán hàng là người trả tiền cho hệ thống. Thông qua việc phục vụ người mua nông sản. Hệ thống gián tiếp đem lại giá
+trị cho nhà bán hàng.
+\begin{itemize}
+\item Không gian mở rộng.
+\item Thời gian linh hoạt.
+\item Khách hàng tiềm năng.
+\item Phù hợp với quy mô.
+bảng
+\end{itemize}
+
+Định hướng tạo nên đột phá cho dự án sẽ được phát triển khi dữ liệu khách hàng và số lượng các nhà sản xuất đủ lớn. Khi đó vấn đề gần nhất cần giải quyết là hệ thống gợi ý giá bán và thu thập thông tin phản hồi từ khách hàng để cải thiện quá trình sản xuất.
 
 \include{theoretical}
-\chapter{Đặc tả, phân tích và thiết kế}
 
-\section*{Mục đích}
+\chapter{Phân tích thiết kế}
+\section{Mục tiêu}\label{section:resource}
+Đặc tả các yêu cầu nghiệp vụ của hệ thống, giúp quá trình phân tích thiết kế trở nên rõ ràng hơn. Nếu được tiếp tục phát triển bởi một đội nhóm. Thì tài liệu đặc tả là một phần không thể thiếu giúp lập trình viên lưu trữ nghiệp vụ, cấu trúc dự án cũ và lên kế hoạch phát triển tính năng cho tối ưu.
 
-\section*{Tài nguyên của hệ thống}
-\blindtext
+Xác định tài nguyên, nguyên liệu, nguồn lực của dự án (Xem mục \ref{section:resource}). Xác định các yêu cầu đầu cuối. Đặc tả để tìm kiếm phương pháp (Xem mục \ref{section:srs}). Từ tài nguyên nguồn lực và yêu cầu đặc tả. Ta có thể lên kế hoạch triển khai xây dựng phù hợp (Xem phân tích \ref{section:readme} và thiết kế \ref{section:design} ).
 
-\section{Đặc tả}
+
+Nội dung của phần phân tích \ref{section:readme} đã nêu rõ các vai trò và phân quyền của các loại người dùng trong hệ thống.
+
+Chúng ta cần xác định rõ đối tượng cần phục vụ và đối tượng là khách hàng của hệ thống. Thông qua đối tượng cần phục vụ là người mua hàng như đã nêu ở mục tiêu. Cần có kế hoạch mở rộng đối tượng và cải tiến chất lượng hệ thống công nghệ. Dữ liệu người mua hàng, niềm tin của người mua hàng trên hệ thống được coi là nguồn lực tài nguyên. Hệ thống công nghệ là công vụ chuyển hóa tài nguyên đó thành giá trị doanh nghiệp. Tức là khả năng tạo đầu ra cho doanh nghiệp đối tác.
+
+Các nhà sản xuất được coi là khách hàng của giá trị mà hệ thống công nghệ tạo ra. Họ không phải là khách mua hàng trên hệ thống. Họ đang mua chỗ đứng trên hệ thống để bán hàng của chính họ. Như vậy, cần xác định kế hoạch chăm sóc và tiếp cận các nhà sản xuất phù hợp.
+
 \include{analysic/srs}
-
-\section{Phân tích}
 \include{analysic/readme}
 
-\section{Thiết kế}
-
-\subsection{Biểu đồ ca sử dụng}
+\section{Phân tích hoạt động}\label{section:readme}
+Phân tích hoạt động bao gồm các sơ đồ mô tả hành vi, kiến trúc dựa theo ngôn ngữ đặc tả. Các sơ đồ sử dụng ngôn ngữ đặc tả \acrshort{uml} 2.5. Các mô tả thiết kế cụ thể hơn dành gần với công cụ triển khai nằm ở phần mô tả chi tiết. Công cụ sử dụng để vẽ sơ đồ là diagrams.net.
 \include{analysic/usecase}
+\include{analysic/activity}
+\include{analysic/state}
+\include{analysic/sequence}
+\section{Thiết kế cấu trúc}\label{section:design}
 
 \subsection{Sơ đồ lớp}
+% https://www.uml-diagrams.org/class-diagrams-overview.html
 \include{analysic/class}
 
-\subsection{Mô tả dữ liệu}
-\include{analysic/schemas}
-
-
-\subsection{Sơ đồ hoạt động}
-\include{analysic/activity}
-
-\subsection{Sơ đồ trang}
+\subsection{Sơ đồ đóng gói}
+% https://www.uml-diagrams.org/package-diagrams-overview.html
 \include{analysic/sitemap}
 
-\subsection{Kiến trúc máy chủ}
-\include{analysic/be-architecture}
+\subsection{Sơ đồ khối thành phần}
+% https://www.uml-diagrams.org/package-diagrams-overview.html
+\include{analysic/sitemap}
 
-\subsection{DevOps}
+\subsection{Sơ đồ phát hành}
+% https://www.uml-diagrams.org/deployment-diagrams-overview.html
 \include{analysic/devops}
 
+
+
 \include{development}
+
+
+\section{Mô tả chi tiết}
+Mô tả chi tiết thuộc về tài liệu phát triển chứ, là kết quả khi phát triển theo phân tích thiết kế. Mô tả chi tiết giúp đội ngũ phát triển dễ dàng ghi lại và trao đổi các thông tin của dự án.
+\include{analysic/schemas}
+
+\include{analysic/api}
+
+
+\subsection{Quản lí mã nguồn}
+\subsubsection{ocopee}
+\subsubsection{gateway}
+\subsubsection{accounts}
+\subsubsection{docs}
+\subsubsection{sellers}
+\subsubsection{Cài đặt}
+\subsubsection{Khởi chạy}
+\paragraph{Backend}
+%	
+\begin{figure}[h!]
+	\caption{State diagram \cite{web:mongo:why}}
+	\centering
+	\includegraphics[width=\textwidth]{state.png}
+	\label{fig:state}
+\end{figure}
+%
+\section{Kết quả đạt được}
+
+{\Huge fashion.ocopee.com}
+
+\subsection{Dự án đã phát hành thực tế}
+
+\subsubsection{Trạng thái ổn định}
+
+shopwheydanang.com
+mayberoom.vn
+b21shoemaker.store
+hypesneaker.vn
+yensaodatquang.vn
+
+\subsubsection{Chưa hoàn thiện, đang phát triển thêm}
+
+japan-apple.jp
+madeuniform.vn
+khoailangtradoa.com
+ocopee.com
+
+\subsection{Dự án đang thử nghiệm}
+fashion.ocopee.com
+
+\section{Những vấn đề hạn chế}
+
+\section{Hướng phát triển}
+
 
 \chapter*{Kết luận	}
 % size 14
