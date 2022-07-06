@@ -5,22 +5,22 @@
 
 \subsection{Cấu hình máy chủ}
 
-\paragraph{Máy chủ staging}
+\textbf{Máy chủ staging}
 Virtual CPUs: 1
 Memory (RAM): 2048 MB
 Disk: 15 GB
 
-\paragraph{Máy chủ production}
+\textbf{Máy chủ production}
 Virtual CPUs: 1
 Memory (RAM): 1536 MB
 Disk: 15 GB
 
-\paragraph{Máy chủ database}
+\textbf{Máy chủ database}
 Virtual CPUs: 1
 Memory (RAM): 1536 MB
 Disk: 15 GB
 
-\paragraph{Máy chủ proxy}
+\textbf{Máy chủ proxy}
 Virtual CPUs: 1
 Memory (RAM): 1536 MB
 Disk: 15 GB
@@ -28,7 +28,7 @@ Disk: 15 GB
 \subsection{Cài đặt tiến trình}
 
 
-\paragraph{Máy chủ staging}
+\textbf{Máy chủ staging}
 \begin{itemize}
 	\item Tiến trình accounts chạy ở chế độ staging kết nối với database test
 	\item Tiến trình sellers chạy ở chế độ staging kết nối với database test
@@ -36,7 +36,7 @@ Disk: 15 GB
 	\item Tiến trình gateway chạy ở chế độ staging cung cấp giao diện quản lí mà sanbox để kiểm tra API.
 \end{itemize}
 
-\paragraph{Máy chủ production}
+\textbf{Máy chủ production}
 \begin{itemize}
 	\item Tiến trình accounts chạy ở chế độ \emph{production} kết nối với database account
 	\item Tiến trình  chạy ở chế độ \emph{production} kết nối với database seller
@@ -44,7 +44,7 @@ Disk: 15 GB
 	\item Tiến trình gateway chạy ở chế độ \emph{production} cung cấp giao diện quản lí.
 \end{itemize}
 
-\paragraph{Máy chủ database}
+\textbf{Máy chủ database}
 Cấu hình mongodb và cung cấp các database cho các môi trường phát hành.
 \begin{itemize}
 	\item account
@@ -52,7 +52,7 @@ Cấu hình mongodb và cung cấp các database cho các môi trường phát h
 	\item blogger
 	\item test (cho môi trường staging)
 \end{itemize}
-\paragraph{Máy chủ proxy}
+\textbf{Máy chủ proxy}
 Cấu hình liên kết tên miền với cổng tiến trình của các máy chủ trong hệ thống. Đăng ký chứng thực SSL. Sử dụng các thuật toán cân bằng tải có sẵn để điều phối request.
 
 \begin{figure}[h!]

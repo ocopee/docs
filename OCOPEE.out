@@ -3,53 +3,51 @@
 \BOOKMARK [0][-]{chapter*.4}{LI N\323I \320U}{}% 3
 \BOOKMARK [0][-]{chapter*.4}{CAM \320OAN}{}% 4
 \BOOKMARK [0][-]{chapter*.6}{MUC LUC}{}% 5
-\BOOKMARK [0][-]{chapter*.6}{DANH S\301CH BANG V\300 H\314NH VE}{}% 6
+\BOOKMARK [0][-]{chapter*.8}{DANH S\301CH BANG V\300 H\314NH VE}{}% 6
 \BOOKMARK [0][-]{section*.9}{DANH S\301CH T VIT TT}{}% 7
-\BOOKMARK [0][-]{chapter*.10}{DANH S\301CH T VIT TT}{}% 8
-\BOOKMARK [-1][-]{chapter*.10}{M \320U}{}% 9
-\BOOKMARK [0][-]{section*.11}{Vn }{chapter*.10}% 10
-\BOOKMARK [0][-]{chapter.1}{C S L\335 THUYT}{chapter*.10}% 11
-\BOOKMARK [1][-]{section.1.1}{M\364i trng}{chapter.1}% 12
-\BOOKMARK [2][-]{subsection.1.1.1}{Tr\354nh duyt web:browser:what}{section.1.1}% 13
-\BOOKMARK [2][-]{subsection.1.1.2}{M\341y chu}{section.1.1}% 14
-\BOOKMARK [1][-]{section.1.2}{C\364ng cu}{chapter.1}% 15
-\BOOKMARK [2][-]{subsection.1.2.1}{Node.js}{section.1.2}% 16
-\BOOKMARK [2][-]{subsection.1.2.2}{Next.js}{section.1.2}% 17
-\BOOKMARK [2][-]{subsection.1.2.3}{GraphQL}{section.1.2}% 18
-\BOOKMARK [2][-]{subsection.1.2.4}{Apollo Server}{section.1.2}% 19
-\BOOKMARK [2][-]{subsection.1.2.5}{MongoDB}{section.1.2}% 20
-\BOOKMARK [1][-]{section.1.3}{Dich vu}{chapter.1}% 21
-\BOOKMARK [2][-]{subsection.1.3.1}{Dich vu lu tr}{section.1.3}% 22
-\BOOKMARK [2][-]{subsection.1.3.2}{Dich vu ia chi}{section.1.3}% 23
-\BOOKMARK [2][-]{subsection.1.3.3}{Dich vu th in t}{section.1.3}% 24
-\BOOKMARK [2][-]{subsection.1.3.4}{Dich vu t\352n min}{section.1.3}% 25
-\BOOKMARK [2][-]{subsection.1.3.5}{Dich vu m\341y chu ao}{section.1.3}% 26
-\BOOKMARK [0][-]{chapter.2}{PH\302N T\315CH THIT K}{chapter*.10}% 27
-\BOOKMARK [1][-]{section.2.1}{\320c ta}{chapter.2}% 28
-\BOOKMARK [2][-]{subsection.2.1.1}{Y\352u cu t\355nh nang}{section.2.1}% 29
-\BOOKMARK [2][-]{subsection.2.1.2}{Y\352u cu giao din}{section.2.1}% 30
-\BOOKMARK [2][-]{subsection.2.1.3}{Y\352u cu hi\352u sut}{section.2.1}% 31
-\BOOKMARK [2][-]{subsection.2.1.4}{Y\352u cu thit k}{section.2.1}% 32
-\BOOKMARK [2][-]{subsection.2.1.5}{Y\352u cu phi t\355nh nang}{section.2.1}% 33
-\BOOKMARK [2][-]{subsection.2.1.6}{Vai tr\362}{section.2.1}% 34
-\BOOKMARK [2][-]{subsection.2.1.7}{Hoat ng}{section.2.1}% 35
-\BOOKMARK [2][-]{subsection.2.1.8}{Ph\342n quyn}{section.2.1}% 36
-\BOOKMARK [1][-]{section.2.2}{Ph\342n t\355ch, thit k}{chapter.2}% 37
-\BOOKMARK [2][-]{subsection.2.2.1}{S \040ca s dung}{section.2.2}% 38
-\BOOKMARK [2][-]{subsection.2.2.2}{S \040hoat ng}{section.2.2}% 39
-\BOOKMARK [2][-]{subsection.2.2.3}{S \040tun t}{section.2.2}% 40
-\BOOKMARK [2][-]{subsection.2.2.4}{S \040th\340nh phn}{section.2.2}% 41
-\BOOKMARK [2][-]{subsection.2.2.5}{S \040ph\341t h\340nh}{section.2.2}% 42
-\BOOKMARK [2][-]{subsection.2.2.6}{Thit k D liu}{section.2.2}% 43
-\BOOKMARK [0][-]{chapter.3}{TRIN KHAI V\300 \320\301NH GI\301}{chapter*.10}% 44
-\BOOKMARK [1][-]{section.3.1}{Trin khai}{chapter.3}% 45
-\BOOKMARK [2][-]{subsection.3.1.1}{Cu h\354nh m\341y chu}{section.3.1}% 46
-\BOOKMARK [2][-]{subsection.3.1.2}{C\340i t tin tr\354nh}{section.3.1}% 47
-\BOOKMARK [2][-]{subsection.3.1.3}{Kt qua}{section.3.1}% 48
-\BOOKMARK [1][-]{section.3.2}{\320\341nh gi\341}{chapter.3}% 49
-\BOOKMARK [2][-]{subsection.3.2.1}{Nhng vn \040han ch}{section.3.2}% 50
-\BOOKMARK [2][-]{subsection.3.2.2}{Hng ph\341t trin}{section.3.2}% 51
-\BOOKMARK [0][-]{chapter*.12}{Kt lun}{chapter*.10}% 52
-\BOOKMARK [0][-]{chapter*.13}{T\340i liu tham khao}{chapter*.10}% 53
-\BOOKMARK [0][-]{chapter*.14}{Phu luc}{chapter*.10}% 54
-\BOOKMARK [0][-]{chapter*.15}{Phu luc}{chapter*.10}% 55
+\BOOKMARK [-1][-]{chapter*.11}{M \320U}{}% 8
+\BOOKMARK [0][-]{chapter.1}{C S L\335 THUYT}{chapter*.11}% 9
+\BOOKMARK [1][-]{section.1.1}{M\364i trng}{chapter.1}% 10
+\BOOKMARK [2][-]{subsection.1.1.1}{Tr\354nh duyt web:browser:what}{section.1.1}% 11
+\BOOKMARK [2][-]{subsection.1.1.2}{M\341y chu}{section.1.1}% 12
+\BOOKMARK [1][-]{section.1.2}{C\364ng cu}{chapter.1}% 13
+\BOOKMARK [2][-]{subsection.1.2.1}{Node.js}{section.1.2}% 14
+\BOOKMARK [2][-]{subsection.1.2.2}{Next.js}{section.1.2}% 15
+\BOOKMARK [2][-]{subsection.1.2.3}{GraphQL}{section.1.2}% 16
+\BOOKMARK [2][-]{subsection.1.2.4}{Apollo Server}{section.1.2}% 17
+\BOOKMARK [2][-]{subsection.1.2.5}{MongoDB}{section.1.2}% 18
+\BOOKMARK [1][-]{section.1.3}{Dich vu}{chapter.1}% 19
+\BOOKMARK [2][-]{subsection.1.3.1}{Dich vu lu tr}{section.1.3}% 20
+\BOOKMARK [2][-]{subsection.1.3.2}{Dich vu ia chi}{section.1.3}% 21
+\BOOKMARK [2][-]{subsection.1.3.3}{Dich vu th in t}{section.1.3}% 22
+\BOOKMARK [2][-]{subsection.1.3.4}{Dich vu t\352n min}{section.1.3}% 23
+\BOOKMARK [2][-]{subsection.1.3.5}{Dich vu m\341y chu ao}{section.1.3}% 24
+\BOOKMARK [0][-]{chapter.2}{PH N T\315CH THIT K}{chapter*.11}% 25
+\BOOKMARK [1][-]{section.2.1}{\320c ta}{chapter.2}% 26
+\BOOKMARK [2][-]{subsection.2.1.1}{Y\352u cu t\355nh nang}{section.2.1}% 27
+\BOOKMARK [2][-]{subsection.2.1.2}{Y\352u cu giao din}{section.2.1}% 28
+\BOOKMARK [2][-]{subsection.2.1.3}{Y\352u cu hiu sut}{section.2.1}% 29
+\BOOKMARK [2][-]{subsection.2.1.4}{Y\352u cu thit k}{section.2.1}% 30
+\BOOKMARK [2][-]{subsection.2.1.5}{Y\352u cu phi t\355nh nang}{section.2.1}% 31
+\BOOKMARK [2][-]{subsection.2.1.6}{Vai tr\362}{section.2.1}% 32
+\BOOKMARK [2][-]{subsection.2.1.7}{Hoat ng}{section.2.1}% 33
+\BOOKMARK [2][-]{subsection.2.1.8}{Ph\342n quyn}{section.2.1}% 34
+\BOOKMARK [1][-]{section.2.2}{Ph\342n t\355ch, thit k}{chapter.2}% 35
+\BOOKMARK [2][-]{subsection.2.2.1}{S \040ca s dung}{section.2.2}% 36
+\BOOKMARK [2][-]{subsection.2.2.2}{S \040hoat ng}{section.2.2}% 37
+\BOOKMARK [2][-]{subsection.2.2.3}{S \040tun t}{section.2.2}% 38
+\BOOKMARK [2][-]{subsection.2.2.4}{S \040th\340nh phn}{section.2.2}% 39
+\BOOKMARK [2][-]{subsection.2.2.5}{S \040ph\341t h\340nh}{section.2.2}% 40
+\BOOKMARK [2][-]{subsection.2.2.6}{Thit k D liu}{section.2.2}% 41
+\BOOKMARK [0][-]{chapter.3}{TRIN KHAI V\300 \320\301NH GI\301}{chapter*.11}% 42
+\BOOKMARK [1][-]{section.3.1}{Trin khai}{chapter.3}% 43
+\BOOKMARK [2][-]{subsection.3.1.1}{Cu h\354nh m\341y chu}{section.3.1}% 44
+\BOOKMARK [2][-]{subsection.3.1.2}{C\340i t tin tr\354nh}{section.3.1}% 45
+\BOOKMARK [2][-]{subsection.3.1.3}{Kt qua}{section.3.1}% 46
+\BOOKMARK [1][-]{section.3.2}{\320\341nh gi\341}{chapter.3}% 47
+\BOOKMARK [2][-]{subsection.3.2.1}{Nhng vn \040han ch}{section.3.2}% 48
+\BOOKMARK [2][-]{subsection.3.2.2}{Hng ph\341t trin}{section.3.2}% 49
+\BOOKMARK [0][-]{chapter*.12}{Kt lun}{chapter*.11}% 50
+\BOOKMARK [0][-]{chapter*.13}{T\340i liu tham khao}{chapter*.11}% 51
+\BOOKMARK [0][-]{chapter*.14}{Phu luc}{chapter*.11}% 52
+\BOOKMARK [0][-]{chapter*.15}{Phu luc}{chapter*.11}% 53

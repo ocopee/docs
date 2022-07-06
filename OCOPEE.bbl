@@ -1,42 +1,9 @@
-\begin{thebibliography}{Monne}
-
-\bibitem[Amaa]{web:rest}
-Amazon.
-\newblock Api restful là gì?
-
-\bibitem[Amab]{web:nosql}
-Amazon.
-\newblock Nosql là gì?
-
-\bibitem[Fak]{web:uml}
-Kirill Fakhroutdinov.
-\newblock The unified modeling language.
-
-\bibitem[Han22]{book:oop}
-TS. Le Thi~My Hanh.
-\newblock {\em Giáo trình môn lập trình hướng đối tượng}.
-\newblock 09/2022, tham khảo ngày 30/06/2022.
-
-\bibitem[Monne]{web:mongo:why}
-MongoDB.
-\newblock Why use mongodb? what we offer and when to use it, 2007, Accessed
-  June 20, 2022) for mongo's define.
+\begin{thebibliography}{moz22}
 
 \bibitem[moz22]{web:browser:what}
 mozilla.
-\newblock Trình duyệt web là gì?, truy cập ngày 30/06/2022.
-
-\bibitem[ngi]{web:server:what}
-nginx.
-\newblock What is a web server?
-
-\bibitem[Rea22]{web:react}
-React.js.
-\newblock React thư viện javascript xây dựng giao diện người dùng,
-  2021, truy cập ngày June 20, 2022.
-
-\bibitem[Wik]{web:dns}
-Wikipedia.
-\newblock Domain name system.
+\newblock Trình duyệt web là gì?
+\newblock https://www.mozilla.org/vi/firefox/browsers/what-is-a-browser/, truy
+  cập ngày 30/06/2022.
 
 \end{thebibliography}
