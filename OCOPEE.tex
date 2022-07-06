@@ -123,57 +123,74 @@
 
 \newcommand{\sectionbreak}{\clearpage}
 
+% ==== Tùy chỉnh tiêu đề
+% >>> {font: TimeNew Roman, bolt, size: 14, căn lề: center}
+\usepackage{titlesec}
+
+
+\titleformat{name=\chapter} % command
+[hang] % shape
+	{
+		\fontsize{14px}{18.2px}\centering\bfseries
+	} % format
+	{\centering} % label
+	{4pt} % sep
+	{}
+	
+\titlespacing*{\chapter}{0pt}{0pt}{14px}
+
+\titleformat{name=\chapter, numberless} % command
+[hang] % shape
+{
+	\fontsize{14px}{18.2px}\centering\bfseries
+} % format
+{\centering} % label
+{4pt} % sep
+{}
+
+\titlespacing*{\chapter}{0pt}{0pt}{14px}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 \pagenumbering{gobble}
 % Trang trắng này dùng để dán bản Nhận xét của người hướng dẫn, hoặc thay trang này bằng Nhận xét của người hướng dẫn
-\chapter*{Nhận xét của người hướng dẫn}
+\chapter*{NHẬN XÉT CỦA NGƯỜI HƯỚNG DẪN}
 \pagebreak
 
 %  Trang trắng này dùng để dán bản Nhận xét của người phản biện, hoặc thay trang này bằng Nhận xét của người phản biện
-\chapter*{Nhận xét của người phản biện}
+\chapter*{NHẬN XÉT CỦA NGƯỜI PHẢN BIỆN}
 \pagebreak
 
 
 
-\chapter*{Tóm tắt}
-\addcontentsline{toc}{chapter}{Tóm tắt}
-\raggedright
-\makeatletter
 % >>> {font: TimeNew Roman, bolt, size: 14, căn lề: center}
 % >>> {Để 01 dòng trống}
+\chapter*{TÓM TẮT}
+\addcontentsline{toc}{chapter}{TÓM TẮT}
 
+\raggedright
+\makeatletter
 
+Tên đề tài: \@title\\
+Sinh viên thực hiện: ...\@author \dotfill\\
+Số thẻ sinh viên: ........ \msv \dotfill\\
+Lớp sinh hoạt: ............ \myclass \dotfill\\
 % >>> {Nội dung tóm tắt trình bày tối đa trong 1 trang} {Font: Time New Roman; thường; cỡ chữ: 13; dãn dòng: 1,3; căn lề: justified}
-
-
-Tên đề tài: \@title
-
-Sinh viên thực hiện: ...\@author \dotfill
-
-Số thẻ sinh viên: ........ \msv \dotfill
-
-Lớp sinh hoạt: ............ \myclass \dotfill
-
-
-\vspace{0.5cm}
+\vspace{14px}
 \justifying
-
-Trong thời kì cả nước thúc đẩy khởi nghiệp. Các mô hình, sản phẩm nông nghiệp, thủ công, truyền thống liên tục ra đời và cải tiến nâng cao chất lượng và quy mô sản xuất.
-
-Quá trình trên giúp cho sản phẩm ngày một đa dạng. Tính truyền thống, đặc trưng vùng miền có cơ hội phát triển.
+\fontsize{13px}{17px}\selectfont
+Trong thời kì cả nước thúc đẩy khởi nghiệp. Các mô hình, sản phẩm nông nghiệp, thủ công, truyền thống liên tục ra đời và cải tiến nâng cao chất lượng và quy mô sản xuất. Quá trình trên giúp cho sản phẩm ngày một đa dạng. Tính truyền thống, đặc trưng vùng miền có cơ hội phát triển.
 
 \gls{ocopee}\footnote{Viết tắt của tên đề tài} phát triển giải pháp giúp cho những đơn vị chủ thể tạo kênh thông tin với chi phí thấp. Các cửa hàng phân phối những sản phẩm trên có sàn thương mại riêng để chủ động truyền thông theo cách riêng của họ. Việc xây dựng hệ thống trên, đồng thời cũng phát triển được sự liên kết thông tin giữa các đơn vị với nhau. Tránh sự lãng phí về nhân lực trong quá trình đồng bộ dữ liệu.
-
-\gls{ocopee} định hướng phát triển các tính tối thiểu để một sàn thương mại điện tử có thể hoạt động. Bởi vì khối lượng công việc và nghiệp vụ khá nhiều. Nên mỗi tính năng thêm vào cần được suy xét thêm các yếu tố mang tính doanh nghiệp như tiến độ và ngân sách.
 
 Định hướng tạo nên đột phá cho dự án sẽ được phát triển khi dữ liệu khách hàng và số lượng các nhà sản xuất đủ lớn. Khi đó vấn đề gần nhất cần giải quyết là hệ thống gợi ý giá bán và thu thập thông tin phản hồi từ khách hàng để cải thiện quá trình sản xuất.
 
 \pagebreak
 
 
-\addcontentsline{toc}{chapter}{Nhiệm vụ đồ án}
+\addcontentsline{toc}{chapter}{NHIỆM VỤ ĐỒ ÁN }
 \include{mission}
 
 % Đánh số trang la mã
@@ -181,41 +198,46 @@ Quá trình trên giúp cho sản phẩm ngày một đa dạng. Tính truyền 
 \setcounter{page}{1}
 
 % Lời nói đầu
-\chapter*{Lời nói đầu}
-\addcontentsline{toc}{chapter}{Lời nói đầu}
+\chapter*{LỜI NÓI ĐẦU}
+\addcontentsline{toc}{chapter}{LỜI NÓI ĐẦU}
 % >>> {Font: Time New Roman; thường; cỡ chữ: 13; dãn dòng: 1,3; căn lề: justified}
 \justifying
+\fontsize{13px}{17px}\selectfont
+
+
 Ngành công nghệ phần mềm nghiên cứu về các kỹ thuật, phương pháp, hạ tầng của phần mềm máy tính. Người phát triển phần mềm không đơn giản là chỉ cần biết đến ngôn ngữ lập trình là có thể phát triển được hết. Sau thời gian học tập và nghiên cứu tại trường Đại Học Bách Khoa Đà Nẵng. Cùng với sự thực hành miệt mài và những kinh nghiệm, tư duy, định hướng ngoài giờ lên lớp từ các thầy cô. Em nhận thấy mình tiến bộ toàn diện, không chỉ các kiến thức chuyên ngành. Các phương pháp nghiên cứu, tinh thần học tập, tư duy giải quyết vấn đề,... cũng ngày một hoàn thiện.
 
-Các bạn tân sinh viên có thể thắc mắc rằng vai trò của trường Đại học là gì trong thời kì kiến thức mở. Nếu các bạn thấy được mục tiêu và định hướng của mỗi người là khác nhau khi họ tiếp xúc với những cộng đồng khác nhau. Thì các bạn sẽ nhận ra rằng: bạn bè, thầy cô, giáo trình, cơ sở vật chất tốt không cải thiện năng lực của bạn. Đó là môi trường phát triển. Đơn giản nếu xem năng lực của cá nhân là sản phẩm của tư duy, thì môi trường là \emph{"nguyên liệu"} của sản phẩm đó. Nó cần quá trình chế tác bởi chính năng lực tư duy của bạn. Hiểu được như vậy sẽ không còn nhập nhằng giữa các quan điểm \emph{"Giỏi thì ở đâu cũng giỏi"} hay \emph{"Không thầy đố mày làm nên"}.
+% Các bạn tân sinh viên có thể thắc mắc rằng vai trò của trường Đại học là gì trong thời kì kiến thức mở. Nếu các bạn thấy được mục tiêu và định hướng của mỗi người là khác nhau khi họ tiếp xúc với những cộng đồng khác nhau. Thì các bạn sẽ nhận ra rằng: bạn bè, thầy cô, giáo trình, cơ sở vật chất tốt không cải thiện năng lực của bạn. Đó là môi trường phát triển. Đơn giản nếu xem năng lực của cá nhân là sản phẩm của tư duy, thì môi trường là \emph{"nguyên liệu"} của sản phẩm đó. Nó cần quá trình chế tác bởi chính năng lực tư duy của bạn. Hiểu được như vậy sẽ không còn nhập nhằng giữa các quan điểm \emph{"Giỏi thì ở đâu cũng giỏi"} hay \emph{"Không thầy đố mày làm nên"}.
 
 Đề tài này là kết quả của quá trình học tập tại trường Đại Học Bách Khoa Đà Nẵng. Không chỉ dừng lại ở mức độ là một luận án tốt nghiệp. Những hạn chế tồn đọng sẽ được tiếp tục hoàn thiện khi năng lực và điều kiện phát triển. Đồ án sẽ tiếp tục triển khai và hướng đến công năng thực tế cho các chủ thể doanh nghiệp. Hộ kinh doanh.
 
-Cuối cùng em xin cảm ơn thầy cô và bạn bè đã đồng hành cùng em trong suốt năm tháng vừa qua. Cảm ơn cô Lê Thị Mỹ Hạnh đã hướng dẫn em hoàn thành dự án, luận văn tốt nghiệp.
-
-Em xin chân hành cảm ơn!
+Cuối cùng em xin cảm ơn thầy cô và bạn bè đã đồng hành cùng em trong suốt năm tháng vừa qua. Cảm ơn cô Lê Thị Mỹ Hạnh đã hướng dẫn em hoàn thành dự án, luận văn tốt nghiệp. Em xin chân hành cảm ơn!
 
 \pagebreak
 
 % Cam đoan
-\addcontentsline{toc}{chapter}{Cam đoan}
+\addcontentsline{toc}{chapter}{CAM ĐOAN}
 \include{commit}
 
 
 
 
 % Mục lục
-%{Để 2 dòng trống tại đây} {Font: Time New Roman; thường; cỡ chữ: 13; dãn dòng: 1,3; căn lề: justified} {In trên 2 mặt giấy từ trang này đến hết phần “PHỤ LỤC”}
+%{Để 2 dòng trống tại đây} {Font: Time New Roman; thường; cỡ chữ: 13; dãn dòng: 1,3; căn lề: justified} {In trên 2 mặt giấy từ trang này đến hết phần “PHỤ LỤC”}\\
+\fontsize{13px}{17px}\selectfont
+\renewcommand*\contentsname{MỤC LỤC}
 \tableofcontents	
-\addcontentsline{toc}{chapter}{Mục lục}
+\addcontentsline{toc}{chapter}{MỤC LỤC}
 
 % Danh sách bảng & hình ảnh
 %	Ghi chú:
 %	- Mỗi bảng, hình vẽ/ sơ đồ phải được đánh số và có tên;
 %	- Đánh số bảng và đánh số hình vẽ/ sơ đồ riêng. Quy luật đánh số như sau: Chữ số thứ nhất chỉ tên chương; Chữ số thứ hai chỉ thứ tự bảng biểu, sơ đồ, hình,...trong mỗi chương.
+\addcontentsline{toc}{chapter}{DANH SÁCH BẢNG VÀ HÌNH VẼ}
+\renewcommand{\listfigurename}{DANH SÁCH HÌNH VẼ}
+\renewcommand{\listtablename}{DANH SÁCH BẢNG}
 \listoftables
-\addcontentsline{toc}{chapter}{Danh sách các bảng, hình vẽ}
-%\listoffigures
+\listoffigures
 
 
 % Viết tắt 
@@ -223,14 +245,9 @@ Em xin chân hành cảm ơn!
 %	- Ký hiệu: mỗi mục ký hiệu gồm ký hiệu và phần tên gọi, diễn giải ký hiệu.
 %	- Cụm từ viết viết tắt là các chữ cái và các ký hiệu thay chữ được viết liền nhau,
 %	để thay cho một cụm từ có nghĩa, thường được lặp nhiều lần trong đồ án.
-\printglossary[title=Danh sách từ viết tắt, toctitle=Danh sách viết tắt]
+\printglossary[title=DANH SÁCH TỪ VIẾT TẮT, toctitle=DANH SÁCH TỪ VIẾT TẮT]
 
-\addcontentsline{toc}{chapter}{Danh sách các cụm từ viết tắt}
-
-\section*{Từ khóa tìm kiếm}
-\paragraph{latex} official letterhead, table, list, font, cover letter
-\paragraph{server} database, dbms, microservice, monolithic, simple store, vps provider, domain provider, dns, ip, ci/cd, stateless, stateful, token, SHA, RSA, SSL, reverse proxy, load balance, design pattern, auto scale, network applications, thread, asynchronous, api, http
-\paragraph{client} client side, ssr, csr, html, dom, stype sheet, react ui framework, react api state, react api client
+\addcontentsline{toc}{chapter}{DANH SÁCH TỪ VIẾT TẮT}
 
 
 % ===== Nội dung đồ án =====
@@ -240,7 +257,7 @@ Em xin chân hành cảm ơn!
 \pagestyle{fancy}
 \fancyhf{}
 % >>> Mục Header: Tên đề tài (định dạng: font Time New Roman, Italic, size 10, căn lề: giữa);
-\fancyhead[CE,CO]{\emph{{\normalsize {\@title}}}}
+\fancyhead[CE,CO]{\fontsize{10px}{13px}\selectfont\emph{{\@title}}}
 
 
 % >>> Mục Footer: Sinh viên thực hiện, giảng viên hướng dẫn, đánh số trang (định dạng: font Time New Roman, size 10);
@@ -250,6 +267,7 @@ Em xin chân hành cảm ơn!
 }
 \fancyfoot[LE,RO]{\thepage}
 
+% đường kẻ
 \renewcommand{\headrulewidth}{0.3pt}
 \renewcommand{\footrulewidth}{0.3pt}
 
@@ -261,18 +279,8 @@ Em xin chân hành cảm ơn!
 \pagenumbering{arabic}
 \setcounter{page}{1}
 %
-\section*{Mở đầu}
-\addcontentsline{toc}{part}{Mở đầu}
-
-%
-\subsection*{Sứ mệnh}
-\addcontentsline{toc}{section}{Sứ mệnh}
-Việt Nam là một nước có truyền thống nông nghiệp. Với điều kiện tài nguyên thiên nhiên thuận lợi, nguồn nhân lực dồi dào. Nông nghiệp đóng vai trò quan trọng trong sự phát triển kinh tế nước nhà.
-
-Từ kỷ Hồng Bàng, trăm tộc Việt đã hợp sức tương trợ nhau. Nay, thời kì trăm hoa đua nở của nông nghiệp \& công nghệ. \gls{ocopee}\footnote{viết tắt của tên đề tài}  muốn tham gia vào xây dựng nền nông nghiệp Việt Nam. Với vai trò như một bộ phận thúc đẩy giao thương mua bán.
-
-%\pagebreak
-%
+\section*{\centering{MỞ ĐẦU}}
+\addcontentsline{toc}{part}{MỞ ĐẦU}
 \subsection*{Vấn đề}
 \addcontentsline{toc}{section}{Vấn đề}
 Tìm kiếm đầu ra cho sản phẩm là vấn đề hết sức quan trọng đối với đơn vị sản xuất. Một trong những kênh bán hàng hiệu quả có thể kể đến đó là chương trình triển lãm hội chợ, phân phối tại các cửa hàng.
@@ -317,121 +325,85 @@ trị cho nhà bán hàng.
 bảng
 \end{itemize}
 
-Định hướng tạo nên đột phá cho dự án sẽ được phát triển khi dữ liệu khách hàng và số lượng các nhà sản xuất đủ lớn. Khi đó vấn đề gần nhất cần giải quyết là hệ thống gợi ý giá bán và thu thập thông tin phản hồi từ khách hàng để cải thiện quá trình sản xuất.
-
 \include{theoretical}
 
-\chapter{Phân tích thiết kế}
-\section{Mục tiêu}\label{section:resource}
-Đặc tả các yêu cầu nghiệp vụ của hệ thống, giúp quá trình phân tích thiết kế trở nên rõ ràng hơn. Nếu được tiếp tục phát triển bởi một đội nhóm. Thì tài liệu đặc tả là một phần không thể thiếu giúp lập trình viên lưu trữ nghiệp vụ, cấu trúc dự án cũ và lên kế hoạch phát triển tính năng cho tối ưu.
+\chapter{PHÂN TÍCH THIẾT KẾ}
 
-Xác định tài nguyên, nguyên liệu, nguồn lực của dự án (Xem mục \ref{section:resource}). Xác định các yêu cầu đầu cuối. Đặc tả để tìm kiếm phương pháp (Xem mục \ref{section:srs}). Từ tài nguyên nguồn lực và yêu cầu đặc tả. Ta có thể lên kế hoạch triển khai xây dựng phù hợp (Xem phân tích \ref{section:readme} và thiết kế \ref{section:design} ).
+Dự án giải quyết vấn đề tạo trang thương mại điện tử cho chính nhà cung cấp. Và liên kết sản phẩm để phân phối thông tin giữa các nhà bán hàng dùng chung hệ thống dự án này. Khi một người bắt đầu đăng kí hộ kinh doanh hoặc doanh nghiệp để sản xuất và cung cấp sản phẩm ra thị trường. Thì để thiết lập một trang bán hàng riêng, người đó chỉ cần thuê dịch vụ tên miền ở một nhà cung cấp bất kì. Đăng ký tài khoản và chờ duyệt trở thành nhà bán hàng. Sau khi được duyệt, nhà sản xuất có thể đăng tải thông tin và cung cấp quyền cài đặt tên miền đề liên kết trình bày dữ liệu của nhà sản xuất lên tại tên miền đó. Chi phí khởi tạo và duy trì là miễn phí. Khi doanh nghiệp thực sự cần và đã khai thác được nguồn lợi từ việc quảng bá trang thương mại điện tử. Hệ thống phần mềm có cơ chế mở rộng tài nguyên sử dụng cho nhà sản xuất.
 
+Tiếp đến khi một nhà sản xuất, hoặc một cửa hàng có tài khoản nhà bán hàng trên hệ thống. Họ có nhu cầu đăng tải sản phẩm của tối tác trên trang thông tin của mình để tiếp thị sản phẩm cho khách hàng truy cập trang được đa dạng hơn. Người đó cần tạo một lời mời ký gửi thông tin đến nhà sản xuất sản phẩm đó. Sau khi được duyệt, các sản phẩm của nhà sản xuất đã hiện thì và có thể đặt hàng ở trên trang của đối tác.
 
-Nội dung của phần phân tích \ref{section:readme} đã nêu rõ các vai trò và phân quyền của các loại người dùng trong hệ thống.
+Sau khi nhận được đơn đặt hàng, cùng với sản phẩm nằm ngoài doanh mục mà cửa hàng hoặc nhà sản xuất đó cung cấp. Người xử lí đơn có thể chuyển tiếp đơn đó cho đối tác xử lí như một hình thức dropshipping.
 
-Chúng ta cần xác định rõ đối tượng cần phục vụ và đối tượng là khách hàng của hệ thống. Thông qua đối tượng cần phục vụ là người mua hàng như đã nêu ở mục tiêu. Cần có kế hoạch mở rộng đối tượng và cải tiến chất lượng hệ thống công nghệ. Dữ liệu người mua hàng, niềm tin của người mua hàng trên hệ thống được coi là nguồn lực tài nguyên. Hệ thống công nghệ là công vụ chuyển hóa tài nguyên đó thành giá trị doanh nghiệp. Tức là khả năng tạo đầu ra cho doanh nghiệp đối tác.
-
-Các nhà sản xuất được coi là khách hàng của giá trị mà hệ thống công nghệ tạo ra. Họ không phải là khách mua hàng trên hệ thống. Họ đang mua chỗ đứng trên hệ thống để bán hàng của chính họ. Như vậy, cần xác định kế hoạch chăm sóc và tiếp cận các nhà sản xuất phù hợp.
-
+Khách hàng truy cập vào trang sẽ thấy thông tin như một trang thương mại điện tử thông thường, các trang thương mại điện tử này dùng chung dữ liệu nên một tài khoản có thể đăng nhập trên nhiều trang. Tạo ra sự đăng nhập liền mạch cải thiện trải nghiệm người dùng.
+\section{Đặc tả}
 \include{analysic/srs}
 \include{analysic/readme}
 
-\section{Phân tích hoạt động}\label{section:readme}
-Phân tích hoạt động bao gồm các sơ đồ mô tả hành vi, kiến trúc dựa theo ngôn ngữ đặc tả. Các sơ đồ sử dụng ngôn ngữ đặc tả \acrshort{uml} 2.5. Các mô tả thiết kế cụ thể hơn dành gần với công cụ triển khai nằm ở phần mô tả chi tiết. Công cụ sử dụng để vẽ sơ đồ là diagrams.net.
+\section{Phân tích, thiết kế}\label{section:readme}
+\begin{figure}[h!]
+	\begin{center}	
+		\includegraphics[width=\textwidth]{srs}
+		\caption{Thiết kế chung của hệ thống}
+	\end{center}
+\end{figure}
+Hệ thống thiết kế hướng dịch vụ chia làm 3 dịch vụ nhỏ là: sellers, accounts và bloggers. Tại máy chủ gateway có nhiệm vụ phân tích truy vấn đồ thị thành nhiều đồ thị con và gửi đến các dịch vụ sử lí. Sau đó gộp kết quả lại và trả về cho truy vấn. Gateway đồng thời cũng cũng cấp giao diện quản lí chung cho tất cả các dịch vụ.
 \include{analysic/usecase}
 \include{analysic/activity}
-\include{analysic/state}
 \include{analysic/sequence}
-\section{Thiết kế cấu trúc}\label{section:design}
-
-\subsection{Sơ đồ lớp}
-% https://www.uml-diagrams.org/class-diagrams-overview.html
-\include{analysic/class}
-
-\subsection{Sơ đồ đóng gói}
-% https://www.uml-diagrams.org/package-diagrams-overview.html
-\include{analysic/sitemap}
-
-\subsection{Sơ đồ khối thành phần}
-% https://www.uml-diagrams.org/package-diagrams-overview.html
-\include{analysic/sitemap}
-
-\subsection{Sơ đồ phát hành}
-% https://www.uml-diagrams.org/deployment-diagrams-overview.html
+% \section{Thiết kế cấu trúc}\label{section:design}
+%\include{analysic/class}
+% \include{analysic/package}
+\include{analysic/component}
 \include{analysic/devops}
-
-
+\include{analysic/schemas}
 
 \include{development}
 
 
-\section{Mô tả chi tiết}
-Mô tả chi tiết thuộc về tài liệu phát triển chứ, là kết quả khi phát triển theo phân tích thiết kế. Mô tả chi tiết giúp đội ngũ phát triển dễ dàng ghi lại và trao đổi các thông tin của dự án.
-\include{analysic/schemas}
+\include{result}
+\section{Đánh giá}
+\subsection{Những vấn đề hạn chế}
+Sau khi thực hiện đồ án em nhận thấy những vấn đề hạn chế sau:
+\paragraph{micro-service} Kiến trúc này chỉ phù hợp cho các dự án lớn, nhiều nhóm làm việc với nhau. Chia thành service giúp các nhóm hoạt động độc lập với nhau. Các backlog được chia ra hoàn thành rồi quy nạp lại để khởi chạy toàn bộ hệ thống. Song song với việc phát hành phiên các mới của các service, việc duy trì các phiên bản ổn định cũ của service đó cũng khá tốn kém. Thường thì các hệ thống lớn duy trì hơn 10 phiên bản.
 
-\include{analysic/api}
+Việc sử dụng micro-service cho dự án nhỏ sẽ đẩy mức độ phức tạp lên quá mức cần thiết do phát chia cho hệ thống và cài đặt môi trường phát hành.
 
+\paragraph{client side render} Việc giao tiếp thông qua API và kết xuất ứng dụng phía client giúp cho ứng dụng chạy mượt hơn. Nhưng đồng thời cũng làm tăng sự phụ thuộc vào interface giữa server và client. CSR không tối ưu đối với các máy chủ tìm kiếm hiện tại.
 
-\subsection{Quản lí mã nguồn}
-\subsubsection{ocopee}
-\subsubsection{gateway}
-\subsubsection{accounts}
-\subsubsection{docs}
-\subsubsection{sellers}
-\subsubsection{Cài đặt}
-\subsubsection{Khởi chạy}
-\paragraph{Backend}
-%	
-\begin{figure}[h!]
-	\caption{State diagram \cite{web:mongo:why}}
-	\centering
-	\includegraphics[width=\textwidth]{state.png}
-	\label{fig:state}
-\end{figure}
-%
-\section{Kết quả đạt được}
+Thay vì mô hình thông thường toàn bộ trang được kết xuất và trả về một lần cho người dùng, CSR làm cho ứng dụng phân mảnh và cần nạp tải kết xuất nhiều lần mới dẫn đến kết quả cuối cùng.
 
-{\Huge fashion.ocopee.com}
+\paragraph{search engine} Dự án vẫn chưa sử dụng search engine để tối ưu công việc tìm kiếm.
 
-\subsection{Dự án đã phát hành thực tế}
+\paragraph{analysic} Hệ thống đo lường lưu lượng hoạt động tại các micro-service, các cầu nối chưa được phát triển đầy đủ. Điều này giúp quá trình nâng cao hiệu suất, cải thiên độ chịu tải của hệ thống trở nên khó khăn hơn.
 
-\subsubsection{Trạng thái ổn định}
+\subsection{Hướng phát triển}
 
-shopwheydanang.com
-mayberoom.vn
-b21shoemaker.store
-hypesneaker.vn
-yensaodatquang.vn
+\paragraph{Mạng xã hội} Hiện tại hệ thống đã có tính năng kết bạn, cần phát triển thêm tính năng tương tác của mạng xã hội. Giúp không gian mua hàng trở nên sống động hơn. Cho phép khách hàng phản hồi về sản phẩm, đánh giá, trả lời bình luận. Xem các hoạt động của người khác ở thời điểm hiển tại.
 
-\subsubsection{Chưa hoàn thiện, đang phát triển thêm}
+\paragraph{Livestream} Tính năng livestream giúp cho nhà bán hàng xuất hiện lên tất cả các trang cho chia sẻ sản phẩm. Đồng thời cũng cần cam kết và kiểm duyệt nội dung của buổi livstreamstream.
 
-japan-apple.jp
-madeuniform.vn
-khoailangtradoa.com
-ocopee.com
+\paragraph{Phân tích hành vi} Tính năng phân tích hành vi của người mua hàng, đánh giá mức độ ưu tiên hiển thị. Tạo nhiều tính năng giúp người dùng phản hồi nhanh về sản phẩm giúp nhà sản xuất cải thiện chất lượng.
 
-\subsection{Dự án đang thử nghiệm}
-fashion.ocopee.com
-
-\section{Những vấn đề hạn chế}
-
-\section{Hướng phát triển}
-
-
-\chapter*{Kết luận	}
+\chapter*{KẾT LUẬN}
 % size 14
 \addcontentsline{toc}{chapter}{Kết luận}
 %	Nội dung kết luận {Font: Time New Roman; thường; cỡ chữ: 13; dãn dòng: 1,3;căn lề: justified}
-\blindtext
+Đồ án đã vận dụng được các kiến thức nền tảng và ứng dụng các công cụ mới để phát triển hệ thống. Sau quá trình triển khai, em nhận thấy đồ án còn hạn chế ở khả năng tăng quy mô máy chủ để phục vụ cho lượng người dùng lớn. Đồng thời cũng chưa kiểm thử được hiệu suất của truy vấn dữ liêu khi lượng người dùng trở nên nhiều hơn.
+
+Đồ án sẽ tiếp tục phát triển và phục vụ thực tế cho các doanh nghiệp sản xuất. Mở rộng thêm các tính năng phù hợp với nhu cầu doanh nghiệp. Đồng thời, các tính năng quan trọng cần được mở rộng phát triển trên nhiều nền tảng hệ điều hành.s
 
 % Tham khảo
 \bibliographystyle{alpha}
 \bibliography{website}
 \addcontentsline{toc}{chapter}{Tài liệu tham khảo}
 
-\chapter*{Phụ lục}
-\addcontentsline{toc}{chapter}{Phụ lục}
+\chapter*{PHỤ LỤC}
 \pagenumbering{gobble}
-\blindtext
+\addcontentsline{toc}{chapter}{Phụ lục}
+
+\chapter*{PHỤ LỤC}
+\pagenumbering{gobble}
+\addcontentsline{toc}{chapter}{Phụ lục}
+
 \end{document}

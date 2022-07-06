@@ -1,66 +1,89 @@
 
-\chapter{Triển khai và đánh giá}\label{section:dev}
+\chapter{TRIỂN KHAI VÀ ĐÁNH GIÁ}\label{section:dev}
 
 \section{Triển khai}
-\subsection{Nội quy, hướng dẫn, yêu cầu}
-\subsubsection{Kiến thức cơ bản}
-\subsubsection{Thư viện bậc cao}
-\subsection{Kiến thức khác}
-Một trong những vấn đề khi làm việc nhóm là sự hiểu nhau giữa các thành viên trong nhóm.
-Mình có thể khăc phục bằng cách trao đổi nhiều hơn. Xác nhận nhiều hơn. Nhưng khi nhóm trở nên lớn.
-Thành viên trong nhóm cũng có sự thay đổi liên tục. Hoặc khung giờ làm việc, lịch trình ngày làm việc của mọi người khác nhau. Thì việc này dần trở nên khó khăn hơn. Một chức năng phát triển xong cách khoảng thời gian dài sau đó nâng cấp. Nếu cùng một người thì đây là giao tiếp với chính bản thân mình.
 
-Vậy để giải quyết vân đề này, mọi người cần viết viết và viết. Viết đung là tốn thời gian và làm chậm năng suât của mình. Nhưng đối vơi cac vấn đề trên. Viết là cách giải quyết.
+\subsection{Cấu hình máy chủ}
 
-Viết bât cứ cái gì có thể viết. Cách thức xác định cái gì cần viết bao gồm:
+\paragraph{Máy chủ staging}
+Virtual CPUs: 1
+Memory (RAM): 2048 MB
+Disk: 15 GB
 
+\paragraph{Máy chủ production}
+Virtual CPUs: 1
+Memory (RAM): 1536 MB
+Disk: 15 GB
+
+\paragraph{Máy chủ database}
+Virtual CPUs: 1
+Memory (RAM): 1536 MB
+Disk: 15 GB
+
+\paragraph{Máy chủ proxy}
+Virtual CPUs: 1
+Memory (RAM): 1536 MB
+Disk: 15 GB
+
+\subsection{Cài đặt tiến trình}
+
+
+\paragraph{Máy chủ staging}
 \begin{itemize}
-	\item Nếu như mình không làm công việc này nữa. Thì chỉ lại cho ai, chỉ những gì. Suy ra viết những gì học được.
-	\item Nếu như ai đó cần giúp mình, thì mình cần chỉ họ đọc gì, hiểu gì để làm. Suy ra viết nhũng gì hiểu được trong từng trường hợp.
-	\item Nếu như ai đó thay đổi công việc mình đã làm, họ cần lưu ý những gì. Suy ra viết những dự định hoặc rủi ro lường trước với công việc mình đang làm.
+	\item Tiến trình accounts chạy ở chế độ staging kết nối với database test
+	\item Tiến trình sellers chạy ở chế độ staging kết nối với database test
+	\item Tiến trình bloggers chạy ở chế độ staging kết nối với database test
+	\item Tiến trình gateway chạy ở chế độ staging cung cấp giao diện quản lí mà sanbox để kiểm tra API.
 \end{itemize}
 
+\paragraph{Máy chủ production}
+\begin{itemize}
+	\item Tiến trình accounts chạy ở chế độ \emph{production} kết nối với database account
+	\item Tiến trình  chạy ở chế độ \emph{production} kết nối với database seller
+	\item Tiến trình bloggers chạy ở chế độ \emph{production} kết nối với database blogger
+	\item Tiến trình gateway chạy ở chế độ \emph{production} cung cấp giao diện quản lí.
+\end{itemize}
+
+\paragraph{Máy chủ database}
+Cấu hình mongodb và cung cấp các database cho các môi trường phát hành.
+\begin{itemize}
+	\item account
+	\item seller
+	\item blogger
+	\item test (cho môi trường staging)
+\end{itemize}
+\paragraph{Máy chủ proxy}
+Cấu hình liên kết tên miền với cổng tiến trình của các máy chủ trong hệ thống. Đăng ký chứng thực SSL. Sử dụng các thuật toán cân bằng tải có sẵn để điều phối request.
+
+\begin{figure}[h!]
+	\begin{center}	
+		\includegraphics[width=\textwidth]{./results/commit}
+		\caption{Lịch sử các phiên bản phát hành môi trường production.}
+	\end{center}
+	
+\end{figure}
+
+\begin{figure}[h!]
+	\begin{center}	
+		\includegraphics[width=\textwidth]{./results/deployments}
+		\caption{Lịch sử cài đặt tiến trình ở các môi trường staging và production sử dụng CI/CD của github actions.}
+	\end{center}
+	
+\end{figure}
+
+\begin{figure}[h!]
+	\begin{center}	
+		\includegraphics[width=\textwidth]{./results/jobs}
+		\caption{Thông tin chi tiết khi sử dụng CI/CD chạy các bản sao của micro service trên nhiều máy chủ khác nhau}
+	\end{center}
+\end{figure}
 
 
-\subsubsection{Báo cáo kiểm soát công việc}
+\begin{figure}[h!]
+	\begin{center}	
+		\includegraphics[width=\textwidth]{./results/production}
+		\caption{Thông tin chi tiết các bước của một mirco-service sử dụng CI/CD}
+	\end{center}
+\end{figure}
 
-Dành cho thay đổi, thêm mới tính năng
-	
-	Thay đổi hoặc thêm mới gì	
-	
-	Mô tả hướng thay đổi, li do thay đổi.
-
-
-Dành cho sửa lỗi
-	
-	
-	Nguyên nhân
-	
-	Nguyên nhân gây lỗi.
-	
-	Điều tra
-	
-	Các thay đổi trong quá khứ gây ra lỗi hoặc điều tra các chức năng liên quan đến thay đổi.
-	
-	Các hiểu nhầm hoặc yêu cầu thay đổi gây ra lỗi.
-	
-	Link pull request gây ra lỗi.
-	
-	Hướng thay đổi
-	
-	Hướng thực hiện thay đổi
-	
-	Phạm vi can thiệp
-	
-	Màn hình
-	
-	Nhóm components
-	
-	Schema
-	
-	Kết quả
-	
-	Chụp ảnh màn hình, kết quả API
-	
-	Lưu ý
 

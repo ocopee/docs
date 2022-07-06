@@ -1,99 +1,34 @@
-\subsection{Dữ liệu}
+\subsection{Thiết kế Dữ liệu}
 \begin{table}[h!]
 \begin{center}
-\begin{tabular}{ |l|l|l| } 
-	\hline
-	Tên & Kiểu & Mô tả \\
-	\hline
-	to & Virtual & \dotfill \\
-isAccepted & Checkbox & \dotfill \\
-key & Text & \dotfill \\ 
-	\hline
-\end{tabular}
 	\caption{Mô tả bảng ContractConsignment.}
 	\label{table:ContractConsignment}
+	\begin{tabular}{ |l|l|l| } 
+		\hline
+		Tên & Kiểu & Mô tả \\
+		\hline
+		to & Virtual & Người nhận yêu cầu \\
+	isAccepted & Checkbox & Tình trạng yêu cầu \\
+		\hline
+	\end{tabular}
 \end{center}
 \end{table}
 
-
 \begin{table}[h!]
 \begin{center}
-\begin{tabular}{ |l|l|l| } 
-	\hline
-	Tên & Kiểu & Mô tả \\
-	\hline
-	content & Markdown & \dotfill \\
-status & Select & \dotfill \\
-price & Virtual & \dotfill \\ 
-	\hline
-\end{tabular}
-	\caption{Mô tả bảng ContractLabor.}
-	\label{table:ContractLabor}
-\end{center}
-\end{table}
-
-
-\begin{table}[h!]
-\begin{center}
-\begin{tabular}{ |l|l|l| } 
-	\hline
-	Tên & Kiểu & Mô tả \\
-	\hline
-	content & Text & \dotfill \\ 
-	\hline
-\end{tabular}
-	\caption{Mô tả bảng InteractionComment.}
-	\label{table:InteractionComment}
-\end{center}
-\end{table}
-
-
-\begin{table}[h!]
-\begin{center}
-\begin{tabular}{ |l|l|l| } 
-	\hline
-	Tên & Kiểu & Mô tả \\
-	\hline
-	emoji & Select & \dotfill \\ 
-	\hline
-\end{tabular}
-	\caption{Mô tả bảng InteractionReaction.}
-	\label{table:InteractionReaction}
-\end{center}
-\end{table}
-
-
-\begin{table}[h!]
-\begin{center}
-\begin{tabular}{ |l|l|l| } 
-	\hline
-	Tên & Kiểu & Mô tả \\
-	\hline
-	status & Checkbox & \dotfill \\
-item & MongoId & \dotfill \\ 
-	\hline
-\end{tabular}
-	\caption{Mô tả bảng Interaction.}
-	\label{table:Interaction}
-\end{center}
-\end{table}
-
-
-\begin{table}[h!]
-\begin{center}
-\begin{tabular}{ |l|l|l| } 
-	\hline
-	Tên & Kiểu & Mô tả \\
-	\hline
-	username & Text & \dotfill \\
-password & Text & \dotfill \\
-host & Text & \dotfill \\
-port & Integer & \dotfill \\
-secure & Checkbox & \dotfill \\
-name & Text & \dotfill \\ 
-	\hline
-\end{tabular}
 	\caption{Mô tả bảng NotificationMailer.}
+	\begin{tabular}{ |l|l|l| } 
+	\hline
+	Tên & Kiểu & Mô tả \\
+	\hline
+	username & Text & Tên người email \\
+password & Text & Mật khẩu email \\
+host & Text & hosting \\
+port & Integer & cổng \\
+secure & Checkbox & secure \\
+name & Text & Tên người gửi \\ 
+	\hline
+\end{tabular}
 	\label{table:NotificationMailer}
 \end{center}
 \end{table}
@@ -101,17 +36,17 @@ name & Text & \dotfill \\
 
 \begin{table}[h!]
 \begin{center}
-\begin{tabular}{ |l|l|l| } 
+	\caption{Mô tả bảng Notification.}
+	\begin{tabular}{ |l|l|l| } 
 	\hline
 	Tên & Kiểu & Mô tả \\
 	\hline
-	chanel & Select & \dotfill \\
-subject & Text & \dotfill \\
-text & Text & \dotfill \\
-seen & Checkbox & \dotfill \\ 
+	chanel & Select & Kênh gửi \\
+subject & Text & Tiêu đề \\
+text & Text & Nội dung \\
+seen & Checkbox & Tình trạng \\ 
 	\hline
 \end{tabular}
-	\caption{Mô tả bảng Notification.}
 	\label{table:Notification}
 \end{center}
 \end{table}
@@ -119,18 +54,17 @@ seen & Checkbox & \dotfill \\
 
 \begin{table}[h!]
 \begin{center}
-\begin{tabular}{ |l|l|l| } 
+	\caption{Mô tả bảng Relationship.}
+	\begin{tabular}{ |l|l|l| } 
 	\hline
 	Tên & Kiểu & Mô tả \\
 	\hline
-	username & Text & \dotfill \\
-to & Virtual & \dotfill \\
-isAccepted & Checkbox & \dotfill \\
-key & Text & \dotfill \\
-consignment & Virtual & \dotfill \\ 
+	username & Text & Tên người dùng \\
+to & Virtual & Người nhận \\
+isAccepted & Checkbox & Tình trạng \\
+consignment & Virtual & Lời mời \\ 
 	\hline
 \end{tabular}
-	\caption{Mô tả bảng Relationship.}
 	\label{table:Relationship}
 \end{center}
 \end{table}
@@ -138,58 +72,38 @@ consignment & Virtual & \dotfill \\
 
 \begin{table}[h!]
 \begin{center}
-\begin{tabular}{ |l|l|l| } 
+	\caption{Mô tả bảng TeamInvitation.}
+	\begin{tabular}{ |l|l|l| } 
 	\hline
 	Tên & Kiểu & Mô tả \\
 	\hline
-	isAccepted & Checkbox & \dotfill \\
-key & Text & \dotfill \\ 
+	isAccepted & Checkbox & tình trạng \\
 	\hline
 \end{tabular}
-	\caption{Mô tả bảng TeamInvitation.}
 	\label{table:TeamInvitation}
 \end{center}
 \end{table}
 
-
 \begin{table}[h!]
 \begin{center}
-\begin{tabular}{ |l|l|l| } 
-	\hline
-	Tên & Kiểu & Mô tả \\
-	\hline
-	name & Text & \dotfill \\
-description & Text & \dotfill \\ 
-	\hline
-\end{tabular}
-	\caption{Mô tả bảng Team.}
-	\label{table:Team}
-\end{center}
-\end{table}
-
-
-\begin{table}[h!]
-\begin{center}
-\begin{tabular}{ |l|l|l| } 
-	\hline
-	Tên & Kiểu & Mô tả \\
-	\hline
-	username & Text & \dotfill \\
-password & Password & \dotfill \\
-phone & Text & \dotfill \\
-email & Text & \dotfill \\
-name & Text & \dotfill \\
-fullname & Text & \dotfill \\
-avatar & File & \dotfill \\
-abount & Text & \dotfill \\
-domain & Text & \dotfill \\
-isAdmin & Checkbox & \dotfill \\
-isSeller & Checkbox & \dotfill \\
-isActive & Checkbox & \dotfill \\
-forgotAt & DateTime & \dotfill \\ 
-	\hline
-\end{tabular}
 	\caption{Mô tả bảng User.}
+	\begin{tabular}{ |l|l|l| } 
+	\hline
+	Tên & Kiểu & Mô tả \\
+	\hline
+	username & Text & Tên người dùng \\
+password & Password & Mật khẩu \\
+phone & Text & Số điện thoại \\
+email & Text & Email \\
+name & Text & Tên gọi \\
+fullname & Text & Tên đầy đủ \\
+avatar & File & Ảnh đại diện \\
+abount & Text & Thông tin \\
+domain & Text & Tên miền \\
+isSeller & Checkbox & là nhà sản xuất? \\
+forgotAt & DateTime & Quên mật khẩu lúc \\ 
+	\hline
+\end{tabular}
 	\label{table:User}
 \end{center}
 \end{table}
@@ -197,16 +111,15 @@ forgotAt & DateTime & \dotfill \\
 
 \begin{table}[h!]
 \begin{center}
-\begin{tabular}{ |l|l|l| } 
+	\caption{Mô tả bảng View.}
+	\begin{tabular}{ |l|l|l| } 
 	\hline
 	Tên & Kiểu & Mô tả \\
 	\hline
-	listKey & Text & \dotfill \\
-count & Integer & \dotfill \\
-of & MongoId & \dotfill \\ 
+count & Integer & Số lượt xem \\
+of & MongoId & Thuộc User \\ 
 	\hline
 \end{tabular}
-	\caption{Mô tả bảng View.}
 	\label{table:View}
 \end{center}
 \end{table}
@@ -214,14 +127,14 @@ of & MongoId & \dotfill \\
 
 \begin{table}[h!]
 \begin{center}
-\begin{tabular}{ |l|l|l| } 
+	\caption{Mô tả bảng WorkPaid.}
+	\begin{tabular}{ |l|l|l| } 
 	\hline
 	Tên & Kiểu & Mô tả \\
 	\hline
-	price & Currency & \dotfill \\ 
+	price & Currency & Tổng \\ 
 	\hline
 \end{tabular}
-	\caption{Mô tả bảng WorkPaid.}
 	\label{table:WorkPaid}
 \end{center}
 \end{table}
@@ -229,16 +142,16 @@ of & MongoId & \dotfill \\
 
 \begin{table}[h!]
 \begin{center}
-\begin{tabular}{ |l|l|l| } 
+	\caption{Mô tả bảng WorkType.}
+	\begin{tabular}{ |l|l|l| } 
 	\hline
 	Tên & Kiểu & Mô tả \\
 	\hline
-	title & Text & \dotfill \\
-price & Currency & \dotfill \\
-unit & Select & \dotfill \\ 
+	title & Text & Tiêu đề \\
+price & Currency & Giá \\
+unit & Select & Đơn vị \\ 
 	\hline
 \end{tabular}
-	\caption{Mô tả bảng WorkType.}
 	\label{table:WorkType}
 \end{center}
 \end{table}
@@ -246,16 +159,16 @@ unit & Select & \dotfill \\
 
 \begin{table}[h!]
 \begin{center}
-\begin{tabular}{ |l|l|l| } 
+	\caption{Mô tả bảng Work.}
+	\begin{tabular}{ |l|l|l| } 
 	\hline
 	Tên & Kiểu & Mô tả \\
 	\hline
-	amount & Integer & \dotfill \\
-content & Text & \dotfill \\
-confirmAt & CalendarDay & \dotfill \\ 
+	amount & Integer & lượng \\
+content & Text & nội dung \\
+confirmAt & CalendarDay & ngày xác nhận \\ 
 	\hline
 \end{tabular}
-	\caption{Mô tả bảng Work.}
 	\label{table:Work}
 \end{center}
 \end{table}
@@ -263,20 +176,20 @@ confirmAt & CalendarDay & \dotfill \\
 
 \begin{table}[h!]
 \begin{center}
-\begin{tabular}{ |l|l|l| } 
+	\caption{Mô tả bảng Banner.}
+	\begin{tabular}{ |l|l|l| } 
 	\hline
 	Tên & Kiểu & Mô tả \\
 	\hline
-	name & Text & \dotfill \\
-slogan & Text & \dotfill \\
-image & File & \dotfill \\
-description & Text & \dotfill \\
-url & Text & \dotfill \\
-type & Select & \dotfill \\
-size & Virtual & \dotfill \\ 
+	name & Text & tên \\
+slogan & Text & slogan \\
+image & File & hình ảnh \\
+description & Text & mô tả \\
+url & Text & đường dẫn \\
+type & Select & loại \\
+size & Virtual & kích thước \\ 
 	\hline
 \end{tabular}
-	\caption{Mô tả bảng Banner.}
 	\label{table:Banner}
 \end{center}
 \end{table}
@@ -284,20 +197,20 @@ size & Virtual & \dotfill \\
 
 \begin{table}[h!]
 \begin{center}
-\begin{tabular}{ |l|l|l| } 
+	\caption{Mô tả bảng Contact.}
+	\begin{tabular}{ |l|l|l| } 
 	\hline
 	Tên & Kiểu & Mô tả \\
 	\hline
-	phone & Text & \dotfill \\
-name & Text & \dotfill \\
-address & Text & \dotfill \\
-email & Text & \dotfill \\
-note & Text & \dotfill \\
-message & Text & \dotfill \\
-isDefault & Checkbox & \dotfill \\ 
+	phone & Text & số điện thoại \\
+name & Text & tên \\
+address & Text & địa chỉ \\
+email & Text & email \\
+note & Text & ghi chú \\
+message & Text & tin nhắn \\
+isDefault & Checkbox & đánh dấu \\ 
 	\hline
 \end{tabular}
-	\caption{Mô tả bảng Contact.}
 	\label{table:Contact}
 \end{center}
 \end{table}
@@ -305,42 +218,42 @@ isDefault & Checkbox & \dotfill \\
 
 \begin{table}[h!]
 \begin{center}
-\begin{tabular}{ |l|l|l| } 
+	\caption{Mô tả bảng Page.}
+	\begin{tabular}{ |l|l|l| } 
 	\hline
 	Tên & Kiểu & Mô tả \\
 	\hline
-	store & Text & \dotfill \\
-logo & File & \dotfill \\
-slogan & Text & \dotfill \\
-address & Text & \dotfill \\
-phone & Text & \dotfill \\
-email & Text & \dotfill \\
-intro & Editor & \dotfill \\
-contact & Editor & \dotfill \\
-twitter & Text & \dotfill \\
-instagram & Text & \dotfill \\
-pinterest & Text & \dotfill \\
-youtube & Text & \dotfill \\
-googlePlus & Text & \dotfill \\
-googleMap & Text & \dotfill \\
-zalo & Text & \dotfill \\
-greeting & Text & \dotfill \\
-pageId & Text & \dotfill \\
-pixelId & Text & \dotfill \\
-gtag & Text & \dotfill \\
-shipMoneySupport & Integer & \dotfill \\
-ship & Editor & \dotfill \\
-transfer & Editor & \dotfill \\
-color & Color & \dotfill \\
-colorMode & Select & \dotfill \\
-ordering & Checkbox & \dotfill \\
-moit & Text & \dotfill \\
-mst & Text & \dotfill \\
-language & Select & \dotfill \\
-translations & Translate & \dotfill \\ 
+	store & Text & Tên cửa hàng \\
+logo & File & Ảnh đại diện \\
+slogan & Text & Lĩnh vực \\
+address & Text & Địa chỉ \\
+phone & Text & Số điện thoại \\
+email & Text & email \\
+intro & Editor & Giới thiệu ngắn \\
+contact & Editor & Liên hệ \\
+twitter & Text & twitter \\
+instagram & Text & instagram \\
+pinterest & Text & pinterest \\
+youtube & Text & youtube \\
+googlePlus & Text & googlePlus \\
+googleMap & Text & googleMap \\
+zalo & Text & zalo \\
+greeting & Text & Lời chào \\
+pageId & Text & Facebook pageId \\
+pixelId & Text & Facebook pixelId \\
+gtag & Text & Google gtag \\
+shipMoneySupport & Integer & Hỗ trợ tiền ship \\
+ship & Editor & Mô tả thông tin ship \\
+transfer & Editor & Hướng dẫn chuyển khoản \\
+color & Color & Màu chủ đạo \\
+colorMode & Select & Tông chủ đạo \\
+ordering & Checkbox & Cho phép đặt hàng \\
+moit & Text & gs1 \\
+mst & Text & mã số thuế \\
+
+
 	\hline
 \end{tabular}
-	\caption{Mô tả bảng Page.}
 	\label{table:Page}
 \end{center}
 \end{table}
@@ -348,15 +261,15 @@ translations & Translate & \dotfill \\
 
 \begin{table}[h!]
 \begin{center}
-\begin{tabular}{ |l|l|l| } 
+	\caption{Mô tả bảng ProductAttributeValue.}
+	\begin{tabular}{ |l|l|l| } 
 	\hline
 	Tên & Kiểu & Mô tả \\
 	\hline
-	value & Text & \dotfill \\
-file & File & \dotfill \\ 
+	value & Text & thuộc tính \\
+file & File & hình ảnh mô tả \\ 
 	\hline
 \end{tabular}
-	\caption{Mô tả bảng ProductAttributeValue.}
 	\label{table:ProductAttributeValue}
 \end{center}
 \end{table}
@@ -364,17 +277,15 @@ file & File & \dotfill \\
 
 \begin{table}[h!]
 \begin{center}
-\begin{tabular}{ |l|l|l| } 
+	\caption{Mô tả bảng ProductAttribute.}
+	\begin{tabular}{ |l|l|l| } 
 	\hline
 	Tên & Kiểu & Mô tả \\
 	\hline
-	label & Text & \dotfill \\
-name & Text & \dotfill \\
-language & Select & \dotfill \\
-translations & Translate & \dotfill \\ 
+	label & Text & nhãn \\
+name & Text & tên \\
 	\hline
 \end{tabular}
-	\caption{Mô tả bảng ProductAttribute.}
 	\label{table:ProductAttribute}
 \end{center}
 \end{table}
@@ -382,17 +293,15 @@ translations & Translate & \dotfill \\
 
 \begin{table}[h!]
 \begin{center}
-\begin{tabular}{ |l|l|l| } 
+	\caption{Mô tả bảng ProductBrand.}
+	\begin{tabular}{ |l|l|l| } 
 	\hline
 	Tên & Kiểu & Mô tả \\
 	\hline
-	name & Text & \dotfill \\
-url & Slug & \dotfill \\
-language & Select & \dotfill \\
-translations & Translate & \dotfill \\ 
+	name & Text & tên \\
+url & Slug & đường dẫn \\
 	\hline
 \end{tabular}
-	\caption{Mô tả bảng ProductBrand.}
 	\label{table:ProductBrand}
 \end{center}
 \end{table}
@@ -400,18 +309,18 @@ translations & Translate & \dotfill \\
 
 \begin{table}[h!]
 \begin{center}
-\begin{tabular}{ |l|l|l| } 
+	\caption{Mô tả bảng ProductCartItem.}
+	\begin{tabular}{ |l|l|l| } 
 	\hline
 	Tên & Kiểu & Mô tả \\
 	\hline
-	sale & Integer & \dotfill \\
-price & Integer & \dotfill \\
-percent & Virtual & \dotfill \\
-isInCart & Virtual & \dotfill \\
-quantity & Integer & \dotfill \\ 
+	sale & Integer & giá bán \\
+price & Integer & giá niêm \\
+percent & Virtual & phần trăm \\
+isInCart & Virtual & đang trong giỏ \\
+quantity & Integer & số lượng \\ 
 	\hline
 \end{tabular}
-	\caption{Mô tả bảng ProductCartItem.}
 	\label{table:ProductCartItem}
 \end{center}
 \end{table}
@@ -419,14 +328,16 @@ quantity & Integer & \dotfill \\
 
 \begin{table}[h!]
 \begin{center}
-\begin{tabular}{ |l|l|l| } 
+	\caption{Mô tả bảng ProductCart.}
+	\begin{tabular}{ |l|l|l| } 
 	\hline
 	Tên & Kiểu & Mô tả \\
+
 	\hline
-	 
+	 	contact & MongoId & Liên hệ\\
+	 	items & [MongoId] & sản phẩm\\
 	\hline
 \end{tabular}
-	\caption{Mô tả bảng ProductCart.}
 	\label{table:ProductCart}
 \end{center}
 \end{table}
@@ -434,21 +345,19 @@ quantity & Integer & \dotfill \\
 
 \begin{table}[h!]
 \begin{center}
-\begin{tabular}{ |l|l|l| } 
+	\caption{Mô tả bảng ProductCategory.}
+	\begin{tabular}{ |l|l|l| } 
 	\hline
 	Tên & Kiểu & Mô tả \\
 	\hline
-	name & Text & \dotfill \\
-description & Editor & \dotfill \\
-file & File & \dotfill \\
-prioritize & Integer & \dotfill \\
-url & Slug & \dotfill \\
-root & Checkbox & \dotfill \\
-language & Select & \dotfill \\
-translations & Translate & \dotfill \\ 
+	name & Text & tên \\
+description & Editor & mô tả \\
+file & File & bìa \\
+prioritize & Integer & ưu tiên \\
+url & Slug & đường dẫn \\
+root & Checkbox & gốc \\
 	\hline
 \end{tabular}
-	\caption{Mô tả bảng ProductCategory.}
 	\label{table:ProductCategory}
 \end{center}
 \end{table}
@@ -456,23 +365,21 @@ translations & Translate & \dotfill \\
 
 \begin{table}[h!]
 \begin{center}
-\begin{tabular}{ |l|l|l| } 
+	\caption{Mô tả bảng ProductDiscount.}
+	\begin{tabular}{ |l|l|l| } 
 	\hline
 	Tên & Kiểu & Mô tả \\
 	\hline
-	code & Text & \dotfill \\
-type & Select & \dotfill \\
-value & Integer & \dotfill \\
-name & Text & \dotfill \\
-description & Text & \dotfill \\
-condition & Integer & \dotfill \\
-image & File & \dotfill \\
-url & Slug & \dotfill \\
-language & Select & \dotfill \\
-translations & Translate & \dotfill \\ 
+	code & Text & mã \\
+type & Select & loại \\
+value & Integer & giá trị \\
+name & Text & tên \\
+description & Text & mô tả \\
+condition & Integer & điều kiện \\
+image & File & hình ảnh \\
+url & Slug & đường dẫn \\
 	\hline
 \end{tabular}
-	\caption{Mô tả bảng ProductDiscount.}
 	\label{table:ProductDiscount}
 \end{center}
 \end{table}
@@ -480,17 +387,15 @@ translations & Translate & \dotfill \\
 
 \begin{table}[h!]
 \begin{center}
-\begin{tabular}{ |l|l|l| } 
+	\caption{Mô tả bảng ProductHashtag.}
+	\begin{tabular}{ |l|l|l| } 
 	\hline
 	Tên & Kiểu & Mô tả \\
 	\hline
-	name & Text & \dotfill \\
-url & Slug & \dotfill \\
-language & Select & \dotfill \\
-translations & Translate & \dotfill \\ 
+	name & Text & tên \\
+url & Slug & đường dẫn \\
 	\hline
 \end{tabular}
-	\caption{Mô tả bảng ProductHashtag.}
 	\label{table:ProductHashtag}
 \end{center}
 \end{table}
@@ -498,15 +403,15 @@ translations & Translate & \dotfill \\
 
 \begin{table}[h!]
 \begin{center}
-\begin{tabular}{ |l|l|l| } 
+	\caption{Mô tả bảng ProductOrderStatus.}
+	\begin{tabular}{ |l|l|l| } 
 	\hline
 	Tên & Kiểu & Mô tả \\
 	\hline
-	value & Text & \dotfill \\
-color & Select & \dotfill \\ 
+	value & Text & giá trị \\
+color & Select & màu sắc \\ 
 	\hline
 \end{tabular}
-	\caption{Mô tả bảng ProductOrderStatus.}
 	\label{table:ProductOrderStatus}
 \end{center}
 \end{table}
@@ -514,19 +419,19 @@ color & Select & \dotfill \\
 
 \begin{table}[h!]
 \begin{center}
-\begin{tabular}{ |l|l|l| } 
+	\caption{Mô tả bảng ProductOrder.}
+	\begin{tabular}{ |l|l|l| } 
 	\hline
 	Tên & Kiểu & Mô tả \\
 	\hline
-	code & Text & \dotfill \\
-isExport & Checkbox & \dotfill \\
-payment & Select & \dotfill \\
-saving & Integer & \dotfill \\
-total & Integer & \dotfill \\
-notification & MongoId & \dotfill \\ 
+	code & Text & mã \\
+isExport & Checkbox & đã xuất \\
+payment & Select & hình thức thanh toán \\
+saving & Integer & tiết kiệm \\
+total & Integer & tổng \\
+notification & MongoId & thông báo \\ 
 	\hline
 \end{tabular}
-	\caption{Mô tả bảng ProductOrder.}
 	\label{table:ProductOrder}
 \end{center}
 \end{table}
@@ -534,15 +439,15 @@ notification & MongoId & \dotfill \\
 
 \begin{table}[h!]
 \begin{center}
-\begin{tabular}{ |l|l|l| } 
+	\caption{Mô tả bảng ProductStock.}
+	\begin{tabular}{ |l|l|l| } 
 	\hline
 	Tên & Kiểu & Mô tả \\
 	\hline
-	quantity & Integer & \dotfill \\
-image & File & \dotfill \\ 
+	quantity & Integer & số lượng \\
+image & File & hình ảnh \\ 
 	\hline
 \end{tabular}
-	\caption{Mô tả bảng ProductStock.}
 	\label{table:ProductStock}
 \end{center}
 \end{table}
@@ -550,31 +455,28 @@ image & File & \dotfill \\
 
 \begin{table}[h!]
 \begin{center}
-\begin{tabular}{ |l|l|l| } 
+	\caption{Mô tả bảng Product.}
+	\begin{tabular}{ |l|l|l| } 
 	\hline
 	Tên & Kiểu & Mô tả \\
 	\hline
-	image & File & \dotfill \\
-images & Images & \dotfill \\
-name & Text & \dotfill \\
-price & Currency & \dotfill \\
-sale & Currency & \dotfill \\
-percent & Virtual & \dotfill \\
-status & Select & \dotfill \\
-description & Editor & \dotfill \\
-detail & File & \dotfill \\
-guide & Editor & \dotfill \\
-isDraft & Checkbox & \dotfill \\
-isOutOfStock & Checkbox & \dotfill \\
-sku & Text & \dotfill \\
-gs1 & Text & \dotfill \\
-url & Slug & \dotfill \\
-sold & Virtual & \dotfill \\
-language & Select & \dotfill \\
-translations & Translate & \dotfill \\ 
+	image & File & Hình ảnh \\
+images & Images & Hình ảnh thêm \\
+name & Text & Tên sản phẩm \\
+price & Currency & Giá niêm yết \\
+sale & Currency & Giá bán \\
+percent & Virtual & Phầm trăm giảm giá \\
+status & Select & Tình trạng \\
+description & Editor & Mô tả \\
+detail & File & Chi tiết \\
+guide & Editor & Hướng dẫn sử dụng \\
+isOutOfStock & Checkbox & Hết hàng \\
+sku & Text & sku \\
+gs1 & Text & gs1 \\
+url & Slug & đường dẫn \\
+sold & Virtual & đã bán \\
 	\hline
 \end{tabular}
-	\caption{Mô tả bảng Product.}
 	\label{table:Product}
 \end{center}
 \end{table}
@@ -582,18 +484,18 @@ translations & Translate & \dotfill \\
 
 \begin{table}[h!]
 \begin{center}
-\begin{tabular}{ |l|l|l| } 
+	\caption{Mô tả bảng Translate.}
+	\begin{tabular}{ |l|l|l| } 
 	\hline
 	Tên & Kiểu & Mô tả \\
 	\hline
-	item & MongoId & \dotfill \\
-listKey & Text & \dotfill \\
-fieldName & Text & \dotfill \\
-lang & Text & \dotfill \\
-content & Text & \dotfill \\ 
+	item & MongoId & item cần dịch \\
+listKey & Text & kiểu \\
+fieldName & Text & trường dịch \\
+lang & Text & ngôn ngữ \dotfill \\
+content & Text & nội dung \dotfill \\ 
 	\hline
 \end{tabular}
-	\caption{Mô tả bảng Translate.}
 	\label{table:Translate}
 \end{center}
 \end{table}
@@ -601,15 +503,15 @@ content & Text & \dotfill \\
 
 \begin{table}[h!]
 \begin{center}
-\begin{tabular}{ |l|l|l| } 
+	\caption{Mô tả bảng UploadFile.}
+	\begin{tabular}{ |l|l|l| } 
 	\hline
 	Tên & Kiểu & Mô tả \\
 	\hline
-	file & File & \dotfill \\
-address & Text & \dotfill \\ 
+	file & File & tệp \\
+address & Text & địa chỉ tệp\\ 
 	\hline
 \end{tabular}
-	\caption{Mô tả bảng UploadFile.}
 	\label{table:UploadFile}
 \end{center}
 \end{table}
@@ -617,15 +519,15 @@ address & Text & \dotfill \\
 
 \begin{table}[h!]
 \begin{center}
-\begin{tabular}{ |l|l|l| } 
+	\caption{Mô tả bảng UploadImage.}
+	\begin{tabular}{ |l|l|l| } 
 	\hline
 	Tên & Kiểu & Mô tả \\
 	\hline
-	file & File & \dotfill \\
-alt & Text & \dotfill \\ 
+	file & File & tệp \\
+alt & Text & mô tả \\ 
 	\hline
 \end{tabular}
-	\caption{Mô tả bảng UploadImage.}
 	\label{table:UploadImage}
 \end{center}
 \end{table}
@@ -633,16 +535,16 @@ alt & Text & \dotfill \\
 
 \begin{table}[h!]
 \begin{center}
-\begin{tabular}{ |l|l|l| } 
+	\caption{Mô tả bảng FAQ.}
+	\begin{tabular}{ |l|l|l| } 
 	\hline
 	Tên & Kiểu & Mô tả \\
 	\hline
-	title & Text & \dotfill \\
-body & Markdown & \dotfill \\
-prioritize & Integer & \dotfill \\ 
+	title & Text & tiêu đề \\
+body & Markdown & nội dung \\
+prioritize & Integer & ưu tiên \\ 
 	\hline
 \end{tabular}
-	\caption{Mô tả bảng FAQ.}
 	\label{table:FAQ}
 \end{center}
 \end{table}
@@ -650,17 +552,17 @@ prioritize & Integer & \dotfill \\
 
 \begin{table}[h!]
 \begin{center}
-\begin{tabular}{ |l|l|l| } 
+	\caption{Mô tả bảng Feature.}
+	\begin{tabular}{ |l|l|l| } 
 	\hline
 	Tên & Kiểu & Mô tả \\
 	\hline
-	name & Text & \dotfill \\
-image & File & \dotfill \\
-description & Markdown & \dotfill \\
-content & Markdown & \dotfill \\ 
+	name & Text & tên \\
+image & File & hình ảnh \\
+description & Markdown & mô tả \\
+content & Markdown & nội dung \\ 
 	\hline
 \end{tabular}
-	\caption{Mô tả bảng Feature.}
 	\label{table:Feature}
 \end{center}
 \end{table}
@@ -668,20 +570,20 @@ content & Markdown & \dotfill \\
 
 \begin{table}[h!]
 \begin{center}
-\begin{tabular}{ |l|l|l| } 
+	\caption{Mô tả bảng PostHashtag.}
+	\begin{tabular}{ |l|l|l| } 
 	\hline
 	Tên & Kiểu & Mô tả \\
 	\hline
-	name & Text & \dotfill \\
-image & File & \dotfill \\
-root & Checkbox & \dotfill \\
-description & Markdown & \dotfill \\
-prioritize & Integer & \dotfill \\
-color & Color & \dotfill \\
-url & Slug & \dotfill \\ 
+	name & Text & tên \\
+image & File & hình ảnh \\
+root & Checkbox & danh mục gốc \\
+description & Markdown & mô tả \\
+prioritize & Integer & ưu tiên \\
+color & Color & màu sắc \\
+url & Slug & đường dẫn \\ 
 	\hline
 \end{tabular}
-	\caption{Mô tả bảng PostHashtag.}
 	\label{table:PostHashtag}
 \end{center}
 \end{table}
@@ -689,22 +591,22 @@ url & Slug & \dotfill \\
 
 \begin{table}[h!]
 \begin{center}
-\begin{tabular}{ |l|l|l| } 
+	\caption{Mô tả bảng Post.}
+	\begin{tabular}{ |l|l|l| } 
 	\hline
 	Tên & Kiểu & Mô tả \\
 	\hline
-	title & Text & \dotfill \\
-thumbnail & File & \dotfill \\
-content & Markdown & \dotfill \\
-prioritize & Integer & \dotfill \\
-embed & Text & \dotfill \\
-description & Text & \dotfill \\
-keywords & Text & \dotfill \\
-url & Slug & \dotfill \\
-body & Text & \dotfill \\ 
+	title & Text & tên \\
+thumbnail & File & bìa thu nhỏ \\
+content & Markdown & nội dung \\
+prioritize & Integer & ưu tiên \\
+embed & Text & nhúng \\
+description & Text & mô tả \\
+keywords & Text & từ khóa \\
+url & Slug & đường dẫn \\
+body & Text & nội dung \\ 
 	\hline
 \end{tabular}
-	\caption{Mô tả bảng Post.}
 	\label{table:Post}
 \end{center}
 \end{table}
@@ -712,17 +614,17 @@ body & Text & \dotfill \\
 
 \begin{table}[h!]
 \begin{center}
-\begin{tabular}{ |l|l|l| } 
+	\caption{Mô tả bảng Service.}
+	\begin{tabular}{ |l|l|l| } 
 	\hline
 	Tên & Kiểu & Mô tả \\
 	\hline
-	name & Text & \dotfill \\
-image & File & \dotfill \\
-description & Text & \dotfill \\
-content & Markdown & \dotfill \\ 
+	name & Text & tên \\
+image & File & hình ảnh \\
+description & Text & mô tả \\
+content & Markdown & nội dung \\ 
 	\hline
 \end{tabular}
-	\caption{Mô tả bảng Service.}
 	\label{table:Service}
 \end{center}
 \end{table}
@@ -730,17 +632,17 @@ content & Markdown & \dotfill \\
 
 \begin{table}[h!]
 \begin{center}
-\begin{tabular}{ |l|l|l| } 
+	\caption{Mô tả bảng Testimonial.}
+	\begin{tabular}{ |l|l|l| } 
 	\hline
 	Tên & Kiểu & Mô tả \\
 	\hline
-	name & Text & \dotfill \\
-profile & Text & \dotfill \\
-description & Text & \dotfill \\
-image & File & \dotfill \\ 
+	name & Text & tên \\
+profile & Text & hồ sơ \\
+description & Text & mô tả \\
+image & File & hình ảnh \\ 
 	\hline
 \end{tabular}
-	\caption{Mô tả bảng Testimonial.}
 	\label{table:Testimonial}
 \end{center}
 \end{table}

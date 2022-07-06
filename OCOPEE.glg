@@ -3,10 +3,8 @@ Scanning style file ./OCOPEE.ist.............................done (29 attributes
 Scanning input file OCOPEE.glo...
 !! Input index error (file = OCOPEE.glo, line = 1):
    -- Illegal page number .
-!! Input index error (file = OCOPEE.glo, line = 2):
-   -- Illegal page number .
-.done (36 entries accepted, 2 rejected).
-Sorting entries....done (209 comparisons).
-Generating output file OCOPEE.gls....done (30 lines written, 0 warnings).
+.done (17 entries accepted, 1 rejected).
+Sorting entries....done (73 comparisons).
+Generating output file OCOPEE.gls....done (18 lines written, 0 warnings).
 Output written in OCOPEE.gls.
 Transcript written in OCOPEE.glg.
