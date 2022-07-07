@@ -151,6 +151,8 @@ headsep=0.5cm
 \titleformat{\subsection}
 {\normalfont\fontsize{13px}{13px}\slshape}{\thesubsection}{1em}{}
 
+\titleformat{\subsubsection}
+{\normalfont\fontsize{13px}{13px}}{\thesubsection}{1em}{}
 
 
 
@@ -161,9 +163,15 @@ headsep=0.5cm
 % khoảng cách dòng 
 \linespread{1.45} 
 
+\usepackage[above]{placeins}
+
+% ==== Bảng nâng cao
+\usepackage{tabularx}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
+
 	\pagenumbering{gobble}
 	% Trang trắng này dùng để dán bản Nhận xét của người hướng dẫn, hoặc thay trang này bằng Nhận xét của người hướng dẫn
 	\chapter*{NHẬN XÉT CỦA NGƯỜI HƯỚNG DẪN}
@@ -173,7 +181,7 @@ headsep=0.5cm
 	\\\dotfill\\\dotfill\\\dotfill\\\dotfill\\\dotfill
 	\\\dotfill\\\dotfill\\\dotfill\\\dotfill\\\dotfill
 	\\\dotfill\\\dotfill\\\dotfill\\\dotfill\\\dotfill
-	\\\dotfill\\\dotfill\\\dotfill\\\dotfill\\
+	\\\dotfill\\\dotfill\\\dotfill\\
 	\pagebreak
 	
 	%  Trang trắng này dùng để dán bản Nhận xét của người phản biện, hoặc thay trang này bằng Nhận xét của người phản biện
@@ -184,34 +192,14 @@ headsep=0.5cm
 	\\\dotfill\\\dotfill\\\dotfill\\\dotfill\\\dotfill
 	\\\dotfill\\\dotfill\\\dotfill\\\dotfill\\\dotfill
 	\\\dotfill\\\dotfill\\\dotfill\\\dotfill\\\dotfill
-	\\\dotfill\\\dotfill\\\dotfill\\\dotfill\\
+	\\\dotfill\\\dotfill\\\dotfill\\
 	\pagebreak
 	
 	
 	
 	% >>> {font: TimeNew Roman, bolt, size: 14, căn lề: center}
 	% >>> {Để 01 dòng trống}
-	\chapter*{TÓM TẮT}
-	\addcontentsline{toc}{chapter}{TÓM TẮT}
-	\raggedright
-	\makeatletter
-	
-	Tên đề tài: \project\\
-	Sinh viên thực hiện: ...\me \dotfill\\
-	Số thẻ sinh viên: ........ \msv \dotfill\\
-	Lớp sinh hoạt: ............ \myclass \dotfill\\
-	% >>> {Nội dung tóm tắt trình bày tối đa trong 1 trang} {Font: Time New Roman; thường; cỡ chữ: 13; dãn dòng: 1,3; căn lề: justified}
-	\vspace{14px}
-	\justifying
-	\fontsize{13px}{13px}\selectfont
-	Trong thời kỳ cả nước thúc đẩy khởi nghiệp. Các mô hình, sản phẩm nông nghiệp, thủ công, truyền thống liên tục ra đời và cải tiến nâng cao chất lượng và quy mô sản xuất. Quá trình trên giúp cho sản phẩm ngày một đa dạng. Tính truyền thống, đặc trưng vùng miền có cơ hội phát triển.
-	
-	Dự án phát triển giải pháp giúp cho những đơn vị chủ thể tạo kênh thông tin với chi phí thấp. Các cửa hàng phân phối những sản phẩm trên có sàn thương mại riêng để chủ động truyền thông theo cách riêng của họ. Việc xây dựng hệ thống trên, đồng thời cũng phát triển được sự liên kết thông tin giữa các đơn vị với nhau. Tránh sự lãng phí về nhân lực trong quá trình đồng bộ dữ liệu.
-	
-	% Định hướng tạo nên đột phá cho dự án sẽ được phát triển khi dữ liệu khách hàng và số lượng các nhà sản xuất đủ lớn. Khi đó vấn đề gần nhất cần giải quyết là hệ thống gợi ý giá bán và thu thập thông tin phản hồi từ khách hàng để cải thiện quá trình sản xuất.
-	
-	\pagebreak
-	
+	\include{summary}
 	
 	\addcontentsline{toc}{chapter}{NHIỆM VỤ ĐỒ ÁN }
 	% ĐƠN VỊ
@@ -260,29 +248,27 @@ headsep=0.5cm
 		\at\\
 		\textbf{Người hướng dẫn}
 	\end{minipage}\\[2em]
-	
 	\pagebreak
 	
 	% Đánh số trang la mã
 	\pagenumbering{roman}
 	\setcounter{page}{1}
-	
+
 	% Lời nói đầu
-	\chapter*{LỜI NÓI ĐẦU}
+	\clearpage
 	\addcontentsline{toc}{chapter}{LỜI NÓI ĐẦU}
-	% >>> {Font: Time New Roman; thường; cỡ chữ: 13; giãn dòng: 1,3; căn lề: justified}
 	\fontsize{13px}{13px}\selectfont\justifying
-	
+	% >>> {Font: Time New Roman; thường; cỡ chữ: 13; giãn dòng: 1,3; căn lề: justified}
+	\chapter*{LỜI NÓI ĐẦU}
 	Ngành công nghệ phần mềm nghiên cứu về các kỹ thuật, phương pháp, hạ tầng của phần mềm máy tính. Người phát triển phần mềm không đơn giản là chỉ cần biết đến ngôn ngữ lập trình là có thể phát triển được hết. Sau thời gian học tập và nghiên cứu tại trường Đại Học Bách Khoa Đà Nẵng. Cùng với sự thực hành miệt mài và những kinh nghiệm, tư duy, định hướng ngoài giờ lên lớp từ các thầy cô. Em nhận thấy mình tiến bộ toàn diện, không chỉ các kiến thức chuyên ngành. Các phương pháp nghiên cứu, tinh thần học tập, tư duy giải quyết vấn đề,... cũng ngày một hoàn thiện.
-	
 	% Các bạn tân sinh viên có thể thắc mắc rằng vai trò của trường Đại học là gì trong thời kì kiến thức mở. Nếu các bạn thấy được mục tiêu và định hướng của mỗi người là khác nhau khi họ tiếp xúc với những cộng đồng khác nhau. Thì các bạn sẽ nhận ra rằng: bạn bè, thầy cô, giáo trình, cơ sở vật chất tốt không cải thiện năng lực của bạn. Đó là môi trường phát triển. Đơn giản nếu xem năng lực của cá nhân là sản phẩm của tư duy, thì môi trường là \emph{"nguyên liệu"} của sản phẩm đó. Nó cần quá trình chế tác bởi chính năng lực tư duy của bạn. Hiểu được như vậy sẽ không còn nhập nhằng giữa các quan điểm \emph{"Giỏi thì ở đâu cũng giỏi"} hay \emph{"Không thầy đố mày làm nên"}.
 	
 	Đề tài này là kết quả của quá trình học tập tại trường Đại Học Bách Khoa Đà Nẵng. Không chỉ dừng lại ở mức độ là một luận án tốt nghiệp. Những hạn chế tồn đọng sẽ được tiếp tục hoàn thiện khi năng lực và điều kiện phát triển. Đồ án sẽ tiếp tục triển khai và hướng đến công năng thực tế cho các chủ thể doanh nghiệp. Hộ kinh doanh.
 	
-	Cuối cùng em xin cảm ơn thầy cô và bạn bè đã đồng hành cùng em trong suốt năm tháng vừa qua. Cảm ơn cô Lê Thị Mỹ Hạnh đã hướng dẫn em hoàn thành dự án, luận văn tốt nghiệp. Em xin chân thành cảm ơn!
-	
+	Cuối cùng em xin cảm ơn thầy cô và bạn bè đã đồng hành cùng em trong suốt năm tháng vừa qua. Cảm ơn cô Lê Thị Mỹ Hạnh đã hướng dẫn em hoàn thành dự án, luận văn tốt nghiệp. Em xin chân thành cảm ơn!	
 	\pagebreak
 	
+	\restoregeometry% Restore to oneside
 	% Cam đoan
 	\addcontentsline{toc}{chapter}{CAM ĐOAN}
 	\chapter*{CAM ĐOAN}
@@ -307,16 +293,20 @@ headsep=0.5cm
 	
 	
 	
+
+
 	
-	
-	
+
+
 	% Mục lục
 	%{Để 2 dòng trống tại đây} {Font: Time New Roman; thường; cỡ chữ: 13; dãn dòng: 1,3; căn lề: justified} {In trên 2 mặt giấy từ trang này đến hết phần “PHỤ LỤC”}\\
+
 	\fontsize{13px}{13px}\selectfont
 	\renewcommand*\contentsname{MỤC LỤC}
-	\tableofcontents	
 	\addcontentsline{toc}{chapter}{MỤC LỤC}
-	
+	\cleardoublepage
+	\tableofcontents
+
 	% Danh sách bảng & hình ảnh
 	%	Ghi chú:
 	%	- Mỗi bảng, hình vẽ/ sơ đồ phải được đánh số và có tên;
@@ -357,7 +347,7 @@ headsep=0.5cm
 	
 	
 	
-	
+	\clearpage
 	% Bắt đầu đánh số thứ tự arabic
 	% Đánh số trang: bắt đầu đánh số trang từ phần “MỞ ĐẦU”;
 	\pagenumbering{arabic}
@@ -438,7 +428,7 @@ headsep=0.5cm
 	
 	Điều đó làm cho \acrshort{vps} hiệu suất và linh hoạt hơn các dạng lưu trữ phần mềm máy chủ khác.
 	
-	Với sự linh hoạt và chi phí hợp lí. \acrshort{vps} cũng có gặp một số vấn đề trong đó đáng kể là khi người dùng truy cập tăng đột biến. Khả năng mở rộng hệ thống là hạn chế hơn so với dịch vụ sử dụng công nghệ đám mây. 
+	Với sự linh hoạt và chi phí hợp lý. \acrshort{vps} cũng có gặp một số vấn đề trong đó đáng kể là khi người dùng truy cập tăng đột biến. Khả năng mở rộng hệ thống là hạn chế hơn so với dịch vụ sử dụng công nghệ đám mây. 
 	
 	\section{Công cụ}
 	
@@ -466,16 +456,16 @@ headsep=0.5cm
 	
 	\subsection{Apollo Server}
 	
-	Nhờ sức mạnh của ngôn ngữ truy vấn dành cho API là GraphQL. Apollo Server thiết kế ra để dễ dàng khởi tạo khung sườn cho dự án sử dụng GraphQL để phân tích cú pháp và xử lí nghiệp vụ dễ dàng hơn.
+	Nhờ sức mạnh của ngôn ngữ truy vấn dành cho API là GraphQL. Apollo Server thiết kế ra để dễ dàng khởi tạo khung sườn cho dự án sử dụng GraphQL để phân tích cú pháp và xử lý nghiệp vụ dễ dàng hơn.
 	
-	Khác với REST API và cấu trúc MVC thông thường. GraphQL tổ chức xử lí API theo kiểu quy nạp. Cú pháp được phân tích thành cấu trúc cây và chia ra xử lí sau đó quy nạp ngược lên để trả kết quả về phía người dùng.
+	Khác với REST API và cấu trúc MVC thông thường. GraphQL tổ chức xử lý API theo kiểu quy nạp. Cú pháp được phân tích thành cấu trúc cây và chia ra xử lý sau đó quy nạp ngược lên để trả kết quả về phía người dùng.
 	
 	GraphQL cũng cho phép định kiểu các chức năng xử lý và hoạt động truy cập đến đối tượng nên có thể chia cấu trúc dự án hướng đối tượng với các hàm xử lý rất nhỏ. Mỗi hàm chức năng như vậy đều có thể là một nút trên cây truy vấn. Điều này giúp cho việc truy vấn và khởi chạy các hàm, liên kết quy nạp dữ liệu diễn ra hết sức linh hoạt. Nghĩa là bạn có thể lấy duy nhất một bảng ghi sau đó xử lý. Hoặc lấy danh sách bản ghi bao gồm việc xử lý đều được mà không cần phát triển một "Controller" mới như mô hình MVC thông thường.
 	
 	Một số người nhờ vào sự linh hoạt khi thiết kế các nút xử lý của GraphQL để sử dụng chúng như một Gateway cho hệ thống có sẵn của họ. Tạo nên một bộ API thống nhất trên một tài liệu lập trình duy nhất giúp cho các đội ngũ có thể giao tiếp với nhau dễ dàng hơn và tài liệu được cập nhật triệt để hơn.
 	
 	\subsection{MongoDB}
-	MongoDB là một mã nguồn mở để quản lí cơ sở dữ liệu dạng tài liệu thay vì dạng bảng như \acrshort{sql}. MongoDB được phát triển để mở rộng theo chiều ngang làm cho định kiểu dữ liệu trở nên linh hoạt hơn. Phát hành năm 2007, MongoDB đã được tiếp nhận và phổ biến khắp nơi trên thế giới.
+	MongoDB là một mã nguồn mở để quản lý cơ sở dữ liệu dạng tài liệu thay vì dạng bảng như \acrshort{sql}. MongoDB được phát triển để mở rộng theo chiều ngang làm cho định kiểu dữ liệu trở nên linh hoạt hơn. Phát hành năm 2007, MongoDB đã được tiếp nhận và phổ biến khắp nơi trên thế giới.
 	
 	Thay vì lưu dữ liệu vào bảng theo hàng hoặc cột như \acrshort{sql}, mỗi bản ghi trong MongoDB được mô tả như một tài liệu BJSON, dạng mã hóa nhị phân dữ liệu. Ứng dụng có thể duyệt qua những thông tin theo định dạng JSON.
 	
@@ -503,14 +493,14 @@ headsep=0.5cm
 	\subsection{Dịch vụ máy chủ ảo}
 	Đề tài không bao gồm việc cấu hình mạng, phần cứng của máy chủ. Để triển khai mã nguồn dự án lên môi trường thực tế. Đề tài mô tả việc cấu hình mã nguồn dự án lên một máy chủ ảo (định nghĩa máy chủ mục \ref{subsection:webserver}).
 	
-	\chapter{PH N TÍCH THIẾT KẾ}
+	\chapter{PHÂN TÍCH THIẾT KẾ}
 	\section{Đặc tả}
 	
 	Dự án giải quyết vấn đề tạo trang thương mại điện tử cho chính nhà cung cấp. Và liên kết sản phẩm để phân phối thông tin giữa các nhà bán hàng dùng chung hệ thống dự án này. Khi một người bắt đầu đăng ký hộ kinh doanh hoặc doanh nghiệp để sản xuất và cung cấp sản phẩm ra thị trường. Thì để thiết lập một trang bán hàng riêng, người đó chỉ cần thuê dịch vụ tên miền ở một nhà cung cấp bất kì. Đăng ký tài khoản và chờ duyệt trở thành nhà bán hàng. Sau khi được duyệt, nhà sản xuất có thể đăng tải thông tin và cung cấp quyền cài đặt tên miền đề liên kết trình bày dữ liệu của nhà sản xuất lên tại tên miền đó. Chi phí khởi tạo và duy trì là miễn phí. Khi doanh nghiệp thực sự cần và đã khai thác được nguồn lợi từ việc quảng bá trang thương mại điện tử. Hệ thống phần mềm có cơ chế mở rộng tài nguyên sử dụng cho nhà sản xuất.
 	
 	Tiếp đến khi một nhà sản xuất, hoặc một cửa hàng có tài khoản nhà bán hàng trên hệ thống. Họ có nhu cầu đăng tải sản phẩm của tối tác trên trang thông tin của mình để tiếp thị sản phẩm cho khách hàng truy cập trang được đa dạng hơn. Người đó cần tạo một lời mời ký gửi thông tin đến nhà sản xuất sản phẩm đó. Sau khi được duyệt, các sản phẩm của nhà sản xuất đã hiện thì và có thể đặt hàng ở trên trang của đối tác.
 	
-	Sau khi nhận được đơn đặt hàng, cùng với sản phẩm nằm ngoài doanh mục mà cửa hàng hoặc nhà sản xuất đó cung cấp. Người xử lí đơn có thể chuyển tiếp đơn đó cho đối tác xử lí như một hình thức dropshipping.
+	Sau khi nhận được đơn đặt hàng, cùng với sản phẩm nằm ngoài doanh mục mà cửa hàng hoặc nhà sản xuất đó cung cấp. Người xử lý đơn có thể chuyển tiếp đơn đó cho đối tác xử lý như một hình thức dropshipping.
 	
 	Khách hàng truy cập vào trang sẽ thấy thông tin như một trang thương mại điện tử thông thường, các trang thương mại điện tử này dùng chung dữ liệu nên một tài khoản có thể đăng nhập trên nhiều trang. Tạo ra sự đăng nhập liền mạch cải thiện trải nghiệm người dùng.
 	
@@ -542,7 +532,7 @@ headsep=0.5cm
 		\item Tương thích ít nhất 80\% các loại màn hình.
 		\item Mức độ hoàn thiện tương thích màn hình ít nhất 70\%.
 		\item Thao tác nút bấm to rõ và hạn chế bị giật khi tải lại các thành phần của trang.
-		\item Tăng các thành phần phản ứng với hành động của người dùng để tạo cảm giác hệ thống đang xử lí liền mạch không bị chậm chạp.
+		\item Tăng các thành phần phản ứng với hành động của người dùng để tạo cảm giác hệ thống đang xử lý liền mạch không bị chậm chạp.
 	\end{itemize}
 	\subsection{Yêu cầu hiệu suất}
 	\begin{itemize}
@@ -555,7 +545,7 @@ headsep=0.5cm
 	\begin{itemize}
 		\item Hệ thống sử dụng các công nghệ còn được duy trì và phát triển.
 		\item Hệ thống có thể chia nhỏ ra thành các đội nhóm khi trở nên quá lớn.
-		\item Hệ thống có thể nâng cấp theo chiều ngang với các lựa chọn có chi phí hợp lí.
+		\item Hệ thống có thể nâng cấp theo chiều ngang với các lựa chọn có chi phí hợp lý.
 		\item Hệ thống không bị phụ thuộc và có phương pháp phát triển dự phòng.
 	\end{itemize}
 	
@@ -644,7 +634,7 @@ headsep=0.5cm
 	
 	\textbf{Nhóm} Nhóm được xem bởi người tham gia nhóm và người đã chấp nhận lời mời tham gia nhóm. Lời mời tham gia nhóm tương tự với lời mời kết bạn.
 	
-	\textbf{Thống kê truy cập} Thống kê theo dõi truy cập của một cá nhân chỉ được truy cập quản lí bởi chính cá nhân đó.
+	\textbf{Thống kê truy cập} Thống kê theo dõi truy cập của một cá nhân chỉ được truy cập quản lý bởi chính cá nhân đó.
 	
 	\textbf{Các bảng công việc} Khi giữa các tài khoản người dùng và tài khoản nhà bán hàng có kí hợp đồng lao động, người dùng có thể tạo bảng để chấm công khi làm việc cho một nhà bán hàng nào đó. Nên nhà bán hàng và người chấm công có thể xem. Yêu cầu chốt công tạo ra bởi người chấm công nhưng không ai có thể xóa. Nhà bán hàng có thể cập nhật hoặc ghi chú vào bảng chốt công.
 	
@@ -657,7 +647,7 @@ headsep=0.5cm
 			\caption{Thiết kế chung của hệ thống}
 		\end{center}
 	\end{figure}
-	Hệ thống thiết kế hướng dịch vụ chia làm 3 dịch vụ nhỏ là: sellers, accounts và bloggers. Tại máy chủ gateway có nhiệm vụ phân tích truy vấn đồ thị thành nhiều đồ thị con và gửi đến các dịch vụ xử lý. Sau đó gộp kết quả lại và trả về cho truy vấn. Gateway đồng thời cũng cung cấp giao diện quản lí chung cho tất cả các dịch vụ.
+	Hệ thống thiết kế hướng dịch vụ chia làm 3 dịch vụ nhỏ là: sellers, accounts và bloggers. Tại máy chủ gateway có nhiệm vụ phân tích truy vấn đồ thị thành nhiều đồ thị con và gửi đến các dịch vụ xử lý. Sau đó gộp kết quả lại và trả về cho truy vấn. Gateway đồng thời cũng cung cấp giao diện quản lý chung cho tất cả các dịch vụ.
 	\include{analysic/usecase}
 	\include{analysic/activity}
 	\include{analysic/sequence}
@@ -666,26 +656,62 @@ headsep=0.5cm
 	% \include{analysic/package}
 	\include{analysic/component}
 	\include{analysic/devops}
+		\clearpage
 	\subsection{Thiết kế Dữ liệu}
+
+
+
+
+\FloatBarrier
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.8\textwidth]{class-accounts}
+	\caption{Sơ đồ lớp quản lý kết bạn và chia sẻ}
+\end{figure}
+
+\FloatBarrier
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.8\textwidth]{class-products}
+	\caption{Sơ đồ lớp quản lý sản phẩm}
+\end{figure}
+
+\clearpage
+\FloatBarrier
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.8\textwidth]{class-orders}
+	\caption{Sơ đồ lớp đặt hàng, quản lý đơn hàng}
+\end{figure}
+\FloatBarrier
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.8\textwidth]{class-store}
+	\caption{Sơ đồ lớp quản lý cửa hàng}
+\end{figure}
+
+
+\clearpage
+\FloatBarrier
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Mô tả bảng ContractConsignment.}
 			\label{table:ContractConsignment}
-			\begin{tabular}{ |l|l|l| } 
+			\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
 				\hline
 				Tên & Kiểu & Mô tả \\
 				\hline
 				to & Virtual & Người nhận yêu cầu \\
 				isAccepted & Checkbox & Tình trạng yêu cầu \\
 				\hline
-			\end{tabular}
+			\end{tabularx}
 		\end{center}
 	\end{table}
 	
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Mô tả bảng NotificationMailer.}
-			\begin{tabular}{ |l|l|l| } 
+			\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
 				\hline
 				Tên & Kiểu & Mô tả \\
 				\hline
@@ -696,7 +722,7 @@ headsep=0.5cm
 				secure & Checkbox & secure \\
 				name & Text & Tên người gửi \\ 
 				\hline
-			\end{tabular}
+			\end{tabularx}
 			\label{table:NotificationMailer}
 		\end{center}
 	\end{table}
@@ -705,7 +731,7 @@ headsep=0.5cm
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Mô tả bảng Notification.}
-			\begin{tabular}{ |l|l|l| } 
+			\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
 				\hline
 				Tên & Kiểu & Mô tả \\
 				\hline
@@ -714,7 +740,7 @@ headsep=0.5cm
 				text & Text & Nội dung \\
 				seen & Checkbox & Tình trạng \\ 
 				\hline
-			\end{tabular}
+			\end{tabularx}
 			\label{table:Notification}
 		\end{center}
 	\end{table}
@@ -723,7 +749,7 @@ headsep=0.5cm
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Mô tả bảng Relationship.}
-			\begin{tabular}{ |l|l|l| } 
+			\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
 				\hline
 				Tên & Kiểu & Mô tả \\
 				\hline
@@ -732,7 +758,7 @@ headsep=0.5cm
 				isAccepted & Checkbox & Tình trạng \\
 				consignment & Virtual & Lời mời \\ 
 				\hline
-			\end{tabular}
+			\end{tabularx}
 			\label{table:Relationship}
 		\end{center}
 	\end{table}
@@ -741,13 +767,13 @@ headsep=0.5cm
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Mô tả bảng TeamInvitation.}
-			\begin{tabular}{ |l|l|l| } 
+			\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
 				\hline
 				Tên & Kiểu & Mô tả \\
 				\hline
 				isAccepted & Checkbox & tình trạng \\
 				\hline
-			\end{tabular}
+			\end{tabularx}
 			\label{table:TeamInvitation}
 		\end{center}
 	\end{table}
@@ -755,7 +781,7 @@ headsep=0.5cm
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Mô tả bảng User.}
-			\begin{tabular}{ |l|l|l| } 
+			\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
 				\hline
 				Tên & Kiểu & Mô tả \\
 				\hline
@@ -771,7 +797,7 @@ headsep=0.5cm
 				isSeller & Checkbox & là nhà sản xuất? \\
 				forgotAt & DateTime & Quên mật khẩu lúc \\ 
 				\hline
-			\end{tabular}
+			\end{tabularx}
 			\label{table:User}
 		\end{center}
 	\end{table}
@@ -780,14 +806,14 @@ headsep=0.5cm
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Mô tả bảng View.}
-			\begin{tabular}{ |l|l|l| } 
+			\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
 				\hline
 				Tên & Kiểu & Mô tả \\
 				\hline
 				count & Integer & Số lượt xem \\
 				of & MongoId & Thuộc User \\ 
 				\hline
-			\end{tabular}
+			\end{tabularx}
 			\label{table:View}
 		\end{center}
 	\end{table}
@@ -796,13 +822,13 @@ headsep=0.5cm
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Mô tả bảng WorkPaid.}
-			\begin{tabular}{ |l|l|l| } 
+			\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
 				\hline
 				Tên & Kiểu & Mô tả \\
 				\hline
 				price & Currency & Tổng \\ 
 				\hline
-			\end{tabular}
+			\end{tabularx}
 			\label{table:WorkPaid}
 		\end{center}
 	\end{table}
@@ -811,7 +837,7 @@ headsep=0.5cm
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Mô tả bảng WorkType.}
-			\begin{tabular}{ |l|l|l| } 
+			\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
 				\hline
 				Tên & Kiểu & Mô tả \\
 				\hline
@@ -819,16 +845,16 @@ headsep=0.5cm
 				price & Currency & Giá \\
 				unit & Select & Đơn vị \\ 
 				\hline
-			\end{tabular}
+			\end{tabularx}
 			\label{table:WorkType}
 		\end{center}
 	\end{table}
 	
-	
+	\clearpage
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Mô tả bảng Work.}
-			\begin{tabular}{ |l|l|l| } 
+			\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
 				\hline
 				Tên & Kiểu & Mô tả \\
 				\hline
@@ -836,7 +862,7 @@ headsep=0.5cm
 				content & Text & nội dung \\
 				confirmAt & CalendarDay & ngày xác nhận \\ 
 				\hline
-			\end{tabular}
+			\end{tabularx}
 			\label{table:Work}
 		\end{center}
 	\end{table}
@@ -845,7 +871,7 @@ headsep=0.5cm
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Mô tả bảng Banner.}
-			\begin{tabular}{ |l|l|l| } 
+			\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
 				\hline
 				Tên & Kiểu & Mô tả \\
 				\hline
@@ -857,7 +883,7 @@ headsep=0.5cm
 				type & Select & loại \\
 				size & Virtual & kích thước \\ 
 				\hline
-			\end{tabular}
+			\end{tabularx}
 			\label{table:Banner}
 		\end{center}
 	\end{table}
@@ -866,7 +892,7 @@ headsep=0.5cm
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Mô tả bảng Contact.}
-			\begin{tabular}{ |l|l|l| } 
+			\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
 				\hline
 				Tên & Kiểu & Mô tả \\
 				\hline
@@ -878,7 +904,7 @@ headsep=0.5cm
 				message & Text & tin nhắn \\
 				isDefault & Checkbox & đánh dấu \\ 
 				\hline
-			\end{tabular}
+			\end{tabularx}
 			\label{table:Contact}
 		\end{center}
 	\end{table}
@@ -887,7 +913,7 @@ headsep=0.5cm
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Mô tả bảng Page.}
-			\begin{tabular}{ |l|l|l| } 
+			\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
 				\hline
 				Tên & Kiểu & Mô tả \\
 				\hline
@@ -921,7 +947,7 @@ headsep=0.5cm
 				
 				
 				\hline
-			\end{tabular}
+			\end{tabularx}
 			\label{table:Page}
 		\end{center}
 	\end{table}
@@ -930,14 +956,14 @@ headsep=0.5cm
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Mô tả bảng ProductAttributeValue.}
-			\begin{tabular}{ |l|l|l| } 
+			\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
 				\hline
 				Tên & Kiểu & Mô tả \\
 				\hline
 				value & Text & thuộc tính \\
 				file & File & hình ảnh mô tả \\ 
 				\hline
-			\end{tabular}
+			\end{tabularx}
 			\label{table:ProductAttributeValue}
 		\end{center}
 	\end{table}
@@ -946,14 +972,14 @@ headsep=0.5cm
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Mô tả bảng ProductAttribute.}
-			\begin{tabular}{ |l|l|l| } 
+			\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
 				\hline
 				Tên & Kiểu & Mô tả \\
 				\hline
 				label & Text & nhãn \\
 				name & Text & tên \\
 				\hline
-			\end{tabular}
+			\end{tabularx}
 			\label{table:ProductAttribute}
 		\end{center}
 	\end{table}
@@ -962,14 +988,14 @@ headsep=0.5cm
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Mô tả bảng ProductBrand.}
-			\begin{tabular}{ |l|l|l| } 
+			\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
 				\hline
 				Tên & Kiểu & Mô tả \\
 				\hline
 				name & Text & tên \\
 				url & Slug & đường dẫn \\
 				\hline
-			\end{tabular}
+			\end{tabularx}
 			\label{table:ProductBrand}
 		\end{center}
 	\end{table}
@@ -978,7 +1004,7 @@ headsep=0.5cm
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Mô tả bảng ProductCartItem.}
-			\begin{tabular}{ |l|l|l| } 
+			\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
 				\hline
 				Tên & Kiểu & Mô tả \\
 				\hline
@@ -988,7 +1014,7 @@ headsep=0.5cm
 				isInCart & Virtual & đang trong giỏ \\
 				quantity & Integer & số lượng \\ 
 				\hline
-			\end{tabular}
+			\end{tabularx}
 			\label{table:ProductCartItem}
 		\end{center}
 	\end{table}
@@ -997,7 +1023,7 @@ headsep=0.5cm
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Mô tả bảng ProductCart.}
-			\begin{tabular}{ |l|l|l| } 
+			\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
 				\hline
 				Tên & Kiểu & Mô tả \\
 				
@@ -1005,7 +1031,7 @@ headsep=0.5cm
 				contact & MongoId & Liên hệ\\
 				items & [MongoId] & sản phẩm\\
 				\hline
-			\end{tabular}
+			\end{tabularx}
 			\label{table:ProductCart}
 		\end{center}
 	\end{table}
@@ -1014,7 +1040,7 @@ headsep=0.5cm
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Mô tả bảng ProductCategory.}
-			\begin{tabular}{ |l|l|l| } 
+			\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
 				\hline
 				Tên & Kiểu & Mô tả \\
 				\hline
@@ -1025,7 +1051,7 @@ headsep=0.5cm
 				url & Slug & đường dẫn \\
 				root & Checkbox & gốc \\
 				\hline
-			\end{tabular}
+			\end{tabularx}
 			\label{table:ProductCategory}
 		\end{center}
 	\end{table}
@@ -1034,7 +1060,7 @@ headsep=0.5cm
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Mô tả bảng ProductDiscount.}
-			\begin{tabular}{ |l|l|l| } 
+			\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
 				\hline
 				Tên & Kiểu & Mô tả \\
 				\hline
@@ -1047,7 +1073,7 @@ headsep=0.5cm
 				image & File & hình ảnh \\
 				url & Slug & đường dẫn \\
 				\hline
-			\end{tabular}
+			\end{tabularx}
 			\label{table:ProductDiscount}
 		\end{center}
 	\end{table}
@@ -1056,14 +1082,14 @@ headsep=0.5cm
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Mô tả bảng ProductHashtag.}
-			\begin{tabular}{ |l|l|l| } 
+			\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
 				\hline
 				Tên & Kiểu & Mô tả \\
 				\hline
 				name & Text & tên \\
 				url & Slug & đường dẫn \\
 				\hline
-			\end{tabular}
+			\end{tabularx}
 			\label{table:ProductHashtag}
 		\end{center}
 	\end{table}
@@ -1072,14 +1098,14 @@ headsep=0.5cm
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Mô tả bảng ProductOrderStatus.}
-			\begin{tabular}{ |l|l|l| } 
+			\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
 				\hline
 				Tên & Kiểu & Mô tả \\
 				\hline
 				value & Text & giá trị \\
 				color & Select & màu sắc \\ 
 				\hline
-			\end{tabular}
+			\end{tabularx}
 			\label{table:ProductOrderStatus}
 		\end{center}
 	\end{table}
@@ -1088,7 +1114,7 @@ headsep=0.5cm
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Mô tả bảng ProductOrder.}
-			\begin{tabular}{ |l|l|l| } 
+			\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
 				\hline
 				Tên & Kiểu & Mô tả \\
 				\hline
@@ -1099,7 +1125,7 @@ headsep=0.5cm
 				total & Integer & tổng \\
 				notification & MongoId & thông báo \\ 
 				\hline
-			\end{tabular}
+			\end{tabularx}
 			\label{table:ProductOrder}
 		\end{center}
 	\end{table}
@@ -1108,23 +1134,23 @@ headsep=0.5cm
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Mô tả bảng ProductStock.}
-			\begin{tabular}{ |l|l|l| } 
+			\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
 				\hline
 				Tên & Kiểu & Mô tả \\
 				\hline
 				quantity & Integer & số lượng \\
 				image & File & hình ảnh \\ 
 				\hline
-			\end{tabular}
+			\end{tabularx}
 			\label{table:ProductStock}
 		\end{center}
 	\end{table}
 	
-	
+		\clearpage
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Mô tả bảng Product.}
-			\begin{tabular}{ |l|l|l| } 
+			\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
 				\hline
 				Tên & Kiểu & Mô tả \\
 				\hline
@@ -1144,7 +1170,7 @@ headsep=0.5cm
 				url & Slug & đường dẫn \\
 				sold & Virtual & đã bán \\
 				\hline
-			\end{tabular}
+			\end{tabularx}
 			\label{table:Product}
 		\end{center}
 	\end{table}
@@ -1153,7 +1179,7 @@ headsep=0.5cm
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Mô tả bảng Translate.}
-			\begin{tabular}{ |l|l|l| } 
+			\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
 				\hline
 				Tên & Kiểu & Mô tả \\
 				\hline
@@ -1163,39 +1189,39 @@ headsep=0.5cm
 				lang & Text & ngôn ngữ \dotfill \\
 				content & Text & nội dung \dotfill \\ 
 				\hline
-			\end{tabular}
+			\end{tabularx}
 			\label{table:Translate}
 		\end{center}
 	\end{table}
 	
-	
+		
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Mô tả bảng UploadFile.}
-			\begin{tabular}{ |l|l|l| } 
+			\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
 				\hline
 				Tên & Kiểu & Mô tả \\
 				\hline
 				file & File & tệp \\
 				address & Text & địa chỉ tệp\\ 
 				\hline
-			\end{tabular}
+			\end{tabularx}
 			\label{table:UploadFile}
 		\end{center}
 	\end{table}
 	
-	
+		\clearpage
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Mô tả bảng UploadImage.}
-			\begin{tabular}{ |l|l|l| } 
+			\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
 				\hline
 				Tên & Kiểu & Mô tả \\
 				\hline
 				file & File & tệp \\
 				alt & Text & mô tả \\ 
 				\hline
-			\end{tabular}
+			\end{tabularx}
 			\label{table:UploadImage}
 		\end{center}
 	\end{table}
@@ -1204,7 +1230,7 @@ headsep=0.5cm
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Mô tả bảng FAQ.}
-			\begin{tabular}{ |l|l|l| } 
+			\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
 				\hline
 				Tên & Kiểu & Mô tả \\
 				\hline
@@ -1212,16 +1238,16 @@ headsep=0.5cm
 				body & Markdown & nội dung \\
 				prioritize & Integer & ưu tiên \\ 
 				\hline
-			\end{tabular}
+			\end{tabularx}
 			\label{table:FAQ}
 		\end{center}
 	\end{table}
 	
-	
+
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Mô tả bảng Feature.}
-			\begin{tabular}{ |l|l|l| } 
+			\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
 				\hline
 				Tên & Kiểu & Mô tả \\
 				\hline
@@ -1230,7 +1256,7 @@ headsep=0.5cm
 				description & Markdown & mô tả \\
 				content & Markdown & nội dung \\ 
 				\hline
-			\end{tabular}
+			\end{tabularx}
 			\label{table:Feature}
 		\end{center}
 	\end{table}
@@ -1239,7 +1265,7 @@ headsep=0.5cm
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Mô tả bảng PostHashtag.}
-			\begin{tabular}{ |l|l|l| } 
+			\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
 				\hline
 				Tên & Kiểu & Mô tả \\
 				\hline
@@ -1251,16 +1277,16 @@ headsep=0.5cm
 				color & Color & màu sắc \\
 				url & Slug & đường dẫn \\ 
 				\hline
-			\end{tabular}
+			\end{tabularx}
 			\label{table:PostHashtag}
 		\end{center}
 	\end{table}
 	
-	
+	\clearpage
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Mô tả bảng Post.}
-			\begin{tabular}{ |l|l|l| } 
+			\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
 				\hline
 				Tên & Kiểu & Mô tả \\
 				\hline
@@ -1274,7 +1300,7 @@ headsep=0.5cm
 				url & Slug & đường dẫn \\
 				body & Text & nội dung \\ 
 				\hline
-			\end{tabular}
+			\end{tabularx}
 			\label{table:Post}
 		\end{center}
 	\end{table}
@@ -1283,7 +1309,7 @@ headsep=0.5cm
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Mô tả bảng Service.}
-			\begin{tabular}{ |l|l|l| } 
+			\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
 				\hline
 				Tên & Kiểu & Mô tả \\
 				\hline
@@ -1292,7 +1318,7 @@ headsep=0.5cm
 				description & Text & mô tả \\
 				content & Markdown & nội dung \\ 
 				\hline
-			\end{tabular}
+			\end{tabularx}
 			\label{table:Service}
 		\end{center}
 	\end{table}
@@ -1301,7 +1327,7 @@ headsep=0.5cm
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Mô tả bảng Testimonial.}
-			\begin{tabular}{ |l|l|l| } 
+			\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
 				\hline
 				Tên & Kiểu & Mô tả \\
 				\hline
@@ -1310,7 +1336,7 @@ headsep=0.5cm
 				description & Text & mô tả \\
 				image & File & hình ảnh \\ 
 				\hline
-			\end{tabular}
+			\end{tabularx}
 			\label{table:Testimonial}
 		\end{center}
 	\end{table}
@@ -1321,7 +1347,38 @@ headsep=0.5cm
 	
 	\include{result}
 	\section{Đánh giá}
-	\subsection{Những vấn đề hạn chế}
+
+Đồ án cơ bản đã đạt được các yêu cầu đặt ra để giải quyết vấn đề. Với các yêu cầu nêu trong phần đặc tả, sau đây là bảng đánh giá chi tiết:
+
+	\begin{table}[h!]
+	\begin{center}
+		\caption{Bảng đánh giá kết quả}
+		\begin{tabularx}{0.8\textwidth}{ |l|l|X| } 
+			\hline
+			Tên yêu cầu & Mức độ hoàn thiện & Mô tả\\
+			\hline
+			Yêu cầu tính năng & 90\% & Các tính năng, nghiệp vụ cơ bản được hoàn thành\\
+			Yêu cầu giao diện & 85\% & Giao diện được thiết kế hiện đại, kiểm tra kỹ, chạy tốt trên các loại màn hình khác nhau. \\
+			Yê cầu hiệu suất & 75\% & Hệ thống còn một số chỗ chưa tối ưu truy vấn \\
+			Yêu cầu thiết kế & 90\% & Hệ thống cơ bản đạt yêu cầu thiết kế \\
+			Yêu cầu phi tính năng & 70\% & Hệ thống vẫn cần backup thủ công \\
+			\hline
+		\end{tabularx}
+
+	\end{center}
+\end{table}
+
+
+
+	\chapter*{KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN}
+	% size 14
+	\addcontentsline{toc}{chapter}{Kết luận}
+	%	Nội dung kết luận {Font: Time New Roman; thường; cỡ chữ: 13; dãn dòng: 1,3;căn lề: justified}
+	Đồ án đã vận dụng được các kiến thức nền tảng và ứng dụng các công cụ mới để phát triển hệ thống. Sau quá trình triển khai, em nhận thấy đồ án còn hạn chế ở khả năng tăng quy mô máy chủ để phục vụ cho lượng người dùng lớn. Đồng thời cũng chưa kiểm thử được hiệu suất của truy vấn dữ liệu khi lượng người dùng trở nên nhiều hơn.
+	
+	Đồ án sẽ tiếp tục phát triển và phục vụ thực tế cho các doanh nghiệp sản xuất. Mở rộng thêm các tính năng phù hợp với nhu cầu doanh nghiệp. Đồng thời, các tính năng quan trọng cần được mở rộng phát triển trên nhiều nền tảng hệ điều hành.
+	
+		\subsection*{Những vấn đề hạn chế}
 	Sau khi thực hiện đồ án em nhận thấy những vấn đề hạn chế sau:
 	\textbf{micro-service} Kiến trúc này chỉ phù hợp cho các dự án lớn, nhiều nhóm làm việc với nhau. Chia thành service giúp các nhóm hoạt động độc lập với nhau. Các backlog được chia ra hoàn thành rồi quy nạp lại để khởi chạy toàn bộ hệ thống. Song song với việc phát hành phiên các mới của các service, việc duy trì các phiên bản ổn định cũ của service đó cũng khá tốn kém. Thường thì các hệ thống lớn duy trì hơn 10 phiên bản.
 	
@@ -1335,7 +1392,7 @@ headsep=0.5cm
 	
 	\textbf{analysic} Hệ thống đo lường lưu lượng hoạt động tại các micro-service, các cầu nối chưa được phát triển đầy đủ. Điều này giúp quá trình nâng cao hiệu suất, cải thiện độ chịu tải của hệ thống trở nên khó khăn hơn.
 	
-	\subsection{Hướng phát triển}
+	\subsection*{Hướng phát triển}
 	
 	\textbf{Mạng xã hội} Hiện tại hệ thống đã có tính năng kết bạn, cần phát triển thêm tính năng tương tác của mạng xã hội. Giúp không gian mua hàng trở nên sống động hơn. Cho phép khách hàng phản hồi về sản phẩm, đánh giá, trả lời bình luận. Xem các hoạt động của người khác ở thời điểm hiện tại.
 	
@@ -1343,26 +1400,10 @@ headsep=0.5cm
 	
 	\textbf{Phân tích hành vi} Tính năng phân tích hành vi của người mua hàng, đánh giá mức độ ưu tiên hiển thị. Tạo nhiều tính năng giúp người dùng phản hồi nhanh về sản phẩm giúp nhà sản xuất cải thiện chất lượng.
 	
-	\chapter*{KẾT LUẬN}
-	% size 14
-	\addcontentsline{toc}{chapter}{Kết luận}
-	%	Nội dung kết luận {Font: Time New Roman; thường; cỡ chữ: 13; dãn dòng: 1,3;căn lề: justified}
-	Đồ án đã vận dụng được các kiến thức nền tảng và ứng dụng các công cụ mới để phát triển hệ thống. Sau quá trình triển khai, em nhận thấy đồ án còn hạn chế ở khả năng tăng quy mô máy chủ để phục vụ cho lượng người dùng lớn. Đồng thời cũng chưa kiểm thử được hiệu suất của truy vấn dữ liệu khi lượng người dùng trở nên nhiều hơn.
-	
-	Đồ án sẽ tiếp tục phát triển và phục vụ thực tế cho các doanh nghiệp sản xuất. Mở rộng thêm các tính năng phù hợp với nhu cầu doanh nghiệp. Đồng thời, các tính năng quan trọng cần được mở rộng phát triển trên nhiều nền tảng hệ điều hành.s
 	
 	% Tham khảo
 	\bibliographystyle{alpha}
 	\bibliography{website}
 	\addcontentsline{toc}{chapter}{Tài liệu tham khảo}
-	
-	\chapter*{PHỤ LỤC}
-	\pagenumbering{gobble}
-	\addcontentsline{toc}{chapter}{Phụ lục}
-	
-	\chapter*{PHỤ LỤC}
-	\pagenumbering{gobble}
-	\addcontentsline{toc}{chapter}{Phụ lục}
-	
 \end{document}
 
