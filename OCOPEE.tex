@@ -168,6 +168,9 @@ headsep=0.5cm
 % ==== Bảng nâng cao
 \usepackage{tabularx}
 
+% ==== Chỉnh font chữ cho list
+\usepackage{enumitem}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
@@ -224,7 +227,7 @@ headsep=0.5cm
 	
 	Lớp: \emph\myclass \dotfill Khoa: \emph{Công nghệ thông tin} \dotfill Ngành: \emph{Công nghệ Phần Mềm} \dotfill
 	
-	\begin{enumerate}
+	\begin{enumerate}[before=\fontsize{13px}{13px}\selectfont]
 		\item\emph{Tên đề tài đồ án: \\\dotfill\\\dotfill}
 		\item\emph{Đề tài thuộc diện: $\square$ Có ký kết thỏa thuận sở hữu trí tuệ đối với kết quả thực hiện}
 		\item\emph{Các số liệu và dữ liệu ban đầu:\\\dotfill\\\dotfill\\\dotfill}
@@ -257,9 +260,10 @@ headsep=0.5cm
 	% Lời nói đầu
 	\clearpage
 	\addcontentsline{toc}{chapter}{LỜI NÓI ĐẦU}
-	\fontsize{13px}{13px}\selectfont\justifying
+
 	% >>> {Font: Time New Roman; thường; cỡ chữ: 13; giãn dòng: 1,3; căn lề: justified}
 	\chapter*{LỜI NÓI ĐẦU}
+	\fontsize{13px}{13px}\selectfont\justifying
 	Ngành công nghệ phần mềm nghiên cứu về các kỹ thuật, phương pháp, hạ tầng của phần mềm máy tính. Người phát triển phần mềm không đơn giản là chỉ cần biết đến ngôn ngữ lập trình là có thể phát triển được hết. Sau thời gian học tập và nghiên cứu tại trường Đại Học Bách Khoa Đà Nẵng. Cùng với sự thực hành miệt mài và những kinh nghiệm, tư duy, định hướng ngoài giờ lên lớp từ các thầy cô. Em nhận thấy mình tiến bộ toàn diện, không chỉ các kiến thức chuyên ngành. Các phương pháp nghiên cứu, tinh thần học tập, tư duy giải quyết vấn đề,... cũng ngày một hoàn thiện.
 	% Các bạn tân sinh viên có thể thắc mắc rằng vai trò của trường Đại học là gì trong thời kì kiến thức mở. Nếu các bạn thấy được mục tiêu và định hướng của mỗi người là khác nhau khi họ tiếp xúc với những cộng đồng khác nhau. Thì các bạn sẽ nhận ra rằng: bạn bè, thầy cô, giáo trình, cơ sở vật chất tốt không cải thiện năng lực của bạn. Đó là môi trường phát triển. Đơn giản nếu xem năng lực của cá nhân là sản phẩm của tư duy, thì môi trường là \emph{"nguyên liệu"} của sản phẩm đó. Nó cần quá trình chế tác bởi chính năng lực tư duy của bạn. Hiểu được như vậy sẽ không còn nhập nhằng giữa các quan điểm \emph{"Giỏi thì ở đâu cũng giỏi"} hay \emph{"Không thầy đố mày làm nên"}.
 	
@@ -301,7 +305,7 @@ headsep=0.5cm
 	% Mục lục
 	%{Để 2 dòng trống tại đây} {Font: Time New Roman; thường; cỡ chữ: 13; dãn dòng: 1,3; căn lề: justified} {In trên 2 mặt giấy từ trang này đến hết phần “PHỤ LỤC”}\\
 
-	\fontsize{13px}{13px}\selectfont
+	\fontsize{13px}{13px}\selectfont\justifying
 	\renewcommand*\contentsname{MỤC LỤC}
 	\addcontentsline{toc}{chapter}{MỤC LỤC}
 	\cleardoublepage
@@ -402,6 +406,7 @@ headsep=0.5cm
 	\end{itemize}
 	
 	\chapter{CƠ SỞ LÝ THUYẾT}
+	\fontsize{13px}{13px}\selectfont\justifying
 	% {font: TimeNew Roman, bolt, size: 14, căn lề: center}
 	\section{Môi trường}
 	
@@ -494,6 +499,7 @@ headsep=0.5cm
 	Đề tài không bao gồm việc cấu hình mạng, phần cứng của máy chủ. Để triển khai mã nguồn dự án lên môi trường thực tế. Đề tài mô tả việc cấu hình mã nguồn dự án lên một máy chủ ảo (định nghĩa máy chủ mục \ref{subsection:webserver}).
 	
 	\chapter{PHÂN TÍCH THIẾT KẾ}
+	\fontsize{13px}{13px}\selectfont\justifying
 	\section{Đặc tả}
 	
 	Dự án giải quyết vấn đề tạo trang thương mại điện tử cho chính nhà cung cấp. Và liên kết sản phẩm để phân phối thông tin giữa các nhà bán hàng dùng chung hệ thống dự án này. Khi một người bắt đầu đăng ký hộ kinh doanh hoặc doanh nghiệp để sản xuất và cung cấp sản phẩm ra thị trường. Thì để thiết lập một trang bán hàng riêng, người đó chỉ cần thuê dịch vụ tên miền ở một nhà cung cấp bất kì. Đăng ký tài khoản và chờ duyệt trở thành nhà bán hàng. Sau khi được duyệt, nhà sản xuất có thể đăng tải thông tin và cung cấp quyền cài đặt tên miền đề liên kết trình bày dữ liệu của nhà sản xuất lên tại tên miền đó. Chi phí khởi tạo và duy trì là miễn phí. Khi doanh nghiệp thực sự cần và đã khai thác được nguồn lợi từ việc quảng bá trang thương mại điện tử. Hệ thống phần mềm có cơ chế mở rộng tài nguyên sử dụng cho nhà sản xuất.
@@ -504,7 +510,7 @@ headsep=0.5cm
 	
 	Khách hàng truy cập vào trang sẽ thấy thông tin như một trang thương mại điện tử thông thường, các trang thương mại điện tử này dùng chung dữ liệu nên một tài khoản có thể đăng nhập trên nhiều trang. Tạo ra sự đăng nhập liền mạch cải thiện trải nghiệm người dùng.
 	
-	%\begin{figure}[h!]
+	%\begin{figure}[h!]\fontsize{13px}{13px}\selectfont
 	%	\begin{center}	
 	%		\includegraphics[width=0.6\textwidth]{manufacture}
 	%		\caption{Minh họa mô hình sản xuất và bán hàng}
@@ -641,7 +647,7 @@ headsep=0.5cm
 	\textbf{Thông tin công khai} Các thông tin công khai là những thông tin được tạo ra bởi nhà bán hàng và công khai truy cập thông qua một tên miền cụ thể. Đối với các truy cập không có thông tin tên miền. Người dùng đó không có quyền truy cập vào dữ liệu công khai. Ngoại trừ trường hợp người dùng đó đăng nhập với tài khoản nhà bán hàng (xem thêm \textbf{quyền xem} tại mục \ref{read:permission}).
 	
 	\section{Phân tích, thiết kế}\label{section:readme}
-	\begin{figure}[h!]
+	\begin{figure}[h!]\fontsize{13px}{13px}\selectfont
 		\begin{center}	
 			\includegraphics[width=\textwidth]{srs}
 			\caption{Thiết kế chung của hệ thống}
@@ -663,14 +669,14 @@ headsep=0.5cm
 
 
 \FloatBarrier
-\begin{figure}[!htbp]
+\begin{figure}[!htbp]\fontsize{13px}{13px}\selectfont
 	\centering
 	\includegraphics[width=0.8\textwidth]{class-accounts}
 	\caption{Sơ đồ lớp quản lý kết bạn và chia sẻ}
 \end{figure}
 
 \FloatBarrier
-\begin{figure}[!htbp]
+\begin{figure}[!htbp]\fontsize{13px}{13px}\selectfont
 	\centering
 	\includegraphics[width=0.8\textwidth]{class-products}
 	\caption{Sơ đồ lớp quản lý sản phẩm}
@@ -678,13 +684,13 @@ headsep=0.5cm
 
 \clearpage
 \FloatBarrier
-\begin{figure}[!htbp]
+\begin{figure}[!htbp]\fontsize{13px}{13px}\selectfont
 	\centering
 	\includegraphics[width=0.8\textwidth]{class-orders}
 	\caption{Sơ đồ lớp đặt hàng, quản lý đơn hàng}
 \end{figure}
 \FloatBarrier
-\begin{figure}[!htbp]
+\begin{figure}[!htbp]\fontsize{13px}{13px}\selectfont
 	\centering
 	\includegraphics[width=0.8\textwidth]{class-store}
 	\caption{Sơ đồ lớp quản lý cửa hàng}

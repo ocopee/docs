@@ -1,14 +1,15 @@
 \subsection{Sơ đồ tuần tự}
+
 % https://www.uml-diagrams.org/sequence-diagrams.html
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[h]\fontsize{13px}{13px}\selectfont
 	\begin{center}	
 		\includegraphics[width=0.8\textwidth]{sequence-gateway}
 		\caption{Sơ đồ tuần tự hoạt động của gateway}
 	\end{center}
 
 Giải thích:
-\begin{enumerate}
+\begin{enumerate}[before=\fontsize{13px}{13px}\selectfont]
 	\item Một truy vấn đồ thị từ ứng dụng khách sẽ gửi đến gateway.
 	\item Gateway sẽ phân tích ra thành các đồ thị con cho các máy chủ dịch vụ tương ứng
 	\item Các máy chủ dịch vụ nhận và thực hiện các tuy vấn với cơ sở dữ liệu.
@@ -18,13 +19,13 @@ Giải thích:
 
 \clearpage
 \FloatBarrier
-\begin{figure}[!htbp]
+\begin{figure}[!htbp]\fontsize{13px}{13px}\selectfont
 	\begin{center}	
 		\includegraphics[width=\textwidth]{sequence-component}
 		\caption{Sơ đồ tuần tự kết xuất giao diện}
 	\end{center}
 Giải thích:
-\begin{enumerate}
+\begin{enumerate}[before=\fontsize{13px}{13px}\selectfont]
 	\item Người dùng truy cập vào trang của ứng dụng khách.
 	\item Trang sẽ truy cập đến components của cấu trúc react.js
 	\item Khi component được kết xuất thành công sẽ gọi lấy dữ liệu từ bộ nhớ cache
@@ -37,12 +38,13 @@ Giải thích:
 
 \clearpage
 \FloatBarrier
-\begin{figure}[!htbp]
- 	\centering
+\begin{figure}[!htbp]\fontsize{13px}{13px}\selectfont
+	\begin{center}	
 	\includegraphics[width=0.8\textwidth]{sequence-service}
 	\caption{Sơ đồ tuần tự xử lí truy vấn}
+		\end{center}
 	Giải thích:
-	\begin{enumerate}
+	\begin{enumerate}[before=\fontsize{13px}{13px}\selectfont]
 		\item Một truy vấn từ Gateway đến máy chủ dịch vụ sẽ được định danh tại lớp API.
 		\item Sau đó nội dung truy vấn sẽ được gửi đến lớp GraphQL.
 		\item Lớp GraphQL đóng gói truy vấn thành một cây dữ liệu và gửi cho lớp Resolver giải quyết.
