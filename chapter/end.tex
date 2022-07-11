@@ -1,0 +1,32 @@
+\fontsize{13px}{13px}\selectfont\justifying
+
+\chapter*{KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN}
+	% size 14
+	\addcontentsline{toc}{chapter}{Kết luận}
+	%	Nội dung kết luận {Font: Time New Roman; thường; cỡ chữ: 13; dãn dòng: 1,3;căn lề: justified}
+	Đồ án đã vận dụng được các kiến thức nền tảng và ứng dụng các công cụ mới để phát triển hệ thống. Sau quá trình triển khai, em nhận thấy đồ án còn hạn chế ở khả năng tăng quy mô máy chủ để phục vụ cho lượng người dùng lớn. Đồng thời cũng chưa kiểm thử được hiệu suất của truy vấn dữ liệu khi lượng người dùng trở nên nhiều hơn.
+	
+	Đồ án sẽ tiếp tục phát triển và phục vụ thực tế cho các doanh nghiệp sản xuất. Mở rộng thêm các tính năng phù hợp với nhu cầu doanh nghiệp. Đồng thời, các tính năng quan trọng cần được mở rộng phát triển trên nhiều nền tảng hệ điều hành.
+	
+	\subsection*{Những vấn đề hạn chế}
+	Sau khi thực hiện đồ án em nhận thấy những vấn đề hạn chế sau:
+	\textbf{kiến trúc hướng dịch vụ} Kiến trúc này chỉ phù hợp cho các đồ án lớn, nhiều nhóm làm việc với nhau. Chia thành dịch vụ giúp các nhóm hoạt động độc lập với nhau. Các \gls{backlog} được chia ra hoàn thành rồi quy nạp lại để khởi chạy toàn bộ hệ thống. Song song với việc phát hành phiên các mới của các dịch vụ, việc duy trì các phiên bản ổn định cũ của dịch vụ đó cũng khá tốn kém. Thường thì các hệ thống lớn duy trì hơn 10 phiên bản.
+	
+	Việc sử dụng kiến trúc hướng dịch vụ cho đồ án nhỏ sẽ đẩy mức độ phức tạp lên quá mức cần thiết do phát chia cho hệ thống và cài đặt môi trường phát hành.
+	
+	\textbf{kết xuất giao diện phía máy khách} Việc giao tiếp thông qua \acrshort{api} và kết xuất ứng dụng phía máy khách giúp cho ứng dụng chạy mượt hơn. Nhưng đồng thời cũng làm tăng sự phụ thuộc vào lớp giao tiếp giữa máy chủ và máy khách.  \acrshort{csr}  không tối ưu đối với các máy chủ tìm kiếm hiện tại.
+	
+	Thay vì mô hình thông thường toàn bộ trang được kết xuất và trả về một lần cho người dùng,  \acrshort{csr}  làm cho ứng dụng phân mảnh và cần nạp tải kết xuất nhiều lần mới dẫn đến kết quả cuối cùng.
+	
+	\textbf{máy tìm kiếm} đồ án vẫn chưa sử dụng máy tìm kiếm để tối ưu công việc tìm kiếm.
+	
+	\textbf{phân tích} Hệ thống đo lường lưu lượng hoạt động tại các kiến trúc hướng dịch vụ, các cầu nối chưa được phát triển đầy đủ. Điều này giúp quá trình nâng cao hiệu suất, cải thiện độ chịu tải của hệ thống trở nên khó khăn hơn.
+	
+	\subsection*{Hướng phát triển}
+	
+	\textbf{Mạng xã hội} Hiện tại hệ thống đã có tính năng kết bạn, cần phát triển thêm tính năng tương tác của mạng xã hội. Giúp không gian mua hàng trở nên sống động hơn. Cho phép khách hàng phản hồi về sản phẩm, đánh giá, trả lời bình luận. Xem các hoạt động của người khác ở thời điểm hiện tại.
+	
+	\textbf{phát trực tiếp} Tính năng phát trực tiếp giúp cho nhà bán hàng xuất hiện lên tất cả các trang cho chia sẻ sản phẩm. Đồng thời cũng cần cam kết và kiểm duyệt nội dung của buổi phát trực tiếp.
+	
+	\textbf{Phân tích hành vi} Tính năng phân tích hành vi của người mua hàng, đánh giá mức độ ưu tiên hiển thị. Tạo nhiều tính năng giúp người dùng phản hồi nhanh về sản phẩm giúp nhà sản xuất cải thiện chất lượng.
+	

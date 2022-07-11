@@ -29,11 +29,11 @@ Quyền đại diện thường được sử dụng để xem dữ liệu như 
 
 Phân quyền này dựa trên chứng thực headers của \acrshort{http} request. Tức là nếu ở ứng dụng mobile hoặc một nền tảng khác không chứng thực được headers. Người dùng không thể giả mạo headers để truy vấn thông tin của nhà bán hàng.
 
-Nội dung và phương pháp chứng thực headers \acrshort{http} request nằm ngoài phạm vi đề cập của dự án.
+Nội dung và phương pháp chứng thực headers \acrshort{http} request nằm ngoài phạm vi đề cập của đồ án.
 
 \subsubsection{Quyền hành động}
 
-\textbf{Quyền sở hữu.} Đối với quyền sở hữu. Ai tạo ra dữ liệu thì người đó mới có quyền xóa dữ liệu đó. Cho nên tất cả các bảng đều phải có ghi thông tin người tạo. Bởi vì trong quá trình phát triển dự án theo yêu cầu thực tế, mối liên hệ giữa các bảng có thể thay đổi nhưng quyền sở hữu giữa dữ liệu đó và người sở hữu không thay đổi. Nếu tạo ra dữ liệu mà không đăng nhập, không xác định được người sở hữu, thì dữ liệu sẽ thuộc về người đại diện cho truy cập (Xem chi tiết người đại diện của truy cập mục \ref{what-is-owner}).
+\textbf{Quyền sở hữu.} Đối với quyền sở hữu. Ai tạo ra dữ liệu thì người đó mới có quyền xóa dữ liệu đó. Cho nên tất cả các bảng đều phải có ghi thông tin người tạo. Bởi vì trong quá trình phát triển đồ án theo yêu cầu thực tế, mối liên hệ giữa các bảng có thể thay đổi nhưng quyền sở hữu giữa dữ liệu đó và người sở hữu không thay đổi. Nếu tạo ra dữ liệu mà không đăng nhập, không xác định được người sở hữu, thì dữ liệu sẽ thuộc về người đại diện cho truy cập (Xem chi tiết người đại diện của truy cập mục \ref{what-is-owner}).
 
 \textbf{Chuyển quyền sở hữu.} Khi tạo đơn đặt hàng, tạo nội dung, dữ liệu sản phẩm cho người khác. Phải quyển quyền sở hữu sau đó. Sẽ có nghiệp vụ chạy ngầm để xét duyệt và ghi đè quyền sở hữu cho người thừa kế.Ghi thông tin người tạo vào dữ liệu vào một trường khác nếu cần. Nhưng bản chất dữ liệu đó đã chuyển quyền sở hữu rồi.
 

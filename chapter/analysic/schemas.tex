@@ -1,0 +1,650 @@
+\fontsize{13px}{13px}\selectfont\justifying
+
+\subsection{Thiết kế Dữ liệu}
+\subsubsection{Bảng ContractConsignment được mô tả như sau}
+\begin{table}[!htbp]\fontsize{13px}{13px}\selectfont\justifying
+\begin{center}
+\caption{Mô tả bảng ContractConsignment.}
+\label{table:ContractConsignment}
+\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
+\hline
+Tên & Kiểu & Mô tả \\
+\hline
+to & User & Người nhận yêu cầu \\
+isAccepted & Checkbox & Tình trạng yêu cầu \\
+\hline
+\end{tabularx}
+\end{center}
+\justifying
+ContractConsignment sử dụng để gửi yêu cầu chia sẻ được tạo ra bởi nhà bán hàng đến một nhà sản xuất. Cả người tạo và người nhận đều có quyền xóa bản ghi này, kể cả trước hay sau khi chấp nhận.
+\end{table}
+% ============
+
+\subsubsection{Bảng NotificationMailer được mô tả như sau}
+\begin{table}[!htbp]\fontsize{13px}{13px}\selectfont\justifying
+\begin{center}
+\caption{Mô tả bảng NotificationMailer.}
+\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
+\hline
+Tên & Kiểu & Mô tả \\
+\hline
+username & Text & Tên người email \\
+password & Text & Mật khẩu email \\
+host & Text & hosting \\
+port & Integer & cổng \\
+secure & Checkbox & secure \\
+name & Text & Tên người gửi \\ 
+\hline
+\end{tabularx}
+\label{table:NotificationMailer}
+\end{center}
+\justifying
+Bảng NotificationMailer sử dụng để lưu trữ tài khoản hộp thư điện tử của nhà bán hàng. Tài khoản hộp thư điện tử này dùng để gửi thông báo từ nhà bán hàng cho nhà sản xuất thông qua dịch vụ thư điện tử. Việc này hoàn toàn tương tự với việc gửi thư điện tử thông thường. Khác ở chỗ, nếu sử dụng thông qua hệ thống thì thông tin cơ bản của thư điện tử sẽ được lưu trữ và hiển thị lại màn hình thông báo của hệ thống.
+\end{table}
+% ============
+\clearpage
+\subsubsection{Bảng Notification được mô tả như sau}
+\begin{table}[!htbp]\fontsize{13px}{13px}\selectfont\justifying
+\begin{center}
+\caption{Mô tả bảng Notification.}
+\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
+\hline
+Tên & Kiểu & Mô tả \\
+\hline
+chanel & Select & Kênh gửi \\
+subject & Text & Tiêu đề \\
+text & Text & Nội dung \\
+seen & Checkbox & Tình trạng \\ 
+\hline
+\end{tabularx}
+\label{table:Notification}
+\end{center}
+Bảng Notification chứa nội dung thông báo. Tùy chọn kênh thông báo sẽ quyết định cách thông báo được gửi và hiển thị trên hệ thống.
+\end{table}
+% ============
+
+\subsubsection{Bảng Relationship được mô tả như sau}
+\begin{table}[!htbp]\fontsize{13px}{13px}\selectfont\justifying
+\begin{center}
+\caption{Mô tả bảng Relationship.}
+\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
+\hline
+Tên & Kiểu & Mô tả \\
+\hline
+username & Text & Tên người dùng \\
+to & Virtual & Người nhận \\
+isAccepted & Checkbox & Tình trạng \\
+consignment & Virtual & Lời mời \\ 
+\hline
+\end{tabularx}
+\label{table:Relationship}
+\end{center}
+Bảng Relationship thể hiện một liên kết giữa hai User, không phân biệt người gửi và người nhận. Cả hai đều có quyền xóa liên kết.
+\end{table}
+% ============
+\clearpage
+\subsubsection{Bảng User được mô tả như sau}
+\begin{table}[!htbp]\fontsize{13px}{13px}\selectfont\justifying
+\begin{center}
+\caption{Mô tả bảng User.}
+\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
+\hline
+Tên & Kiểu & Mô tả \\
+\hline
+username & Text & Tên người dùng \\
+password & Password & Mật khẩu \\
+phone & Text & Số điện thoại \\
+email & Text & Email \\
+name & Text & Tên gọi \\
+fullname & Text & Tên đầy đủ \\
+avatar & File & Ảnh đại diện \\
+abount & Text & Thông tin \\
+domain & Text & Tên miền \\
+isSeller & Checkbox & là nhà sản xuất? \\
+forgotAt & DateTime & Quên mật khẩu lúc \\ 
+\hline
+\end{tabularx}
+\label{table:User}
+\end{center}
+Bảng User sử dụng để lưu trữ thông tin tài khoản. Các chức năng đăng nhập, đăng xuất, đăng ký.
+\end{table}
+% ============
+
+\subsubsection{Bảng View được mô tả như sau}
+\begin{table}[!htbp]\fontsize{13px}{13px}\selectfont\justifying
+\begin{center}
+\caption{Mô tả bảng View.}
+\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
+\hline
+Tên & Kiểu & Mô tả \\
+\hline
+count & Integer & Số lượt xem \\
+of & MongoId & Thuộc User \\ 
+\hline
+\end{tabularx}
+\label{table:View}
+\end{center}
+Bảng view đo lường số lượng người xem đối với một kiểu dữ liệu, số lượng này được lưu trữ tạm và phân tán trên nhiêu máy chủ dịch vụ. Sau một chu kì, các dữ liệu này sẽ được tác vụ chạy ngầm xử lý cộng và ghi vào cơ sở dữ liệu.
+\end{table}
+% ============
+\clearpage
+\subsubsection{Bảng Banner được mô tả như sau}
+\begin{table}[!htbp]\fontsize{13px}{13px}\selectfont\justifying
+\begin{center}
+\caption{Mô tả bảng Banner.}
+\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
+\hline
+Tên & Kiểu & Mô tả \\
+\hline
+name & Text & tên \\
+slogan & Text & slogan \\
+image & File & hình ảnh \\
+description & Text & mô tả \\
+url & Text & đường dẫn \\
+type & Select & loại \\
+size & Virtual & kích thước \\ 
+\hline
+\end{tabularx}
+\label{table:Banner}
+\end{center}
+Bảng Banner lưu trữ hình ảnh và các thông tin của hình ảnh để lựa chọn hiển thị trên các không gian khác nhau của trang web.
+\end{table}
+% ============
+
+\subsubsection{Bảng Contact được mô tả như sau}
+\begin{table}[!htbp]\fontsize{13px}{13px}\selectfont\justifying
+\begin{center}
+\caption{Mô tả bảng Contact.}
+\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
+\hline
+Tên & Kiểu & Mô tả \\
+\hline
+phone & Text & số điện thoại \\
+name & Text & tên \\
+address & Text & địa chỉ \\
+email & Text & email \\
+note & Text & ghi chú \\
+message & Text & tin nhắn \\
+isDefault & Checkbox & đánh dấu \\ 
+\hline
+\end{tabularx}
+\label{table:Contact}
+\end{center}
+Bảng Contact lưu trữ thông tin của khách hàng để lại khi đặt hàng. Đối với các nhà bán hàng không mở tính năng đặt hàng. Sẽ có một biểu mẫu để khách hàng để lại thông tin. Thông tin này cũng được lưu trữ tại bảng Contact.
+\end{table}
+% ============
+\clearpage
+\subsubsection{Bảng Page được mô tả như sau}
+\begin{table}[!htbp]\fontsize{13px}{13px}\selectfont\justifying
+\begin{center}
+\caption{Mô tả bảng Page.}
+\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
+\hline
+Tên & Kiểu & Mô tả \\
+\hline
+store & Text & Tên cửa hàng \\
+logo & File & Ảnh đại diện \\
+slogan & Text & Lĩnh vực \\
+address & Text & Địa chỉ \\
+phone & Text & Số điện thoại \\
+email & Text & email \\
+intro & Editor & Giới thiệu ngắn \\
+contact & Editor & Liên hệ \\
+twitter & Text & twitter \\
+instagram & Text & instagram \\
+pinterest & Text & pinterest \\
+youtube & Text & youtube \\
+googlePlus & Text & googlePlus \\
+googleMap & Text & googleMap \\
+zalo & Text & zalo \\
+greeting & Text & Lời chào \\
+pageId & Text & Facebook pageId \\
+pixelId & Text & Facebook pixelId \\
+gtag & Text & Google gtag \\
+shipMoneySupport & Integer & Hỗ trợ tiền ship \\
+ship & Editor & Thông tin ship \\
+transfer & Editor & Chuyển khoản \\
+color & Color & Màu chủ đạo \\
+colorMode & Select & Tông chủ đạo \\
+ordering & Checkbox & Cho phép đặt hàng \\
+moit & Text & gs1 \\
+mst & Text & mã số thuế \\
+
+
+\hline
+\end{tabularx}
+\label{table:Page}
+\end{center}
+Bảng Page hiển thị các thông tin cơ bản của nhà bán hàng. Các thông tin liên hệ và liên kết mạng xã hội.
+\end{table}
+% ============
+
+\subsubsection{Bảng ProductAttributeValue được mô tả như sau}
+\begin{table}[!htbp]\fontsize{13px}{13px}\selectfont\justifying
+\begin{center}
+\caption{Mô tả bảng ProductAttributeValue.}
+\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
+\hline
+Tên & Kiểu & Mô tả \\
+\hline
+value & Text & thuộc tính \\
+file & File & hình ảnh mô tả \\ 
+\hline
+\end{tabularx}
+\label{table:ProductAttributeValue}
+\end{center}
+Giá trị của của thuộc tính sản phẩm được hiểu là tùy chọn cụ thể của một thuộc tính. Ví dụ đối với thuộc tính màu sắc, thì người dùng chọn giá trị thuộc tính là màu đỏ.
+\end{table}
+% ============
+
+\subsubsection{Bảng ProductAttribute được mô tả như sau}
+\begin{table}[!htbp]\fontsize{13px}{13px}\selectfont\justifying
+\begin{center}
+\caption{Mô tả bảng ProductAttribute.}
+\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
+\hline
+Tên & Kiểu & Mô tả \\
+\hline
+label & Text & nhãn \\
+name & Text & tên \\
+\hline
+\end{tabularx}
+\label{table:ProductAttribute}
+\end{center}
+Thuộc tính sản phẩm sẽ được lựa chọn khi người mua hàng thêm sản phẩm vào giỏ hàng. Căn cứ vào thuộc tính sản phẩm và id sản phẩm hiện tại có thể xác định tồn kho của sản phẩm.
+Thuộc tính sản phẩm có thể là kích thước, màu sắc,... hoặc là cả thuộc tính và màu sắc.
+\end{table}
+% ============
+
+\subsubsection{Bảng ProductBrand được mô tả như sau}
+\begin{table}[!htbp]\fontsize{13px}{13px}\selectfont\justifying
+\begin{center}
+\caption{Mô tả bảng ProductBrand.}
+\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
+\hline
+Tên & Kiểu & Mô tả \\
+\hline
+name & Text & tên \\
+url & Slug & đường dẫn \\
+\hline
+\end{tabularx}
+\label{table:ProductBrand}
+\end{center}
+ProductBrand hiện thị thương hiệu của sản phẩm. Thương hiệu có thể là chính nhà sản xuất. Hoặc nếu là nhà cung cấp, nhà cung cấp có thể tạo và sử dụng thương hiệu phù hợp với thông tin sản phẩm.
+\end{table}
+% ============
+\clearpage
+\subsubsection{Bảng ProductCartItem được mô tả như sau}
+\begin{table}[!htbp]\fontsize{13px}{13px}\selectfont\justifying
+\begin{center}
+\caption{Mô tả bảng ProductCartItem.}
+\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
+\hline
+Tên & Kiểu & Mô tả \\
+\hline
+sale & Integer & giá bán \\
+price & Integer & giá niêm \\
+percent & Virtual & phần trăm \\
+isInCart & Virtual & đang trong giỏ \\
+quantity & Integer & số lượng \\ 
+\hline
+\end{tabularx}
+\label{table:ProductCartItem}
+\end{center}
+Chi tiết giỏ hàng được liên kết liệt kê trong giỏ hàng. Các chi tiết giỏ hàng sau khi đặt hàng sẽ được hủy liên kết với giỏ hàng và liên kết với đơn hàng được tạo. Điều này có nghĩa là khi một chi tiết giỏ hàng được tạo. Nó mặc định sẽ có id giỏ hàng. Nếu không có id giỏ hàng thì sẽ có id đơn hàng.
+\end{table}
+% ============
+
+\subsubsection{Bảng ProductCart được mô tả như sau}
+\begin{table}[!htbp]\fontsize{13px}{13px}\selectfont\justifying
+\begin{center}
+\caption{Mô tả bảng ProductCart.}
+\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
+\hline
+Tên & Kiểu & Mô tả \\
+
+\hline
+contact & MongoId & Liên hệ\\
+items & [MongoId] & sản phẩm\\
+\hline
+\end{tabularx}
+\label{table:ProductCart}
+\end{center}
+Bảng ProductCart lưu trữ thông tin giỏ hàng bao gồm các chi tiết giỏ hàng. ID giỏ hàng được lưu trữ tại localStorage ở các trình duyệt web. Các với cách lưu trữ đơn hàng ở session như một số mô hình khác. Bảng đơn hàng được xem như một bảng bình thường trong cơ sở dữ liệu.
+\end{table}
+% ============
+\clearpage
+\subsubsection{Bảng ProductCategory được mô tả như sau}
+\begin{table}[!htbp]\fontsize{13px}{13px}\selectfont\justifying
+\begin{center}
+\caption{Mô tả bảng ProductCategory.}
+\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
+\hline
+Tên & Kiểu & Mô tả \\
+\hline
+name & Text & tên \\
+description & Editor & mô tả \\
+file & File & bìa \\
+prioritize & Integer & ưu tiên \\
+url & Slug & đường dẫn \\
+root & Checkbox & gốc \\
+\hline
+\end{tabularx}
+\label{table:ProductCategory}
+\end{center}
+Bảng ProductCategory là danh mục để phân loại sản phẩm. Danh mục được biểu diễn như dạng cấu trúc cây. Mỗi nút của cây có thể đánh dấu bao gồm các danh mục tương đương nào. Danh mục tương đương là danh mục không thuộc sở hữu của nhà bán hàng. Nhưng sản phẩm thuộc danh mục tương đương thì cũng thuộc danh mục gốc được đánh dấu.
+\end{table}
+% ============
+
+\subsubsection{Bảng ProductDiscount được mô tả như sau}
+\begin{table}[!htbp]\fontsize{13px}{13px}\selectfont\justifying
+\begin{center}
+\caption{Mô tả bảng ProductDiscount.}
+\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
+\hline
+Tên & Kiểu & Mô tả \\
+\hline
+code & Text & mã \\
+type & Select & loại \\
+value & Integer & giá trị \\
+name & Text & tên \\
+description & Text & mô tả \\
+condition & Integer & điều kiện \\
+image & File & hình ảnh \\
+url & Slug & đường dẫn \\
+\hline
+\end{tabularx}
+\label{table:ProductDiscount}
+\end{center}
+Bảng ProductDiscount lưu trữ thông tin khuyến mãi. Có thể khuyến mãi theo hai hình thức là giảm theo phần trăm hoặc giảm giá cố định. Điều kiện giảm giá có thể có hoặc không và căn cứ theo tổng giá trị đơn hàng.
+\end{table}
+% ============
+\clearpage
+\subsubsection{Bảng ProductHashtag được mô tả như sau}
+\begin{table}[!htbp]\fontsize{13px}{13px}\selectfont\justifying
+\begin{center}
+\caption{Mô tả bảng ProductHashtag.}
+\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
+\hline
+Tên & Kiểu & Mô tả \\
+\hline
+name & Text & tên \\
+url & Slug & đường dẫn \\
+\hline
+\end{tabularx}
+\label{table:ProductHashtag}
+\end{center}
+Bảng ProductHashtag liên kết với sản phẩm để hiển thị thông tin hashtag của sản phẩm.
+\end{table}
+% ============
+
+\subsubsection{Bảng ProductOrderStatus được mô tả như sau}
+\begin{table}[!htbp]\fontsize{13px}{13px}\selectfont\justifying
+\begin{center}
+\caption{Mô tả bảng ProductOrderStatus.}
+\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
+\hline
+Tên & Kiểu & Mô tả \\
+\hline
+value & Text & giá trị \\
+color & Select & màu sắc \\ 
+\hline
+\end{tabularx}
+\label{table:ProductOrderStatus}
+\end{center}
+Bảng ProductOrderStatus hiển thị trạng thái đơn hàng được đánh dấu để xử lý trong nội bộ của nhà bán hàng.
+\end{table}
+
+\subsubsection{Bảng ProductOrder được mô tả như sau}
+\begin{table}[!htbp]\fontsize{13px}{13px}\selectfont\justifying
+\begin{center}
+\caption{Mô tả bảng ProductOrder.}
+\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
+\hline
+Tên & Kiểu & Mô tả \\
+\hline
+code & Text & mã \\
+isExport & Checkbox & đã xuất \\
+payment & Select & hình thức thanh toán \\
+saving & Integer & tiết kiệm \\
+total & Integer & tổng \\
+notification & MongoId & thông báo \\ 
+\hline
+\end{tabularx}
+\label{table:ProductOrder}
+\end{center}
+Bảng ProductOrder lưu trữ thông tin đặt hàng của khách hàng. Bảng ProductOrder sử dụng lại các chi tiết giỏ hàng trước đó người dùng chọn lưu vào giỏ hàng. Khi bảng ProductOrder được tạo, một thư điện tử với thông tin đặt hàng sẽ được gửi đến nhà bán hàng tương ứng.
+\end{table}
+% ============
+\clearpage
+\subsubsection{Bảng ProductStock được mô tả như sau}
+\begin{table}[!htbp]\fontsize{13px}{13px}\selectfont\justifying
+\begin{center}
+\caption{Mô tả bảng ProductStock.}
+\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
+\hline
+Tên & Kiểu & Mô tả \\
+\hline
+quantity & Integer & số lượng \\
+image & File & hình ảnh \\ 
+\hline
+\end{tabularx}
+\label{table:ProductStock}
+\end{center}
+Bảng ProductStock lưu trữ thông tin tồn kho của một sản phẩm. Dựa trên thuộc tính được chọn. Một sản phẩm có thể có nhiều bảng tồn kho.
+\end{table}
+% ============
+
+\subsubsection{Bảng Product được mô tả như sau}
+\begin{table}[!htbp]\fontsize{13px}{13px}\selectfont\justifying
+\begin{center}
+\caption{Mô tả bảng Product.}
+\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
+\hline
+Tên & Kiểu & Mô tả \\
+\hline
+image & File & Hình ảnh \\
+images & Images & Hình ảnh thêm \\
+name & Text & Tên sản phẩm \\
+price & Currency & Giá niêm yết \\
+sale & Currency & Giá bán \\
+percent & Virtual & Phầm trăm giảm giá \\
+status & Select & Tình trạng \\
+description & Editor & Mô tả \\
+detail & File & Chi tiết \\
+guide & Editor & Hướng dẫn sử dụng \\
+isOutOfStock & Checkbox & Hết hàng \\
+sku & Text & sku \\
+gs1 & Text & gs1 \\
+url & Slug & đường dẫn \\
+sold & Virtual & đã bán \\
+\hline
+\end{tabularx}
+\label{table:Product}
+\end{center}
+Bảng Product hiện thị đầy đủ các thông tin một sản phẩm cần có, Product có rất nhiều quan hệ với các bảng dữ liệu vệ tinh. Đối với một số trường hay được truy vấn. Thay vì tổng hợp và sắp xếp khi truy vấn. Có cách tác vụ chạy ngầm để tính toán và đánh dấu sẵn như tính phần trăm giảm giá, tính sản phẩm này thuộc sản phẩm mới cập nhật hay sản phẩm hết hàng. Ngoài ra, các trường như số lượt xem thay vì thông qua tác vụ chạy ngầm có thể truy vấn ngay khi xử lý và lưu vào bộ nhớ tạm để phản hồi nhanh.
+\end{table}
+% ============
+
+\subsubsection{Bảng Translate được mô tả như sau}
+\begin{table}[!htbp]\fontsize{13px}{13px}\selectfont\justifying
+\begin{center}
+\caption{Mô tả bảng Translate.}
+\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
+\hline
+Tên & Kiểu & Mô tả \\
+\hline
+item & MongoId & item cần dịch \\
+listKey & Text & kiểu \\
+fieldName & Text & trường dịch \\
+lang & Text & ngôn ngữ\\
+content & Text & nội dung\\
+\hline
+\end{tabularx}
+\label{table:Translate}
+\end{center}
+Bảng Translate dùng để dịch cho các trường của một bản ghi bất kì, thuộc kiểu dữ liệu bất kì. Xác định một bảng dịch cần tìm kiếm tất cả các bản dịch cho khóa chính và trường cần dịch.
+\end{table}
+% ============
+
+\subsubsection{Bảng UploadFile được mô tả như sau}	
+\begin{table}[!htbp]\fontsize{13px}{13px}\selectfont\justifying
+\begin{center}
+\caption{Mô tả bảng UploadFile.}
+\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
+\hline
+Tên & Kiểu & Mô tả \\
+\hline
+file & File & tệp \\
+address & Text & địa chỉ tệp\\ 
+\hline
+\end{tabularx}
+\label{table:UploadFile}
+\end{center}
+Bảng UploadFile lưu trữ địa chỉ của tệp sau khi được tải lên và lưu trữ tại máy chủ dịch vụ.
+\end{table}
+
+\subsubsection{Bảng UploadImage được mô tả như sau}
+\begin{table}[!htbp]\fontsize{13px}{13px}\selectfont\justifying
+\begin{center}
+\caption{Mô tả bảng UploadImage.}
+\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
+\hline
+Tên & Kiểu & Mô tả \\
+\hline
+file & File & tệp \\
+alt & Text & mô tả \\ 
+\hline
+\end{tabularx}
+\label{table:UploadImage}
+\end{center}
+UploadImage lưu trữ địa chỉ của hình ảnh sau khi được tải lên và lưu trữ tại máy chủ dịch vụ.
+\end{table}
+% ============
+\clearpage
+\subsubsection{Bảng FAQ được mô tả như sau}
+\begin{table}[!htbp]\fontsize{13px}{13px}\selectfont\justifying
+\begin{center}
+\caption{Mô tả bảng FAQ.}
+\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
+\hline
+Tên & Kiểu & Mô tả \\
+\hline
+title & Text & tiêu đề \\
+body & Markdown & nội dung \\
+prioritize & Integer & ưu tiên \\ 
+\hline
+\end{tabularx}
+\label{table:FAQ}
+\end{center}
+Bảng FAQ là danh sách các câu hỏi thường gặp và câu trả lời nhanh của nhà bán hàng. FAQ thường được đặt ở trang chủ hoặc trang chi tiết sản phẩm.
+\end{table}
+% ============
+
+\subsubsection{Bảng Feature được mô tả như sau}
+\begin{table}[!htbp]\fontsize{13px}{13px}\selectfont\justifying
+\begin{center}
+\caption{Mô tả bảng Feature.}
+\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
+\hline
+Tên & Kiểu & Mô tả \\
+\hline
+name & Text & tên \\
+image & File & hình ảnh \\
+description & Markdown & mô tả \\
+content & Markdown & nội dung \\ 
+\hline
+\end{tabularx}
+\label{table:Feature}
+\end{center}
+Bảng Feature lưu trữ và hiển thị các tính năng mà nhà sản xuất hoặc nhà bán hàng cung cấp. Tương tự như bảng Service, bảng Feature thiên về mô tả tính năng của sản phẩm.
+\end{table}
+% ============
+
+\subsubsection{Bảng PostHashtag được mô tả như sau}
+\begin{table}[!htbp]\fontsize{13px}{13px}\selectfont\justifying
+\begin{center}
+\caption{Mô tả bảng PostHashtag.}
+\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
+\hline
+Tên & Kiểu & Mô tả \\
+\hline
+name & Text & tên \\
+image & File & hình ảnh \\
+root & Checkbox & danh mục gốc \\
+description & Markdown & mô tả \\
+prioritize & Integer & ưu tiên \\
+color & Color & màu sắc \\
+url & Slug & đường dẫn \\ 
+\hline
+\end{tabularx}
+\label{table:PostHashtag}
+\end{center}
+Bảng PostHashtag liên kết vào các bài viết nhằm phân loại bài viết. Các PostHashtag có chứa các nút con để hiển thị như một cấu trúc cây.
+\end{table}
+% ============
+
+\subsubsection{Bảng Post được mô tả như sau}
+\begin{table}[!htbp]\fontsize{13px}{13px}\selectfont\justifying
+\begin{center}
+\caption{Mô tả bảng Post.}
+\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
+\hline
+Tên & Kiểu & Mô tả \\
+\hline
+title & Text & tên \\
+thumbnail & File & bìa thu nhỏ \\
+content & Markdown & nội dung \\
+prioritize & Integer & ưu tiên \\
+embed & Text & nhúng \\
+description & Text & mô tả \\
+keywords & Text & từ khóa \\
+url & Slug & đường dẫn \\
+body & Text & nội dung \\ 
+\hline
+\end{tabularx}
+\label{table:Post}
+\end{center}
+Bảng Post giúp đăng tải quản lí thông tin bài viết, cập nhật hoạt động mới nhất. Giới thiệu về công ty, các chương trình khuyến mãi. Chính sách, hướng dẫn sử dụng, thông tin sản phẩm,...
+\end{table}
+% ============
+
+\subsubsection{Bảng Service được mô tả như sau}
+\begin{table}[!htbp]\fontsize{13px}{13px}\selectfont\justifying
+\begin{center}
+\caption{Mô tả bảng Service.}
+\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
+\hline
+Tên & Kiểu & Mô tả \\
+\hline
+name & Text & tên \\
+image & File & hình ảnh \\
+description & Text & mô tả \\
+content & Markdown & nội dung \\ 
+\hline
+\end{tabularx}
+\label{table:Service}
+\end{center}
+Bảng Service dùng để lưu trữ và hiển thị thông tin dịch vụ mà một nhà bán hàng hoặc một nhà sản xuất cung cấp. Các dịch vụ này gần giống như một bài viết bình thường.
+\end{table}
+% ============
+\clearpage
+\subsubsection{Bảng Testimonial được mô tả như sau}
+\begin{table}[!htbp]\fontsize{13px}{13px}\selectfont\justifying
+\begin{center}
+\caption{Mô tả bảng Testimonial.}
+\begin{tabularx}{0.6\textwidth}{ |l|l|X| } 
+\hline
+Tên & Kiểu & Mô tả \\
+\hline
+name & Text & tên \\
+profile & Text & hồ sơ \\
+description & Text & mô tả \\
+image & File & hình ảnh \\ 
+\hline
+\end{tabularx}
+\label{table:Testimonial}
+\end{center}
+Bảng Testimonial sử dụng để lưu và hiển thị thông tin về phản hồi đánh giá của đối tác. Các chia sẻ tích cực của khách hàng về thương hiệu.
+\end{table}
+% ============

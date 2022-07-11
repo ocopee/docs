@@ -1,9 +1,64 @@
-\begin{thebibliography}{moz22}
+\begin{thebibliography}{mon22}
 
-\bibitem[moz22]{web:browser:what}
+\bibitem[ama22]{api}
+amazon.
+\newblock Api là gì?
+\newblock https://aws.amazon.com/vi/what-is/api, truy cập ngày 30/06/2022.
+
+\bibitem[apo22]{apollographql}
+apollographql.
+\newblock Abount apollo graphql.
+\newblock https://www.apollographql.com/about-us, truy cập ngày 30/06/2022.
+
+\bibitem[gra22]{graphql}
+graphql.
+\newblock Abount graphql.
+\newblock https://graphql.org/learn/, truy cập ngày 30/06/2022.
+
+\bibitem[ibm22]{vps:what}
+ibm.
+\newblock What is a vps?
+\newblock https://www.ibm.com/cloud/learn/vps, truy cập ngày 30/06/2022.
+
+\bibitem[mon22]{mongodb}
+mongodb.
+\newblock Why use mongodb.
+\newblock https://www.mongodb.com/why-use-mongodb, truy cập ngày 30/06/2022.
+
+\bibitem[moz22]{browser:what}
 mozilla.
 \newblock Trình duyệt web là gì?
 \newblock https://www.mozilla.org/vi/firefox/browsers/what-is-a-browser/, truy
   cập ngày 30/06/2022.
+
+\bibitem[nex22]{nextjs}
+nextjs.
+\newblock Abount next.js.
+\newblock https://nextjs.org/docs/getting-started, truy cập ngày 30/06/2022.
+
+\bibitem[ngi22]{http}
+nginx.
+\newblock What is a http?
+\newblock https://www.nginx.com/resources/glossary/http/, truy cập ngày
+  30/06/2022.
+
+\bibitem[nod22]{nodejs}
+nodejs.
+\newblock About nodejs.
+\newblock https://nodejs.org/en/about/, truy cập ngày 30/06/2022.
+
+\bibitem[oco22]{ocop}
+ocop.gov.vn.
+\newblock Chương trình ocop, văn phòng Điều phối chương trình
+  mục tiêu quốc gia xây dựng nông thôn mới giai đoạn 2010 -
+  2020.
+\newblock http://ocop.gov.vn/, truy cập ngày 30/06/2022.
+
+\bibitem[ora22]{ssl}
+oracle.
+\newblock What is ssl?
+\newblock
+  https://docs.oracle.com/middleware/12212/biee/BIESC/GUID-B91A0906-17FA-4B15-A41C-19BCB26996FB.htm,
+  truy cập ngày 30/06/2022.
 
 \end{thebibliography}
